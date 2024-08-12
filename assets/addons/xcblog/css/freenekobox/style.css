@@ -1219,6 +1219,7 @@ p.help-block li {
     margin: 0 auto;
 }
 
+#about .item {margin-bottom: 2rem;}
 #about .content h3 {font-style:normal;font-weight: bold;font-size: 1.5rem;}
 #hero .hero-content .desc {color: #fff;font-size: 1.2rem;}
 .inner-content .nav-box, .inner-content .nav-box a {color: #fff;}
