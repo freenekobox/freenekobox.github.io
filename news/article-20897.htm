@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-20897.htm" />
+    <meta charset="utf-8">
+    <title>SpringCloud 之 Config服务配置 详解</title>
+        <meta name="description" content="概述 Config服务端配置与测试 Config客户端配置与测试 Config客户端之动态刷新    文章目录  Spring Cloud Config   概述   分布式系统面临的配置问题 是什么" />
+        <link rel="icon" href="__ADDON__/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>SpringCloud 之 Config服务配置 详解</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atelier-sulphurpool-light"> </h1> <hr/> <ul> <li>概述</li> <li>Config服务端配置与测试</li> <li>Config客户端配置与测试</li> <li>Config客户端之动态刷新</li> </ul> <hr/> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#Spring_Cloud_Config_0" rel="nofollow">Spring Cloud Config</a></li> <li> <ul> <li><a href="#_14" rel="nofollow">概述</a></li> <li> <ul> <li><a href="#_18" rel="nofollow">分布式系统面临的配置问题</a></li> <li><a href="#_27" rel="nofollow">是什么</a></li> <li><a href="#_41" rel="nofollow">能干嘛</a></li> <li><a href="#GitHub_57" rel="nofollow">与GitHub整合配置</a></li> </ul> </li> <li><a href="#Config_65" rel="nofollow">Config服务端配置与测试</a></li> <li><a href="#Config_143" rel="nofollow">Config客户端配置与测试</a></li> <li><a href="#Config_227" rel="nofollow">Config客户端之动态刷新</a></li> <li> <ul> <li><a href="#_233" rel="nofollow">动态刷新</a></li> </ul> </li> </ul> </li> </ul> </div> <hr/> <h2><a id="_14" rel="nofollow"></a>概述</h2> <hr/> <h3><a id="_18" rel="nofollow"></a>分布式系统面临的配置问题</h3> <hr/> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/167d53d56ead14aac1aeec5f4bdad587.jpg" alt="SpringCloud 之 Config服务配置 详解"></p> <h3><a id="_27" rel="nofollow"></a>是什么</h3> <hr/> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/dddab7e108c7c75339f6293693dd492c.jpg" alt="SpringCloud 之 Config服务配置 详解"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/5bbfa26c7bd96af496e3bd86176cd9d9.jpg" alt="SpringCloud 之 Config服务配置 详解"></p> <h3><a id="_41" rel="nofollow"></a>能干嘛</h3> <hr/> <ul> <li> <p>集中管理配置文件</p> </li> <li> <p>不同环境不同配置，动态化的配置更新，分环境部署比如dev/test/prod/beta/release</p> </li> <li> <p>运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向配置中心同意拉取配置自己的信息</p> </li> <li> <p>当配置发生变动时，服务不需要重启即可感知到配置的变化并应用新的领域</p> </li> <li> <p>将配置信息以REST接口的形式暴露</p> </li> </ul> <h3><a id="GitHub_57" rel="nofollow"></a>与GitHub整合配置</h3> <hr/> <p>由于Spring Config默认使用Git来存储配置文件（也有其他方式，比如支持svn和本地文件），但推荐Git，而且使用的是 http/https 访问的形式</p> <h2><a id="Config_65" rel="nofollow"></a>Config服务端配置与测试</h2> <hr/> <ul> <li> <p>在GitHub上新建一个名为springcloud-config的新Repository</p> </li> <li> <p>由上一步获得刚新建的git地址</p> </li> <li> <p>本地硬盘目录新建git仓库并clone</p> </li> <li> <p>新建Module模块cloud-config-center-3344，即微服务的配置中心模块CloudConfig Center</p> </li> <li> <p>pom</p> <p>新增：</p> <pre><code>&lt;!--config--&gt; &lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-config-server&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> </li> <li> <p>配置文件</p> <pre><code class="prism language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">3344</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">application</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>config<span class="token punctuation">-</span>center<span class="token comment">#注册到eureka微服务名</span><span class="token key atrule">cloud</span><span class="token punctuation">:</span><span class="token key atrule">config</span><span class="token punctuation">:</span><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">git</span><span class="token punctuation">:</span><span class="token key atrule">uri</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>kisshotlirs/springcloud<span class="token punctuation">-</span>config.git<span class="token comment">#git仓库名字</span><span class="token key atrule">search-paths</span><span class="token punctuation">:</span><span class="token punctuation">-</span> springcloud<span class="token punctuation">-</span>config<span class="token comment">#搜索目录</span><span class="token key atrule">label</span><span class="token punctuation">:</span> master<span class="token comment">#读取分支</span><span class="token comment">#服务注册到eureka</span><span class="token key atrule">eureka</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token key atrule">service-url</span><span class="token punctuation">:</span><span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka/</code></pre> </li> <li> <p>主启动类</p> <p>添加注解 @EnableConfigServer</p> </li> <li> <p>windows下修改hosts文件，增加映射：127.0.0.1 config-3344.com</p> </li> <li> <p>测试通过Config微服务是否可以从GitHub上获取配置内容</p> <ul> <li>启动微服务</li> <li>访问 http://config-3344.com:3344/master/config-dev.yml</li> </ul> </li> <li> <p>配置读取规则：</p> <ul> <li> <p>/{label}/{application}-{profile}.yml</p> <p>实例：master分支：http://config-3344.com:3344/master/config-dev.yml</p> <p> dev分支：http://config-3344.com:3344/dev/config-dev.yml</p> </li> <li> <p>/{application}-{profile}.yml</p> <p>实例：http://config-3344.com:3344/config-dev.yml</p> </li> </ul> </li> <li> <p>成功实现了使用SpringCloud Config通过GitHub获取配置信息</p> </li> </ul> <h2><a id="Config_143" rel="nofollow"></a>Config客户端配置与测试</h2> <hr/> <ol> <li> <p>新建 cloud-config-client-3355</p> </li> <li> <p>pom</p> <pre><code class="prism language-pom">&lt;!--config client--&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;             &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> </li> <li> <p>bootstrap.yml</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/aaa9e9fc93eb8bfa11b8ea5471a010f1.jpg" alt="SpringCloud 之 Config服务配置 详解"></p> <p>配置如下：</p> <pre><code class="prism language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">3355</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">application</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client<span class="token key atrule">cloud</span><span class="token punctuation">:</span><span class="token key atrule">config</span><span class="token punctuation">:</span><span class="token comment">#config客户端配置</span><span class="token key atrule">label</span><span class="token punctuation">:</span> main<span class="token comment">#分支名称</span><span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token comment">#配置文件名称</span><span class="token key atrule">profile</span><span class="token punctuation">:</span> dev<span class="token comment">#读取后缀名称    上述三个综合为 main分支上的config-dev.yml配置文件</span><span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span><span class="token comment">#配置文件地址</span><span class="token key atrule">eureka</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token key atrule">service-url</span><span class="token punctuation">:</span><span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka/</code></pre> </li> <li> <p>主启动类</p> <p>注册进入服务中心：@EnableEurekaClient</p> </li> <li> <p>业务类：</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RestController</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ConfigClientController</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${config.info}"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">String</span> configInfo<span class="token punctuation">;</span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/configInfo"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">getConfigInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> configInfo<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </li> <li> <p>测试</p> <p>启动config配置中心 ConfigServer3344 并自测:</p> <ul> <li>http://config-3344.com:3344/master/config-prod.yml</li> </ul> <p>启动3355作为Client准备访问：</p> <ul> <li>http://localhost:3355/configInfo</li> </ul> </li> <li> <p>实现了客户端3355 访问config配置中心config-3344 通过github获取配置信息</p> </li> <li> <p>问题出现：分布式配置的动态刷新问题：</p> <ol> <li>Linux运维修改Github上的配置文件内容做调整</li> <li>刷新3344，发现ConfigServer配置中心立即响应</li> <li>刷新3355，发现ConfigClient客户端没有任何响应</li> <li>3355没有变化除非自己重启或者重新加载</li> </ol> </li> </ol> <h2><a id="Config_227" rel="nofollow"></a>Config客户端之动态刷新</h2> <hr/> <p>避免每次更新配置都要重启客户端微服务3355</p> <h3><a id="_233" rel="nofollow"></a>动态刷新</h3> <hr/> <ol> <li> <p>pom引入actuator服务监控</p> <pre><code class="prism language-pom">&lt;!--actuator服务监控--&gt; &lt;dependency&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> </li> <li> <p>修改yml，暴露监控端口</p> <pre><code class="prism language-yaml"><span class="token comment">#暴露监控端点</span><span class="token key atrule">management</span><span class="token punctuation">:</span><span class="token key atrule">endpoints</span><span class="token punctuation">:</span><span class="token key atrule">web</span><span class="token punctuation">:</span><span class="token key atrule">exposure</span><span class="token punctuation">:</span><span class="token key atrule">include</span><span class="token punctuation">:</span><span class="token string">"*"</span></code></pre> </li> <li> <p>业务类Controller修改</p> <p>添加 @RefreshScope 注解</p> </li> <li> <p>此时修改github上的配置文件，测试3344、3355</p> </li> <li> <p>此时客户端3355并没有动态刷新，<strong>需要运维人员发送Post请求刷新客户端3355</strong></p> <p>必须是post请求：curl -X POST “http://localhost:3355/actuator/refresh”</p> </li> <li> <p>再次访问客户端3355，成功实现了客户端3355刷新到最新配置内容，避免了服务重启</p> </li> </ol> <p><strong>还存在的问题：</strong></p> <p>假设有多个微服务客户端，每个微服务都要执行一次post请求，手动刷新？（可使用脚本）</p> <p>可否广播，一次通知，处处生效</p> <p>可否精确通知，选择特定的微服务使其配置生效</p> <p>上述问题还无法实现，所以需要引入 消息总线，和spring cloud Bus配合</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20446.htm">北京爱康宠物医院官网（爱康宠物诊所怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-20898.htm">动物医院资质级别有哪些要求和标准 动物医院资质级别有哪些要求和标准呢</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-nekobox-node-share.htm" title="10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-today-nekobox-node.htm" title="9月13日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接">9月13日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-today-nekobox-node.htm" title="8月27日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">8月27日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-node-share-links.htm" title="8月3日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接">8月3日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-6-nekobox-node-github.htm" title="8月6日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接">8月6日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-nekobox-node.htm" title="8月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">8月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-nekobox-node-github.htm" title="10月2日 - 最高速度22.7M/S，2024年Nekobox每天更新免费节点订阅链接">10月2日 - 最高速度22.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe.htm" title="10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
