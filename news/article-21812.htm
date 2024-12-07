@@ -2,11 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekobox.github.io" />
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-21812.htm" />
     <meta charset="utf-8">
-    <title>2024-08归档 - Free Nekobox官方节点站</title>
-        <meta name="keywords" content="2024-08归档" />
-        <meta name="description" content="2024-08归档" />
+    <title>vue中给buttion按钮添加键盘回车（enter）事件</title>
+        <meta name="description" content="项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。 以下代码可实现此功能。 首先，button上有click事件，点击可实现搜索查询； created(){" />
         <link rel="icon" href="__ADDON__/img/freenekobox/favicon.ico" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Fonts -->
@@ -35,7 +34,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body id="body" data-page="category">
+<body id="body" data-page="detail">
         <header id="header">
         <div class="container">
             <div id="logo" class="pull-left">
@@ -59,9 +58,9 @@
   ============================-->
     <section id="innerBanner">
         <div class="inner-content">
-            <h1><span>2024-08 归档</span></h1>
+            <h1><span>vue中给buttion按钮添加键盘回车（enter）事件</span></h1>
             <div class="nav-box">
-                <a href="/">首页</a> / <span>2024-08 归档</span>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </div>
         </div>
     </section><!-- #Page Banner -->
@@ -69,22 +68,13 @@
         <section id="about" class="wow fadeInUp">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-08-01">
-                            <div class="col-lg-3 about-img">
-                                <a href="/free-nodes/2024-8-1-nekobox-node-windows.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240726/51b2d1ff76ece3db24756f47a6f797f6.webp" alt="8月1日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接">
-                                </a>
-                            </div>
-                            <div class="col-lg-9 content">
-                                <a href="/free-nodes/2024-8-1-nekobox-node-windows.htm" class="xcblog-blog-url">
-                                    <h3 class="xcblog-blog-title">8月1日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接</h3>
-                                </a>
-                                <p>这一次的节点更新覆盖了加拿大、香港、新加坡、日本、韩国、欧洲、美国等地区,最高速度可达18.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-08/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-08/">1</a></li><li><a href="/date/2024-08/page-2.htm">2</a></li><li><a href="/date/2024-08/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p>项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。</p> <p>以下代码可实现此功能。</p> <p>首先，button上有click事件，点击可实现搜索查询；</p> <p>created(){}函数里面调用回车按下的事件方法</p> <p>关键的地方就是按下回车键的方法</p> <p><code class="language-html">methods:{<!-- --><br /> &nbsp;keyupEnter(){<!-- --><br /> &nbsp; &nbsp;document.onkeydown = e =&gt;{<!-- --><br /> &nbsp; &nbsp; &nbsp; let body = document.getElementsByTagName('body')[0]<br /> &nbsp; &nbsp; &nbsp; &nbsp; if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {<!-- --><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')，不写的话，其他页面也会有调用回车按下的方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.handleAddBook() //调用查询方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; },<br /> &nbsp; &nbsp; handleAddBook(){<!-- --><br /> &nbsp; &nbsp; &nbsp;&nbsp;<br /> &nbsp; &nbsp; }<br /> }</code></p> <p>&nbsp;</p> <p>示例代码如下：</p> <p>一、第一步： 给button按钮绑定@keyup.enter</p> <pre><code class="language-html hljs">&lt;div class="btn"&gt; &lt;!--如果是封装过的按钮，不是原生的按钮，需要加上.native才能生效--&gt;        &lt;Button  type="primary" @click="handleAddBook" @keyup.enter.native="handleAddBook"&gt;录入&lt;/Button&gt; &lt;/div&gt;</code></pre> <p>&nbsp;</p> <p>二、第二步：浏览器url：event.target.baseURI; 获取浏览器的路径地址</p> <pre><code class="language-html hljs">// 创建时 created(){        this.keyupEnter()//页面在创建时就调用键盘的回车事件，在结构代码中也可以不写@keyup.enter.native="handleAddBook"  },   methods:{             keyupEnter(){                 document.onkeydown = e =&gt;{                     let body = document.getElementsByTagName('body')[0]                     if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {                         console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')                         this.handleAddBook()                     }                 }             },             handleAddBook(){                 if(this.validate()){                     this._printQrcode()                 }               } }     </code></pre> <p>&nbsp;</p> <p>转载于:https://www.cnblogs.com/wangdashi/p/9646219.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21357.htm">宠物粮品牌名称及图片大全集（宠物粮品牌起名字）</a></p>
+                                        <p>下一个：<a href="/news/article-21813.htm">C#实现DataTable转TXT、CSV文件_C#教程_</a></p>
+                                    </div>
+                                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -92,16 +82,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-subscribe-node.htm" title="10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-nekobox-github.htm" title="12月5日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月5日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-nekobox-node-windows.htm" title="10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-nekobox-node.htm" title="9月2日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接">9月2日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-latest-nekobox-node.htm" title="9月16日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接">9月16日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-21357.htm" title="宠物粮品牌名称及图片大全集（宠物粮品牌起名字）">宠物粮品牌名称及图片大全集（宠物粮品牌起名字）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-node-subscribe.htm" title="8月23日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接">8月23日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-6-nekobox-node-github.htm" title="8月6日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接">8月6日 - 最高速度18.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-27-today-nekobox-node.htm" title="7月27日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接">7月27日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-26-free-high-speed-nodes.htm" title="「7月26日」最高速度18.7M/S，2024年Nekobox每天更新免费节点订阅链接">「7月26日」最高速度18.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-nekobox-node-windows.htm" title="10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19978.htm" title="申请动物医院的条件和流程怎么写申请书（动物医院办理条件）">申请动物医院的条件和流程怎么写申请书（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-nekobox-github.htm" title="11月19日 - 最高速度20.4M/S，2024年Nekobox每天更新免费节点订阅链接">11月19日 - 最高速度20.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-nekobox-node.htm" title="10月31日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接">10月31日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-9-node-share.htm" title="8月9日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅链接">8月9日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-today-nekobox-node.htm" title="10月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-nekobox-github.htm" title="10月4日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月4日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-subscribe-node.htm" title="9月27日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅链接">9月27日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>

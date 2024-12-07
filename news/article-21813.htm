@@ -2,11 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekobox.github.io" />
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-21813.htm" />
     <meta charset="utf-8">
-    <title>2024-10归档 - Free Nekobox官方节点站</title>
-        <meta name="keywords" content="2024-10归档" />
-        <meta name="description" content="2024-10归档" />
+    <title>C#实现DataTable转TXT、CSV文件_C#教程_</title>
+        <meta name="description" content="转TXT文件  public object DataTableToTXT(DataTable vContent, string vOutputFilePath)          {         " />
         <link rel="icon" href="__ADDON__/img/freenekobox/favicon.ico" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Fonts -->
@@ -35,7 +34,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body id="body" data-page="category">
+<body id="body" data-page="detail">
         <header id="header">
         <div class="container">
             <div id="logo" class="pull-left">
@@ -59,9 +58,9 @@
   ============================-->
     <section id="innerBanner">
         <div class="inner-content">
-            <h1><span>2024-10 归档</span></h1>
+            <h1><span>C#实现DataTable转TXT、CSV文件_C#教程_</span></h1>
             <div class="nav-box">
-                <a href="/">首页</a> / <span>2024-10 归档</span>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </div>
         </div>
     </section><!-- #Page Banner -->
@@ -69,22 +68,13 @@
         <section id="about" class="wow fadeInUp">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-10-01">
-                            <div class="col-lg-3 about-img">
-                                <a href="/free-nodes/2024-10-1-nekobox-github.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240726/6d7c12f24a68486f2c4b083b4f50c394.webp" alt="10月1日 - 最高速度19.1M/S，2024年Nekobox每天更新免费节点订阅链接">
-                                </a>
-                            </div>
-                            <div class="col-lg-9 content">
-                                <a href="/free-nodes/2024-10-1-nekobox-github.htm" class="xcblog-blog-url">
-                                    <h3 class="xcblog-blog-title">10月1日 - 最高速度19.1M/S，2024年Nekobox每天更新免费节点订阅链接</h3>
-                                </a>
-                                <p>这一次的节点更新覆盖了韩国、欧洲、美国、香港、加拿大、新加坡、日本等地区,最高速度可达19.1 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-10/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-10/">1</a></li><li><a href="/date/2024-10/page-2.htm">2</a></li><li><a href="/date/2024-10/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
+                    <div class="col-md-9">
+                                          				  				  				<h3>转TXT文件</h3> <div class="ay1code"> <pre class="brush:csharp;">public object DataTableToTXT(DataTable vContent, string vOutputFilePath)          {              object resObj;              StringBuilder sTxtContent;                try              {                  if (File.Exists(vOutputFilePath))                      File.Delete(vOutputFilePath);                    sTxtContent = new StringBuilder();                    //数据                  foreach (DataRow row in vContent.Rows)                  {                      for (int i = 0; i &lt; vContent.Columns.Count; i++)                      {                          sTxtContent.Append(row[i].ToString().Trim());                          sTxtContent.Append(i == vContent.Columns.Count - 1 ? "\r\n" : "\t");                      }                  }                  File.WriteAllText(vOutputFilePath, sTxtContent.ToString(), Encoding.Unicode);                  resObj = new object[] { 0, "OK" };              }              catch (Exception ex)              {                  resObj = new object[] { 0, "OK" };              }              return resObj;          }</pre> </div> <h3>转.CSV文件</h3> <p>将DataTable转换成CSV文件是一种常见的转换形式,主要通过遍历Table的每行，再对每行遍历每列，实现对数据的读取，然后用分隔符分隔Table的每个栏位数据，把读取的字符写入到CSV文件中。这里每个栏位之间用逗号分隔，每行用换行符。实现代码如下：</p> <div class="ay1code"> <pre class="brush:csharp;">public ExecutionResult DataTableToCsv(System.Data.DataTable vContent, string vOutputFilePath)          {              ExecutionResult sResult = new ExecutionResult();              System.Text.StringBuilder sCsvContent;              try              {                  sCsvContent = new System.Text.StringBuilder();                  //栏位                  for (int i = 0; i &lt; vContent.Columns.Count; i++)                  {                      sCsvContent.Append(vContent.Columns[i].ColumnName);                      sCsvContent.Append(i == vContent.Columns.Count - 1 ? "\r\n" : ",");                  }                  //数据                  foreach (System.Data.DataRow row in vContent.Rows)                  {                      for (int i = 0; i &lt; vContent.Columns.Count; i++)                      {                          sCsvContent.Append(row[i].ToString().Trim());                          sCsvContent.Append(i == vContent.Columns.Count - 1 ? "\r\n" : ",");                      }                  }                  File.WriteAllText(vOutputFilePath, sCsvContent.ToString(), Encoding.UTF8);                  sResult.Status = true;              }              catch (Exception ex)              {                  sResult.Message = ex.Message;                  sResult.Status = false;              }              return sResult;          }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21812.htm">vue中给buttion按钮添加键盘回车（enter）事件</a></p>
+                                        <p>下一个：<a href="/news/article-22268.htm">正规宠物领养机构有哪些地方（比较正规的宠物领养平台）</a></p>
+                                    </div>
+                                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -92,16 +82,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-node-subscribe.htm" title="10月13日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">10月13日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-today-nekobox-node.htm" title="10月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接">10月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-nekobox-github.htm" title="12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-high-speed-nodes.htm" title="10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22269.htm" title="猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）">猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-nekobox-node.htm" title="10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-nekobox-github.htm" title="11月19日 - 最高速度20.4M/S，2024年Nekobox每天更新免费节点订阅链接">11月19日 - 最高速度20.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe-links.htm" title="11月9日 - 最高速度20.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月9日 - 最高速度20.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-subscribe-node.htm" title="9月20日 - 最高速度20.1M/S，2024年Nekobox每天更新免费节点订阅链接">9月20日 - 最高速度20.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-free-nekobox-node.htm" title="8月31日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接">8月31日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-20898.htm" title="动物医院资质级别有哪些要求和标准 动物医院资质级别有哪些要求和标准呢">动物医院资质级别有哪些要求和标准 动物医院资质级别有哪些要求和标准呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe.htm" title="10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-node-subscribe-links.htm" title="8月30日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接">8月30日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-subscribe-node.htm" title="10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-node-share-links.htm" title="12月2日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接">12月2日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-nekobox-node-github.htm" title="9月7日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">9月7日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19072.htm" title="Vue+element搭建后台管理系统-二、安装插件">Vue+element搭建后台管理系统-二、安装插件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-nekobox-node.htm" title="10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-nekobox-github.htm" title="10月1日 - 最高速度19.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月1日 - 最高速度19.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
