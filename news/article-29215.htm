@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekobox.github.io/news/article-28756.htm" />
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-29215.htm" />
     <meta charset="utf-8">
-    <title>Java子串比较</title>
-        <meta name="description" content="以下是比较Java中的字符串和字符串部分的示例举例说明。 示例 public&nbsp;class&nbsp;StringDemo&nbsp;{ &nbsp;&nbsp;&nbsp;public&nb" />
+    <title>Vue项目引进sass方法详解</title>
+        <meta name="description" content="sass-loader依赖于node-sass,所以要安装node-sass  cnpm install node-sass--save-dev//安装node-sass cnpm install s" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Fonts -->
@@ -58,7 +58,7 @@
   ============================-->
     <section id="innerBanner">
         <div class="inner-content">
-            <h1><span>Java子串比较</span></h1>
+            <h1><span>Vue项目引进sass方法详解</span></h1>
             <div class="nav-box">
                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </div>
@@ -70,10 +70,9 @@
                 <div class="row">
                     <div class="col-md-9">
                                         <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
-                  				  				  				<p>以下是比较Java中的字符串和字符串部分的示例举例说明。</p> <h2>示例</h2> <pre>public&nbsp;class&nbsp;StringDemo&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str1&nbsp;=&nbsp;""; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str2&nbsp;=&nbsp;str1.substring(10); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;result&nbsp;=&nbsp;str1.compareTo(str2); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//打印比较的返回值 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(result&nbsp;&lt;&nbsp;0)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("str1&nbsp;is&nbsp;greater&nbsp;than&nbsp;str2"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;if&nbsp;(result&nbsp;==&nbsp;0)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("str1&nbsp;is&nbsp;equal&nbsp;to&nbsp;str2"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("str1&nbsp;is&nbsp;less&nbsp;than&nbsp;str2"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>str1&nbsp;is&nbsp;less&nbsp;than&nbsp;str2</pre> <div></div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <ol> <li>sass-loader依赖于node-sass,所以要安装node-sass</li> </ol> <pre><code class="prism language-javascript">cnpm install node<span class="token operator">-</span>sass<span class="token operator">--</span>save<span class="token operator">-</span>dev<span class="token comment">//安装node-sass</span> cnpm install sass<span class="token operator">-</span>loader<span class="token operator">--</span>save<span class="token operator">-</span>dev<span class="token comment">//安装依赖包sass-loader</span> cnpm install style<span class="token operator">-</span>loader<span class="token operator">--</span>save<span class="token operator">-</span>dev<span class="token comment">//安装style-loader</span></code></pre> <p>2. 在build文件夹下的webpack.base.conf.js的module下 rules里面添加配置</p> <pre><code class="prism language-css"><span class="token punctuation">{<!-- --></span><span class="token property">test</span><span class="token punctuation">:</span> /\.sass$/,<span class="token property">loaders</span><span class="token punctuation">:</span> [<span class="token string">'style'</span>,<span class="token string">'css'</span>,<span class="token string">'sass'</span>]<span class="token punctuation">}</span>,</code></pre> <ol start="3"> <li>在需要用到sass的地方添加lang=scss</li> </ol> <blockquote> <p>注: 安装sass 出现问题 运行npm run dev 报错!<br /> 1、Modele build failed: TypeError: this.getResolve is not a function at Object.loader…<br /> 这是因为当前sass的版本太高，webpack编译时出现了错误，这个时候只需要换成低版本的就行，下面说一下修改方法，很简单，如下，找到package.json文件，里面的 "sass-loader"的版本更换掉 就行了。<br /> 解决方法：<br /> 将 “sass-loader”: “^10.0.0”，更换成了 “sass-loader”: “^7.3.1”,也可以先卸载当前版本，然后安装指定的版本<br /> 卸载当前版本<code>npm uninstall sass-loader</code><br /> 安装<code>npm install sass-loader@7.3.1 --save-dev</code></p> </blockquote> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-28298.htm">动物疫苗定义是什么意思（动物疫苗概念）</a></p>
-                                        <p>下一个：<a href="/news/article-28757.htm">猫三联疫苗需要多少钱一针（猫三联疫苗多少钱一只）</a></p>
+                                        <p>上一个：<a href="/news/article-29214.htm">Python使用pandas读取hdfs文件</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -83,16 +82,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-nekobox-node-github.htm" title="10月18日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月18日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-nekobox-node-github.htm" title="9月7日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">9月7日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22268.htm" title="正规宠物领养机构有哪些地方（比较正规的宠物领养平台）">正规宠物领养机构有哪些地方（比较正规的宠物领养平台）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-nekobox-node.htm" title="12月16日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接">12月16日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-latest-nekobox-node.htm" title="8月24日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接">8月24日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-node-subscribe.htm" title="9月30日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接">9月30日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-25971.htm" title="时域和频域的麦克斯韦方程组">时域和频域的麦克斯韦方程组</a></li>
-                        <li class="py-2"><a href="/news/article-27832.htm" title="哈尔滨王允海宠物医院怎么样呀电话（哈尔滨王春华宠物医院）">哈尔滨王允海宠物医院怎么样呀电话（哈尔滨王春华宠物医院）</a></li>
-                        <li class="py-2"><a href="/news/article-25046.htm" title="成都市宠物狗领养平台官网电话（成都宠物狗领养吧）">成都市宠物狗领养平台官网电话（成都宠物狗领养吧）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-18-node-share.htm" title="9月18日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接">9月18日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-nekobox-node-windows.htm" title="10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-subscribe-node.htm" title="10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月3日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22729.htm" title="怎样制作狗粮颗粒饲料（怎样制作狗粮颗粒饲料视频）">怎样制作狗粮颗粒饲料（怎样制作狗粮颗粒饲料视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe.htm" title="11月12日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">11月12日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-8-free-subscribe-node.htm" title="8月8日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅链接">8月8日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-today-nekobox-node.htm" title="8月26日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接">8月26日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25045.htm" title="猫咪不见了会自己回家吗（猫咪不见了会自己回家吗视频）">猫咪不见了会自己回家吗（猫咪不见了会自己回家吗视频）</a></li>
+                        <li class="py-2"><a href="/news/article-20897.htm" title="SpringCloud 之 Config服务配置 详解">SpringCloud 之 Config服务配置 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接">11月1日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
