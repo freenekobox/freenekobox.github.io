@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-31601.htm" />
+    <meta charset="utf-8">
+    <title>vue实现页面刷新动画_vue.js_</title>
+        <meta name="description" content="本文实例为大家分享了vue实现页面刷新动画的具体代码，供大家参考，具体内容如下 做一个vue的页面刷新动画，找了好多动画样式，感谢大佬们造的轮子。 主要就是在index.html文件里面写一个动画样式" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>vue实现页面刷新动画_vue.js_</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>本文实例为大家分享了vue实现页面刷新动画的具体代码，供大家参考，具体内容如下</p> <p>做一个vue的页面刷新动画，找了好多动画样式，感谢大佬们造的轮子。</p> <p>主要就是在index.html文件里面写一个动画样式，在页面刷新的时候让他去前面做动画，等我们的样式可以加载的时候去把这个动画样式给移除掉就可以了，而判断我们的样式是否加载好可以用created生命周期去判断，因为这个生命周期是在浏览器解析完html的各种样式后触发的，所以可以在app.vue的created生命周期里面把动画样式移除</p> <p>接下来是代码</p> <p>index.html里面的代码</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220416/e46894c0aaef70d5727ab5067b75c572.jpg"></p> <p>css样式：</p> <div class="ay1code"> <pre class="brush:css;">&lt;style type="text/css" scoped="scoped"&gt;          html,body {              width: 100%;              height: 100%;              padding: 0;              margin: 0;              background: cornflowerblue;          }                    .loadings{              width: 100%;              height: 100%;              display: flex;              justify-content: center;              align-items: center;          }                    .spinner {              width: 300px;              height: 50px;              position: relative;              display: flex;              justify-content: center;              align-items: center;          }            .spinner &gt; div {            width: 30px;            height: 30px;            background-color: #67CF22;                       border-radius: 100%;            margin: 0px 10px;            display: inline-block;            -webkit-animation: bouncedelay 1.4s infinite ease-in-out;            animation: bouncedelay 1.4s infinite ease-in-out;            /* Prevent first frame from flickering when animation starts */            -webkit-animation-fill-mode: both;            animation-fill-mode: both;          }                     .spinner .bounce1 {            -webkit-animation-delay: -0.32s;            animation-delay: -0.32s;          }                     .spinner .bounce2 {            -webkit-animation-delay: -0.16s;            animation-delay: -0.16s;          }                     @-webkit-keyframes bouncedelay {            0%, 80%, 100% { -webkit-transform: scale(0.0) }            40% { -webkit-transform: scale(1.0) }          }                     @keyframes bouncedelay {            0%, 80%, 100% {              transform: scale(0.0);              -webkit-transform: scale(0.0);            } 40% {              transform: scale(1.0);              -webkit-transform: scale(1.0);            }          }                    #app{              display: none;          }  &lt;/style&gt;</pre> </div> <p>html代码</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;body&gt;          &lt;div class="loadings"&gt;              &lt;div class="spinner"&gt;                &lt;div class="bounce1"&gt;&lt;/div&gt;                &lt;div class="bounce2"&gt;&lt;/div&gt;                &lt;div class="bounce3"&gt;&lt;/div&gt;              &lt;/div&gt;          &lt;/div&gt;          &lt;div id="app"&gt;&lt;/div&gt;  &lt;/body&gt;</pre> </div> <p>下面是app.vue的代码</p> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;      export default {          name: 'App',          data() {              return {                            }          },          created() {          //判断有没有动画的盒子在，在的话移除掉              let loading = document.getElementsByClassName('loadings')[0]              if(loading){                  document.body.removeChild(loading)              }          }      }  &lt;/script&gt;    &lt;style lang="less"&gt;      body{          background: white;//这里是把动画影响的背景颜色改回来      }      #app{          width: 100%;          height: 100%;          display: block;          //这里是把隐藏的app盒子展示出来      }  &lt;/style&gt;</pre> </div> <p>这就是所有的页面刷新动画的代码了</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220416/042b47dcbc02bd6d8f5658b8edb8e64a.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220416/0d30f0f3a8209951268e998a0a94af81.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31600.htm">vue v-for循环出来的数组加不同的颜色(颜色循环)</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25503.htm" title="瑞鹏宠物医院在线咨询免费医疗（瑞鹏宠物医院在哪些城市有）">瑞鹏宠物医院在线咨询免费医疗（瑞鹏宠物医院在哪些城市有）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="11月26日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月26日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-nekobox-node-github.htm" title="12月1日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅链接">12月1日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-nekobox-node-share.htm" title="8月29日 - 最高速度18M/S，2024年Nekobox每天更新免费节点订阅链接">8月29日 - 最高速度18M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-1-nekobox-node-windows.htm" title="8月1日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接">8月1日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-29-nekobox-node.htm" title="7月29日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">7月29日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26431.htm" title="element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）">element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接">12月13日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
