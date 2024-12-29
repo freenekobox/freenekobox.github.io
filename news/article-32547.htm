@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-32547.htm" />
+    <meta charset="utf-8">
+    <title>一文解决浏览器跨域问题</title>
+        <meta name="description" content="1. 概述 老话说的好：大处着眼，不贪一时之利。太贪心，只会失去更多，知足才能常乐。 言归正传，今天我们来聊聊 如何解决浏览器跨域的问题。 2. 跨域问题 2.1 什么是跨域 跨域，简单说就是访问的页" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>一文解决浏览器跨域问题</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p><span style="font-size: 18pt"><strong>1. 概述</strong></span></p> <p>老话说的好：大处着眼，不贪一时之利。太贪心，只会失去更多，知足才能常乐。</p> <p>言归正传，今天我们来聊聊 如何解决浏览器跨域的问题。</p> <p><span style="font-size: 18pt"><strong>2. 跨域问题</strong></span></p> <p><span style="font-size: 14pt"><strong>2.1 什么是跨域</strong></span></p> <p>跨域，简单说就是访问的页面域名是 www.a.com，而在此页面中 Ajax 请求接口，请求的是 www.b.com 的接口，出于安全考虑，浏览器默认不允许这样做，便会报错，提示跨域。</p> <p>至于为什么浏览器默认不允许跨域，允许跨域有什么安全隐患，这里就不讨论了，本文只是给大家讲讲在需要跨域的情况下，如何解决跨域问题。</p> <p>当然，如果访问的页面和页面中请求的接口都在一个域名下，就没有跨域的烦恼了。</p> <p><strong>解决跨域问题，前端、后端都需要配置，只配置一端是不行的。</strong></p> <p><span style="font-size: 14pt"><strong>2.2 使用 java 代码解决<strong>后端</strong>跨域</strong></span></p> <p>新增一个跨域配置类 CrossDomainConfig，在其中配置允许跨域访问的url、请求方式、Header等。代码如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.context.annotation.Bean;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.context.annotation.Configuration;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.web.cors.CorsConfiguration;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.web.filter.CorsFilter;  @Configuration</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> CrossDomainConfig{</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> CrossDomainConfig() {      }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> CorsConfiguration buildConfig() {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 添加cors配置信息</span>     　　CorsConfiguration corsConfiguration =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> CorsConfiguration(); 　　　　 corsConfiguration.addAllowedOrigin(</span>"http://localhost:8080"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> * 代表所有url</span>         corsConfiguration.addAllowedOrigin("*"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置允许请求的方式</span>         corsConfiguration.addAllowedMethod("*"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置允许的header</span>         corsConfiguration.addAllowedHeader("*"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置是否发送cookie信息</span>         corsConfiguration.setAllowCredentials(<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> corsConfiguration; 　　}      @Bean</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> CorsFilter corsFilter() {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 为url添加映射路径</span>         UrlBasedCorsConfigurationSource crossDomainSource =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> UrlBasedCorsConfigurationSource();         crossDomainSource.registerCorsConfiguration(</span>"/**"<span style="color: rgba(0, 0, 0, 1)">, buildConfig());</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 返回重新定义好的配置</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> CorsFilter(crossDomainSource);      }  }</span></pre> </div> <p><span style="font-size: 14pt"><strong>2.3 Nginx 解决后端跨域</strong></span></p> <p>在后端接口所在的 server 配置中增加如下配置即可。</p> <div class="cnblogs_code"> <pre># 允许跨域请求的域名，*<span style="color: rgba(0, 0, 0, 1)">代表所有 add_header</span>'Access-Control-Allow-Origin' *<span style="color: rgba(0, 0, 0, 1)">; # 允许带上cookie请求 add_header</span>'Access-Control-Allow-Credentials' 'true'<span style="color: rgba(0, 0, 0, 1)">; # 允许请求的方法，例如：GET、POST、PUT、DELETE等，</span>*<span style="color: rgba(0, 0, 0, 1)">代表所有 add_header</span>'Access-Control-Allow-Methods' *<span style="color: rgba(0, 0, 0, 1)">; # 允许请求的头信息，例如：DNT,X</span>-Mx-ReqToken,Keep-Alive,User-Agent等，*<span style="color: rgba(0, 0, 0, 1)">代表所有 add_header</span>'Access-Control-Allow-Headers' *;</pre> </div> <p>对于后端接口来说，Java代码 和 Nginx，使用其中一种方法解决跨域即可。</p> <p><span style="font-size: 14pt"><strong>2.3 前端 Ajax 解决跨域</strong></span></p> <p>只是后端解决跨域，使用 Ajax 默认配置调用接口时，接口可以调通，但 Cookie 无法跨域携带，需要在 Ajax 调用时增加以下配置：</p> <div class="cnblogs_code"> <pre>crossDomain:<span style="color: rgba(0, 0, 255, 1)">true</span>,<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置跨域为true</span><span style="color: rgba(0, 0, 0, 1)">xhrFields: {  withCredentials:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">默认情况下，标准的跨域请求是不会发送cookie的</span> },</pre> </div> <p><span style="font-size: 14pt"><strong>2.4 SameSite 问题</strong></span></p> <p>为了防止 CSRF 攻击和用户追踪，一些浏览器的高版本增加并默认开启了 SameSite 的机制，严格控制跨域携带 Cookie。</p> <p>Microsoft Edge 和&nbsp;Google Chrome 的高版本就默认开启了 SameSite 机制。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ae51a2ad850f8736d1eb30fac1742aa5.jpg" alt="一文解决浏览器跨域问题"></p> <p>SameSite 简单说，就是浏览器在生成 Cookie 时，增加了 Cookie 的安全级别，跨域携带是不允许的。</p> <p>解决的方法有两个：</p> <p>1、登录接口在生成 Cookie 时，修改 Cookie 的 SameSite 配置，例如：&nbsp;httponly; secure;SameSite=None</p> <p>2、在登录接口反向代理的 Nginx 的 location 配置中增加配置：proxy_cookie_path / "/; httponly; secure;SameSite=None";</p> <p><strong>注意：将 Cookie 的 SameSite 设置为 None 的前提是，接口访问协议必须是 https 的。</strong></p> <p><span style="font-size: 18pt"><strong>3. 综述</strong></span></p> <p>今天聊了一下 如何解决浏览器跨域的问题，希望可以对大家的工作有所帮助，下一节我们继续讲 Vue 中的高级语法，敬请期待</p> <p>欢迎帮忙点赞、评论、转发、加关注 ：）</p> <p><strong>关注追风人聊Java，这里干货满满，都是实战类技术文章，通俗易懂，轻松上手。</strong></p> <p><span style="font-size: 18pt"><strong>4. 个人公众号</strong></span></p> <p>追风人聊Java，欢迎大家关注</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32072.htm">仓鼠脱毛有红点（仓鼠脱毛有红点正常吗）</a></p>
+                                        <p>下一个：<a href="/news/article-32548.htm">北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27366.htm" title="动物疫苗品牌有哪些种类图片（动物疫苗种类及类型）">动物疫苗品牌有哪些种类图片（动物疫苗种类及类型）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-subscribe-node.htm" title="10月5日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月5日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-high-speed-nodes.htm" title="10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-high-speed-nodes.htm" title="12月26日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅地址">12月26日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-node-share-links.htm" title="11月16日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月16日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe.htm" title="12月22日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅地址">12月22日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-nekobox-github.htm" title="12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22269.htm" title="猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）">猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-nekobox-node.htm" title="8月13日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅链接">8月13日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-nekobox-node-windows.htm" title="9月29日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接">9月29日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
