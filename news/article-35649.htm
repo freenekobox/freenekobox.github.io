@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-35649.htm" />
+    <meta charset="utf-8">
+    <title>encodeURI encodeURIComponent 的区别，和使用场景</title>
+        <meta name="description" content="一、 ncodeURI encodeURIComponent 之前一直不了解这两个的区别，现在知道了： -encodeURI 是对可以对整个请求地址进行转义  encodeURIComponent 只" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>encodeURI encodeURIComponent 的区别，和使用场景</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <h2><a id="_ncodeURI_encodeURIComponent_3" rel="nofollow"></a>一、 ncodeURI encodeURIComponent</h2> <p>之前一直不了解这两个的区别，现在知道了：</p> <p>-<code>encodeURI</code> 是对可以对整个请求地址进行转义</p> <ul> <li><code>encodeURIComponent</code> 只可用于转义单个参数</li> </ul> <p>例子如下：</p> <p>比如有这样一个地址需要转义并通过 js 请求，这里面的一些符号需要转义成对应的 URL 形式，比如一些标点<code>,</code> 汉字等都需要转义成域名地址那种</p> <pre><code class="prism language-js"><span class="token keyword">let</span> str<span class="token operator">=</span><span class="token string">'../../course/exportStatisticsUserByCourse?courseId=12&amp;regionId=2,52,2596,2597,2609&amp;title=体育-北京-统计报表'</span><span class="token punctuation">;</span></code></pre> <h2><a id="_19" rel="nofollow"></a>二、来看下区别，</h2> <p><strong>encodeURIComponent</strong></p> <p><code>encodeURIComponent</code> 是把输入的字符串作为一个整体，就是参数的实体，并不是 URL，所以所有<code>/</code> 都会被转义，成为单纯的字符串，失去任何域名的语义。<br /> 这个方法在处理单个参数时使用，如需要处理<code>title</code> 参数<code>encodeURIComponent(体育-北京-统计报表')</code></p> <pre><code class="prism language-js"><span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 结果是这样的</span><span class="token comment">// ..%2F..%2Fcourse%2FexportStatisticsUserByCourse%3FcourseId%3D12%26regionId%3D2%2C52%2C2596%2C2597%2C2609%26title%3D%E4%BD%93%E8%82%B2-%E5%8C%97%E4%BA%AC-%E7%BB%9F%E8%AE%A1%E6%8A%A5%E8%A1%A8</span></code></pre> <p>而<code>encodeURI</code> 会保留其URL的原本语义，只处理参数中需要处理的<br /><strong>encodeURI</strong></p> <pre><code class="prism language-js"><span class="token function">encodeURI</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 结果是这样的</span><span class="token comment">// ../../course/exportStatisticsUserByCourse?courseId=12&amp;regionId=2,52,2596,2597,2609&amp;title=%E4%BD%93%E8%82%B2-%E5%8C%97%E4%BA%AC-%E7%BB%9F%E8%AE%A1%E6%8A%A5%E8%A1%A8</span></code></pre> <h2><a id="_41" rel="nofollow"></a>三、总结</h2> <p>这两个都是用于处理域名地址的，根据自己需要使用即可。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35007.htm">动物医院实践心得3000字怎么写 动物医院实践心得3000字怎么写的</a></p>
+                                        <p>下一个：<a href="/news/article-35650.htm">动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-nekobox-github.htm" title="10月4日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月4日 - 最高速度18.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24110.htm" title="vue电商后台管理系统保姆级教程 主页布局和功能实现">vue电商后台管理系统保姆级教程 主页布局和功能实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="10月9日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月9日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-nekobox-node-windows.htm" title="10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27365.htm" title="docker搭建confluence（wiki）">docker搭建confluence（wiki）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-11-free-node-subscribe-links.htm" title="8月11日 - 最高速度19.7M/S，2024年Nekobox每天更新免费节点订阅链接">8月11日 - 最高速度19.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32548.htm" title="北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）">北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-node-subscribe-links.htm" title="11月4日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅链接">11月4日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33979.htm" title="如何使用Copy-Item在PowerShell中复制多个文件？">如何使用Copy-Item在PowerShell中复制多个文件？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
