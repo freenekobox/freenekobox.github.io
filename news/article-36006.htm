@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekobox.github.io/free-nodes/page-10.htm" />
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-36006.htm" />
     <meta charset="utf-8">
-    <title>免费节点 - Free Nekobox官方节点站 - 第9页</title>
+    <title>如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</title>
+        <meta name="description" content="我们知道MySQL中TIME字段的范围是'-838：59：59'到'838：59：59'。现在，如果TIMEDIFF()函数的输出超过该范围，则MySQL将根据参数的值返回'-838：59：59'或'" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Fonts -->
@@ -33,7 +34,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body id="body" data-page="category">
+<body id="body" data-page="detail">
         <header id="header">
         <div class="container">
             <div id="logo" class="pull-left">
@@ -57,9 +58,9 @@
   ============================-->
     <section id="innerBanner">
         <div class="inner-content">
-            <h1><span>免费节点</span></h1>
+            <h1><span>如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</span></h1>
             <div class="nav-box">
-                <a href="/">首页</a> / <span>免费节点</span>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </div>
         </div>
     </section><!-- #Page Banner -->
@@ -67,22 +68,14 @@
         <section id="about" class="wow fadeInUp">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-10-07">
-                            <div class="col-lg-3 about-img">
-                                <a href="/free-nodes/2024-10-7-free-nekobox-node.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240726/cebeff9f8a992002c6854fe1fd092386.webp" alt="10月7日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接">
-                                </a>
-                            </div>
-                            <div class="col-lg-9 content">
-                                <a href="/free-nodes/2024-10-7-free-nekobox-node.htm" class="xcblog-blog-url">
-                                    <h3 class="xcblog-blog-title">10月7日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接</h3>
-                                </a>
-                                <p>这一次的节点更新覆盖了加拿大、香港、欧洲、美国、韩国、新加坡、日本等地区,最高速度可达20 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/free-nodes/page-9.htm">&laquo;</a></li> <li><a href="/free-nodes/">1</a></li><li><a href="/free-nodes/page-2.htm">2</a></li><li><a href="/free-nodes/page-3.htm">3</a></li><li><a href="/free-nodes/page-4.htm">4</a></li><li><a href="/free-nodes/page-5.htm">5</a></li><li><a href="/free-nodes/page-6.htm">6</a></li><li><a href="/free-nodes/page-7.htm">7</a></li><li><a href="/free-nodes/page-8.htm">8</a></li><li><a href="/free-nodes/page-9.htm">9</a></li><li class="active"><span>10</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>我们知道MySQL中TIME字段的范围是<strong>'-838：59：59'</strong>到<strong>'838：59：59'</strong>。现在，如果<code>TIMEDIFF()</code>函数的输出超过该范围，则MySQL将根据参数的值返回<strong>'-838：59：59'或'838：59：59'</strong>。</p> <h2>示例</h2> <pre>mysql&gt;&nbsp;Select&nbsp;TIMEDIFF('2017-09-01&nbsp;03:05:45','2017-10-22&nbsp;03:05:45')AS&nbsp;'Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference'; +------------------------------+ |&nbsp;Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference&nbsp;| +------------------------------+ |&nbsp;-838:59:59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;TIMEDIFF('2017-10-22&nbsp;04:05:45','2017-09-01&nbsp;03:05:45')AS&nbsp;'Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference'; +------------------------------+ |&nbsp;Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference&nbsp;| +------------------------------+ |&nbsp;838:59:59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.01&nbsp;sec)</pre> <p>上面的查询显示，如果总差异超出范围，MySQL将返回TIME字段范围的最大或最小限制值。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35650.htm">动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针</a></p>
+                                        <p>下一个：<a href="/news/article-36009.htm">MySQL的安装和配置(超详细图文教程)</a></p>
+                                    </div>
+                                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -90,16 +83,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21356.htm" title="南京免费领养猫咪的地方在哪里啊（南京免费领养宠物的地方在哪里）">南京免费领养猫咪的地方在哪里啊（南京免费领养宠物的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-nekobox-node-github.htm" title="11月6日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月6日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-nekobox-node.htm" title="12月20日 - 最高速度20.6M/S，2024年Nekobox每天更新免费节点订阅链接">12月20日 - 最高速度20.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-nekobox-node-windows.htm" title="11月10日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月10日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-1-5-today-nekobox-node.htm" title="1月5日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址">1月5日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月29日 - 最高速度21.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-high-speed-nodes.htm" title="10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33979.htm" title="如何使用Copy-Item在PowerShell中复制多个文件？">如何使用Copy-Item在PowerShell中复制多个文件？</a></li>
-                        <li class="py-2"><a href="/news/article-31601.htm" title="vue实现页面刷新动画_vue.js_">vue实现页面刷新动画_vue.js_</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe-links.htm" title="1月4日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月4日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="10月9日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月9日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-28-nekobox-node.htm" title="11月28日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月28日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-nekobox-node-share.htm" title="10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-nekobox-node-github.htm" title="10月18日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月18日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-node-share-links.htm" title="12月2日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接">12月2日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33980.htm" title="动物疫苗种类及类型图片及价格（动物疫苗法最新消息2019）">动物疫苗种类及类型图片及价格（动物疫苗法最新消息2019）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share-links.htm" title="12月8日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">12月8日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25504.htm" title="动物疫苗龙头企业名单公示最新（动物疫苗龙头企业名单公示最新消息）">动物疫苗龙头企业名单公示最新（动物疫苗龙头企业名单公示最新消息）</a></li>
+                        <li class="py-2"><a href="/news/article-22268.htm" title="正规宠物领养机构有哪些地方（比较正规的宠物领养平台）">正规宠物领养机构有哪些地方（比较正规的宠物领养平台）</a></li>
                     </ul>
     </div>
 </div>
