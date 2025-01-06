@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekobox.github.io/news/article-36006.htm" />
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-36366.htm" />
     <meta charset="utf-8">
-    <title>如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</title>
-        <meta name="description" content="我们知道MySQL中TIME字段的范围是'-838：59：59'到'838：59：59'。现在，如果TIMEDIFF()函数的输出超过该范围，则MySQL将根据参数的值返回'-838：59：59'或'" />
+    <title>在vue项目中如何获取视频的时长_vue.js_</title>
+        <meta name="description" content="目录  vue获取视频时长 vue-video-player获取播放时间  全局引用 局部引用 html methods获取播放时间     vue获取视频时长 传入参数为视频文件对象 js的代码如下" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Fonts -->
@@ -58,7 +58,7 @@
   ============================-->
     <section id="innerBanner">
         <div class="inner-content">
-            <h1><span>如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</span></h1>
+            <h1><span>在vue项目中如何获取视频的时长_vue.js_</span></h1>
             <div class="nav-box">
                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </div>
@@ -70,10 +70,9 @@
                 <div class="row">
                     <div class="col-md-9">
                                         <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
-                  				  				  				<p>我们知道MySQL中TIME字段的范围是<strong>'-838：59：59'</strong>到<strong>'838：59：59'</strong>。现在，如果<code>TIMEDIFF()</code>函数的输出超过该范围，则MySQL将根据参数的值返回<strong>'-838：59：59'或'838：59：59'</strong>。</p> <h2>示例</h2> <pre>mysql&gt;&nbsp;Select&nbsp;TIMEDIFF('2017-09-01&nbsp;03:05:45','2017-10-22&nbsp;03:05:45')AS&nbsp;'Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference'; +------------------------------+ |&nbsp;Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference&nbsp;| +------------------------------+ |&nbsp;-838:59:59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;TIMEDIFF('2017-10-22&nbsp;04:05:45','2017-09-01&nbsp;03:05:45')AS&nbsp;'Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference'; +------------------------------+ |&nbsp;Out&nbsp;of&nbsp;Range&nbsp;TIME&nbsp;Difference&nbsp;| +------------------------------+ |&nbsp;838:59:59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.01&nbsp;sec)</pre> <p>上面的查询显示，如果总差异超出范围，MySQL将返回TIME字段范围的最大或最小限制值。</p> <div></div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">vue获取视频时长</a></li> <li><a href="#_label1" rel="nofollow">vue-video-player获取播放时间</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">全局引用</a></li> <li><a href="#_lab2_1_1" rel="nofollow">局部引用</a></li> <li><a href="#_lab2_1_2" rel="nofollow">html</a></li> <li><a href="#_lab2_1_3" rel="nofollow">methods获取播放时间</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>vue获取视频时长</h2> <p>传入参数为视频文件对象</p> <p><strong>js的代码如下：</strong></p> <div class="ay1code"> <pre class="brush:js;">getVideoDuration(file) {    var url = URL.createObjectURL(file);    var audioElement = new Audio(url);    var self = this;    var result;    audioElement.addEventListener("loadedmetadata", function() {      // 视频时长值的获取要等到这个匿名函数执行完毕才产生      result = audioElement.duration; //得到时长为秒，小数，182.36      self.ruleForm.videoDuration = parseInt(result); //转为int值    });  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue-video-player获取播放时间</h2> <div class="ay1code"> <pre class="brush:js;">npm install vue-video-player -S</pre> </div> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>全局引用</h3> <div class="ay1code"> <pre class="brush:js;">import VideoPlayer from 'vue-video-player'  import 'vue-video-player/src/custom-theme.css'  import 'video.js/dist/video-js.css'  Vue.use(VideoPlayer)</pre> </div> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>局部引用</h3> <div class="ay1code"> <pre class="brush:js;">  import {      videoPlayer    } from 'vue-video-player'    import 'video.js/dist/video-js.css'    export default {    components: {      videoPlayer    }  }</pre> </div> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>html</h3> <div class="ay1code"> <pre class="brush:xhtml;">   &lt;video-player class="video-player vjs-custom-skin"               ref="videoPlayer"               :playsinline="true"               :options="playerOptions"&gt;        &lt;/video-player&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>methods获取播放时间</h3> <div class="ay1code"> <pre class="brush:js;">  this.$nextTick(() =&gt; {         setTimeout(() =&gt; {         let du = document.getElementById("vjs_video_3_html5_api") //获取组件下的video         var hour = parseInt((du.duration) / 3600);         var minute = parseInt((du.duration % 3600) / 60);         var second = parseInt(du.duration % 60);         let result = ''         if (hour &gt; 0) {         result = this.formatTimeStr(hour) + ':' + this.formatTimeStr(minute) + ':' + this         .formatTimeStr(second)                   } else {                      result = this.formatTimeStr(minute) + ':' +                     this.formatTimeStr(second)                    }                    return result //转化成分，秒                  }, 200)                })          formatTimeStr(val) {          if (val &gt; 9) {            return val          } else {            return '0' + val          }        },</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-35650.htm">动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针</a></p>
-                                        <p>下一个：<a href="/news/article-36009.htm">MySQL的安装和配置(超详细图文教程)</a></p>
+                                        <p>上一个：<a href="/news/article-36365.htm">由浅入深快速掌握Java 数组的使用_java</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -83,16 +82,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-5-latest-nekobox-node.htm" title="11月5日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月5日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28756.htm" title="Java子串比较">Java子串比较</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-nekobox-node.htm" title="12月20日 - 最高速度20.6M/S，2024年Nekobox每天更新免费节点订阅链接">12月20日 - 最高速度20.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-6-nekobox-node-github.htm" title="1月6日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址">1月6日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-2-node-share.htm" title="1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/news/article-26431.htm" title="element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）">element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-nekobox-node-windows.htm" title="11月30日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月30日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-nekobox-github.htm" title="12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33502.htm" title="中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）">中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-latest-nekobox-node.htm" title="10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32547.htm" title="一文解决浏览器跨域问题">一文解决浏览器跨域问题</a></li>
+                        <li class="py-2"><a href="/news/article-34458.htm" title="送养一个孩子怎样写协议书呢视频（送养一个孩子怎样写协议书呢视频教程）">送养一个孩子怎样写协议书呢视频（送养一个孩子怎样写协议书呢视频教程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe-links.htm" title="11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31601.htm" title="vue实现页面刷新动画_vue.js_">vue实现页面刷新动画_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-32548.htm" title="北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）">北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）</a></li>
+                        <li class="py-2"><a href="/news/article-19073.htm" title="开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢">开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-nekobox-node-windows.htm" title="10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-nekobox-node.htm" title="11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接">11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36366.htm" title="在vue项目中如何获取视频的时长_vue.js_">在vue项目中如何获取视频的时长_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
