@@ -73,6 +73,7 @@
                   				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">vue获取视频时长</a></li> <li><a href="#_label1" rel="nofollow">vue-video-player获取播放时间</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">全局引用</a></li> <li><a href="#_lab2_1_1" rel="nofollow">局部引用</a></li> <li><a href="#_lab2_1_2" rel="nofollow">html</a></li> <li><a href="#_lab2_1_3" rel="nofollow">methods获取播放时间</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>vue获取视频时长</h2> <p>传入参数为视频文件对象</p> <p><strong>js的代码如下：</strong></p> <div class="ay1code"> <pre class="brush:js;">getVideoDuration(file) {    var url = URL.createObjectURL(file);    var audioElement = new Audio(url);    var self = this;    var result;    audioElement.addEventListener("loadedmetadata", function() {      // 视频时长值的获取要等到这个匿名函数执行完毕才产生      result = audioElement.duration; //得到时长为秒，小数，182.36      self.ruleForm.videoDuration = parseInt(result); //转为int值    });  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue-video-player获取播放时间</h2> <div class="ay1code"> <pre class="brush:js;">npm install vue-video-player -S</pre> </div> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>全局引用</h3> <div class="ay1code"> <pre class="brush:js;">import VideoPlayer from 'vue-video-player'  import 'vue-video-player/src/custom-theme.css'  import 'video.js/dist/video-js.css'  Vue.use(VideoPlayer)</pre> </div> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>局部引用</h3> <div class="ay1code"> <pre class="brush:js;">  import {      videoPlayer    } from 'vue-video-player'    import 'video.js/dist/video-js.css'    export default {    components: {      videoPlayer    }  }</pre> </div> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>html</h3> <div class="ay1code"> <pre class="brush:xhtml;">   &lt;video-player class="video-player vjs-custom-skin"               ref="videoPlayer"               :playsinline="true"               :options="playerOptions"&gt;        &lt;/video-player&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>methods获取播放时间</h3> <div class="ay1code"> <pre class="brush:js;">  this.$nextTick(() =&gt; {         setTimeout(() =&gt; {         let du = document.getElementById("vjs_video_3_html5_api") //获取组件下的video         var hour = parseInt((du.duration) / 3600);         var minute = parseInt((du.duration % 3600) / 60);         var second = parseInt(du.duration % 60);         let result = ''         if (hour &gt; 0) {         result = this.formatTimeStr(hour) + ':' + this.formatTimeStr(minute) + ':' + this         .formatTimeStr(second)                   } else {                      result = this.formatTimeStr(minute) + ':' +                     this.formatTimeStr(second)                    }                    return result //转化成分，秒                  }, 200)                })          formatTimeStr(val) {          if (val &gt; 9) {            return val          } else {            return '0' + val          }        },</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-36365.htm">由浅入深快速掌握Java 数组的使用_java</a></p>
+                                        <p>下一个：<a href="/news/article-36844.htm">兽医成人本科可以考证吗（成人大学兽医专业可以考兽医医师资格证吗?）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -82,16 +83,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-32547.htm" title="一文解决浏览器跨域问题">一文解决浏览器跨域问题</a></li>
-                        <li class="py-2"><a href="/news/article-34458.htm" title="送养一个孩子怎样写协议书呢视频（送养一个孩子怎样写协议书呢视频教程）">送养一个孩子怎样写协议书呢视频（送养一个孩子怎样写协议书呢视频教程）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe-links.htm" title="11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31601.htm" title="vue实现页面刷新动画_vue.js_">vue实现页面刷新动画_vue.js_</a></li>
-                        <li class="py-2"><a href="/news/article-32548.htm" title="北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）">北京宠物医院前十名一朝阳区宠爱医院（北京朝阳区宠物医院哪个好）</a></li>
-                        <li class="py-2"><a href="/news/article-19073.htm" title="开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢">开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-nekobox-node-windows.htm" title="10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">10月27日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-nekobox-node.htm" title="11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接">11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-36366.htm" title="在vue项目中如何获取视频的时长_vue.js_">在vue项目中如何获取视频的时长_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-36006.htm" title="如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？">如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-nekobox-node-share.htm" title="10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-latest-nekobox-node.htm" title="11月24日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接">11月24日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-latest-nekobox-node.htm" title="10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36365.htm" title="由浅入深快速掌握Java 数组的使用_java">由浅入深快速掌握Java 数组的使用_java</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-today-nekobox-node.htm" title="12月4日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">12月4日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21356.htm" title="南京免费领养猫咪的地方在哪里啊（南京免费领养宠物的地方在哪里）">南京免费领养猫咪的地方在哪里啊（南京免费领养宠物的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-24586.htm" title="unity 编辑器扩展简单入门">unity 编辑器扩展简单入门</a></li>
+                        <li class="py-2"><a href="/news/article-34459.htm" title="为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）">为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）</a></li>
                     </ul>
     </div>
 </div>
@@ -103,7 +104,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
