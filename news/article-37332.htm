@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-37332.htm" />
+    <meta charset="utf-8">
+    <title>python -mysql-excel数据导出-如何把python的list列表中的数据放入sql语句的in后的语句中的办法</title>
+        <meta name="description" content="1.重要内容分析： 如何把python的list列表中的数据放入sql语句的in后的语句中的办法：  idlists=dics["data"]["cameraIdList"]   #返回一个列表【“i" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>python -mysql-excel数据导出-如何把python的list列表中的数据放入sql语句的in后的语句中的办法</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1.重要内容分析：</p> <p>如何把python的list列表中的数据放入sql语句的in后的语句中的办法：</p> <blockquote> <pre>idlists=dics["data"]["cameraIdList"]   #返回一个列表【“id1”，“id2”，。。。】 # print(idlists) ids=tuple(idlists) idstrs=str(ids)   #变成sql中的字符查询   #这里是关键信息，重点查询数据信息，把python中的列表转换成字符，然后在sql中查询  #1. sqlselect = "select * from device WHERE id in {}".format(idstrs) sqlselect = "select * from device WHERE id in {}".format(ids) cursor = db.cursor()</pre> </blockquote> <pre><code>import requests import json import pymysql from openpyxl import load_workbook import openpyxl   # 下载内容的组织结构： # json # 	code # 	data # 		message # 		cameraIdList # 			j7bP32dsdssdsdsdsdqw # 			j7bwewerwewewerwewee  # //1.下载文件  #0.连接mysql数据库    """ 程序解决问题： 1.下载ppvm中指定用户下的包含哪些点位信息，例如，张三 这个用户下的有哪些点位信息 2.导出张三 账户下的点位信息到excel表格中。  难点：把这个列表‘idlists=dics["data"]["cameraIdList"] ’===&gt;先转换为元组格式，然后通过format放入sql语句中 放入sql语句的  sqlselect = "select * from evice WHERE id in {}".format(idstrs) 中， 此处使用了拼接字符串的方式解决， """ db = pymysql.connect(host='127.0.0.1', user='root',passwd= 'a123456', db='stryvmdb')  # 下载json文件信息 def calldoloadfile():     ip=input("请输入ppvm的地址：").strip()     id=input("请输入np_pvmdb数据库中对应的用户的id名称：").strip()     doloadfile(ip, id)  def doloadfile(ip,id):     url61 = "http://{}:31121/npconfig/api/v1/{}/camera/idList".format(ip,id)      res=requests.get(url61)       savefilename="{}.json".format(ip)     with open(savefilename,"wb") as f:   #这里关注wb写入的是二进制文件         f.write(res.content)  #2.读取需要的文件---》一个列表  def callreadfile():     jsonname=input("请输入要读取的json文件名称：")     # 判断下 如果没有写*。json后缀，自动加上后缀     if not jsonname.endswith(".json"):         jsonname="{}.json".format(jsonname)      xlsxname="{}.xlsx".format(jsonname)   #保存的excel文件名，跟输入的json文件同名      readfile(jsonname,xlsxname)   def readfile(jsonname,xlsxname):     # with open("61json.json","r") as fr:     with open(jsonname,"r") as fr:         dics=json.load(fr)          # print(dics)         # return dics         idlists=dics["data"]["cameraIdList"]   #返回一个列表【“id1”，“id2”，。。。】         # print(idlists)         ids=tuple(idlists)         idstrs=str(ids)   #变成sql中的字符查询           #这里是关键信息，重点查询数据信息，把python中的列表转换成字符，然后在sql中查询          # sqlselect = "select * from device WHERE id in {}".format(idstrs)         sqlselect = "select * from device WHERE id in {}".format(ids)         cursor = db.cursor()         cursor.execute(sqlselect)          wb = openpyxl.Workbook()         wbsheet = wb.create_sheet("结果")         print("数据写入文件中，请稍等....")         result=cursor.fetchall()         # print(result)         for rowdata in result:             wbsheet.append(rowdata)  #写入excel表格             # print(rowdata)          wb.save(xlsxname)  #保存的excel表格          cursor.close()  #关闭游标         db.close()   #关闭数据库         print("完成数据写入，请到软件目录下获取excel文件")   def calldownloadcity():     citycode = input("请输入你要下载的城市代码code：")      downloadCity(citycode)  # 下载每个地市的文件，采用sql语句+excel表格的方式 def downloadCity(citycode):      #这里字符串的解决一定要注意的     # sqlcity = "select * from deviceWHERE gb_id like %s%%"%(citycode)     sqlcity = "select * from deviceWHERE gb_id like '{}%%'".format(citycode)     print(sqlcity)     cursor = db.cursor()     cursor.execute(sqlcity)      wb = openpyxl.Workbook()     wbsheet = wb.create_sheet("结果")     print("数据写入文件中，请稍等....")     result = cursor.fetchall()     # print(result)     for rowdata in result:         wbsheet.append(rowdata)  # 写入excel表格         # print(rowdata)     xlsxname="{}.xlsx".format(citycode)     wb.save(xlsxname)  # 保存的excel表格      cursor.close()  # 关闭游标     db.close()  # 关闭数据库     print("完成数据写入，请到软件目录下获取excel文件")   def fludb():     pass      func_dic = {     '1':calldoloadfile,     '2':callreadfile,     '3':calldownloadcity,  }  if __name__ == '__main__':      while True:         print('''                          ===========功能列表===========             1.下载pvm导出的用户权限的json文件             2.读取数据并且生成excel表格             3.下载cc数据                  ==================              ''')         choice = input('请输入功能编号：').strip()         if choice not in func_dic:             print("输入正确的编号：")             continue          func_dic.get(choice)()         # print("本次录入数据条目是{}:条".format(jc))      </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36845.htm">青岛比较好的宠物医院（青岛比较好的宠物医院有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-37333.htm">成都动物防疫站打针免费吗 成都动物防疫站打针免费吗现在</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24110.htm" title="vue电商后台管理系统保姆级教程 主页布局和功能实现">vue电商后台管理系统保姆级教程 主页布局和功能实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-node-share.htm" title="1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-node-share.htm" title="12月18日 - 最高速度18M/S，2024年Nekobox每天更新免费节点订阅链接">12月18日 - 最高速度18M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-nekobox-node-windows.htm" title="10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-nekobox-node.htm" title="10月26日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月26日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-node-share-links.htm" title="11月16日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月16日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35007.htm" title="动物医院实践心得3000字怎么写 动物医院实践心得3000字怎么写的">动物医院实践心得3000字怎么写 动物医院实践心得3000字怎么写的</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="12月9日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月9日 - 最高速度19.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19978.htm" title="申请动物医院的条件和流程怎么写申请书（动物医院办理条件）">申请动物医院的条件和流程怎么写申请书（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/news/article-22729.htm" title="怎样制作狗粮颗粒饲料（怎样制作狗粮颗粒饲料视频）">怎样制作狗粮颗粒饲料（怎样制作狗粮颗粒饲料视频）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
