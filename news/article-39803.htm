@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-39803.htm" />
+    <meta charset="utf-8">
+    <title>js模块 &#8211; amd cmd commonjs esm umd</title>
+        <meta name="description" content="写过前端代码大概率听说过amdcmdumdcommonjsesm这些名词, 想当初我第一次看到这些的时候, 人都麻了, 都是些啥啊. 后来我知道了, 这些都是js的模块规范. amd - 浏览器中的j" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>js模块 &#8211; amd cmd commonjs esm umd</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>写过前端代码大概率听说过<code>amd</code><code>cmd</code><code>umd</code><code>commonjs</code><code>esm</code>这些名词, 想当初我第一次看到这些的时候, 人都麻了, 都是些啥啊. 后来我知道了, 这些都是js的模块规范.</p> <h2 id="amd---浏览器中的js模块化解决方案">amd - 浏览器中的js模块化解决方案</h2> <p><strong>AMD</strong>全称是<code>Async Module Definition</code>异步模块定义</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://requirejs.org/docs/start.html"  target="_blank" rel="nofollow"><code>RequireJs</code></a>是AMD模块规范的一个具体实现.</p> <p><strong>AMD</strong>中定义一个计算器模块<code>calculator</code>, 这个模块依赖另一个名为<code>math</code>的模块</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">define('calculator', ['math'], function(math) {     return {         add: function(left, right) { return math.add(left, right) },         subtract: function(left, right) { return math.subtract(left, right) }     } })</code></pre> </details> <p>使用刚才定义的<code>calculator</code>模块</p> <details open=""> <summary>main.js</summary> <pre><code class="language-javascript">require('calculator', function(calculator) {     console.log('1 + 1 = ' + calculator.add(1, 1));     console.log('2 - 2 = ' + calculator.subtract(2, 1)); })</code></pre> </details> <h2 id="cmd---类似amd的用于浏览器中的js模块规范">cmd - 类似amd的用于浏览器中的js模块规范</h2> <p><strong>CMD</strong>全称是<code>Common Module Definition</code>即通用模块定义,. 像<code>AMD</code>与<code>RequireJs</code>关系一样, 与<code>CMD</code>规范绑定的是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/seajs/seajs"  target="_blank" rel="nofollow"><code>sea.js</code></a></p> <p>在定义模块方面,<code>CMD</code>和<code>AMD</code>一样通过<code>define</code>函数来定义模块; 两者的主要区别在于对依赖的加载上,<code>CMD</code>中不需要在<code>define</code>的参数中直接声明需要用到的模块</p> <p>还是以声明<code>calculator</code>模块为例</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">define('calculator', function(require, exports) {     var math = require('math');     exports.add = function(left, right) { return math.add(left, right) };     exports.subtract = function(left, right) { return math.subtract(left, right) }; })</code></pre> </details> <p>可以看到<code>calculator</code>模块所的依赖的<code>math</code>模块没有在<code>define</code>函数的参数中进行声明, 而是通过<code>require('math')</code>来引入的</p> <p>使用<code>calculator</code>模块</p> <pre><code class="language-javascript">seajs.use(['calculator'], function(calculator) {     console.log('1 + 1 = ' + calculator.add(1, 1));     console.log('2 - 2 = ' + calculator.subtract(2, 1)); })</code></pre> <h2 id="commonjs---node中使用的模块规范">commonjs - Node中使用的模块规范</h2> <p>定义<code>math</code>模块</p> <details open=""> <summary>math.js</summary> <pre><code class="language-javascript">module.exports = {     add: function(left, right) {         return left + right;     },     subtract: function(left, right) {         return left - right;     } }</code></pre> </details> <p>使用刚才定义的<code>math</code>模块, 并再定义一个<code>calculator</code>模块</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">const math = require('./math.js'); module.exports = {     add: math.add }</code></pre> </details> <h2 id="umd---一种同时兼容amd-cmd-commonjs规范的规范">umd - 一种同时兼容amd cmd commonjs规范的规范</h2> <p><code>amd</code><code>cmd</code>通常只能在浏览器中使用,<code>commonjs</code>只能在服务端(Node)环境下使用, 这样子搞会导致我们基于其中某一种模块规范写的js模块无法在服务端和浏览器端进行复用. umd解决了这个问题, 它兼容并包, 使得使用此规范写的js模块既可以在浏览器环境下使用, 也可以在Node(服务端)环境中用</p> <pre><code class="language-javascript">(function (root, factory) {     if (typeof exports === 'object' &amp;&amp; typeof module === 'object')         // commonjs         module.exports = factory()     else if (typeof define === 'function' &amp;&amp; define.amd)         // amd         define([], factory)     else if (typeof exports === 'object')         // commonjs         exports['math'] = factory()     else         // 全局对象, 浏览器中是 window         root['math'] = factory() })(this, function() {     return { add: function(left, right) { return left + right; } } })</code></pre> <h2 id="esm---es6模块规范">esm - ES6模块规范</h2> <p>使用<code>import</code>导入模块, 通过<code>export</code>导出模块</p> <details open=""> <summary>math.js</summary> <pre><code class="language-javascript">export { add: (left, right) =&gt; left + right; }</code></pre> </details> <details open=""> <summary>点击此处查看代码</summary> <pre><code class="language-javascript">import { add } from './math.js';  console.log('1 + 1 = ' + add(1, 1));</code></pre> </details> <h2 id="小结">小结</h2> <p>amd, cmd已经成为了过去式(个人感觉), 现在常用的模块规范一般就是es6模块和commonjs(只用于node)了, node中也已经提供了实验性的es模块支持.</p> <p>浏览器对es的<code>import</code>和<code>export</code>的支持也已经很不错了(除了IE其他主流浏览器都支持了)</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2a3262e09c1cee781b4a08e11d8dc854.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> <p>好消息是微软将在2022-6-15停止对IE11在win10非长期支持版上的支持</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/61fdaae138c65050a1d1755afe322624.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5e26ee78ba71e327a65bf51e568094d9.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39304.htm">宠物寄养协议书范本图片模板（宠物寄养协议书范本图片模板高清）</a></p>
+                                        <p>下一个：<a href="/news/article-39804.htm">宠物医院能治猫藓吗（宠物医院治猫藓贵吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe-links.htm" title="1月4日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月4日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-33028.htm" title="动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全">动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-nekobox-node.htm" title="10月26日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月26日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-latest-nekobox-node.htm" title="11月5日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月5日 - 最高速度21.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21357.htm" title="宠物粮品牌名称及图片大全集（宠物粮品牌起名字）">宠物粮品牌名称及图片大全集（宠物粮品牌起名字）</a></li>
+                        <li class="py-2"><a href="/news/article-39804.htm" title="宠物医院能治猫藓吗（宠物医院治猫藓贵吗）">宠物医院能治猫藓吗（宠物医院治猫藓贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-38804.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/news/article-27365.htm" title="docker搭建confluence（wiki）">docker搭建confluence（wiki）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-subscribe-node.htm" title="10月20日 - 最高速度22.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月20日 - 最高速度22.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-today-nekobox-node.htm" title="10月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
