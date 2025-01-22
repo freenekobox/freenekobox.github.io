@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-44261.htm" />
+    <meta charset="utf-8">
+    <title>Eureka详解系列(四)&#8211;Eureka Client部分的源码和配置</title>
+        <meta name="description" content="按照原定的计划，我将分三个部分来分析 Eureka 的源码：  Eureka 的配置体系（已经写完，见Eureka详解系列(三)–探索Eureka强大的配置体系）； Eureka Client 的交互" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-44261.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="Eureka详解系列(四)&#8211;Eureka Client部分的源码和配置" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/55356d9983b21529075837c6fa2f8f25.webp" />
+        <meta property="og:release_date" content="2025-01-22T10:10:58" />
+    <meta property="og:updated_time" content="2025-01-22T10:10:58" />
+        <meta property="og:description" content="按照原定的计划，我将分三个部分来分析 Eureka 的源码：  Eureka 的配置体系（已经写完，见Eureka详解系列(三)–探索Eureka强大的配置体系）； Eureka Client 的交互" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Eureka详解系列(四)&#8211;Eureka Client部分的源码和配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>Eureka详解系列(四)&#8211;Eureka Client部分的源码和配置</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>按照原定的计划，我将分三个部分来分析 Eureka 的源码：</p> <ol> <li>Eureka 的配置体系（已经写完，见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ZhangZiSheng001/p/14374005.html"  rel="nofollow">Eureka详解系列(三)–探索Eureka强大的配置体系</a>）；</li> <li>Eureka Client 的交互行为；</li> <li>Eureka Server 的交互行为。</li> </ol> <p>今天，我们来研究第二部分的源码。</p> <p>我的思路是这样子的：先明确 Eureka Client 拥有哪些功能，然后从源码角度分析如何实现，最后，我会补充 Eureka Client 的配置解读。</p> </h1> <p>首先来回顾下 Eureka 的整个交互过程。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/5199f2421b7cec43e97e80e7d52b8e6d.jpg" alt="Eureka详解系列(四)--Eureka Client部分的源码和配置"></p> <p>从用户的角度来讲，Eureka Client 要能够向 Eureka Server 注册当前实例以及获取注册表。</p> <p>至于其他的功能，我们需要再思考下。</p> <p>当我们把当前实例注册到了 Eureka Server 后，并非一劳永逸，如果当前实例故障了，Eureka Server 需要及时将它从注册表中剔除，那么，Eureka Server 怎么知道哪些实例故障了呢？做法比较简单，Application Service 需要定期向 Eureka Server 报告自己的健康状态，如果一直不报告，就认为是故障了。</p> <p>考虑到性能和可靠性，Application Client 本地会缓存一份服务注册表，并不需要每次用到就从 Eureka Server 重新获取。但是，Application Service “来来去去”，Eureka Server 的注册表并非一成不变，所以，Application Client 还需要定期同步注册表。</p> <p>最后还有一点，我们注册到 Eureka Server 的实例信息，除了实例 IP、端口、服务名等，还有实例 id、附带的元数据等，这些是可更改的，Application Service 需要及时地将这些更改同步到 Eureka Server。</p> <p>通过上面的分析，我们知道<strong>一个 Eureka Client 需要具备以下功能</strong>：</p> <ol> <li><strong>注册当前实例到 Eureka Server</strong>；</li> <li><strong>获取 Eureka Server 的服务注册表</strong>；</li> <li><strong>定期向 Eureka Server 发送心跳</strong>；</li> <li><strong>定期向 Eureka Server 同步当前实例信息</strong>；</li> <li><strong>定期刷新本地服务注册表</strong></li> </ol> </h1> <p>知道了 Eureka Client 需要具备哪些功能，接下来我们就从源码的角度来看看怎样实现这些功能。</p> <p>和之前一样，我更多的会从设计的层面来分析，而不会顺序地去看每个过程的代码，即重设计、轻实现。如果对源码细节有疑问的，可以交流学习下。</p> <p>那么，还是从一个 UML 图开始吧。有了它，相信大家看源码时会更轻松一些。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/86a7b9a3402995407a66ad41d2682599.jpg" alt="Eureka详解系列(四)--Eureka Client部分的源码和配置"></p> <p>通过这个图，我们再来看 Eureka Client 的几个功能：</p> <ol> <li>注册当前实例到 Eureka Server；–初始化<code>DiscoveryClient</code>时就会注册上去。</li> <li>获取 Eureka Server 的服务注册表；–通过<code>DiscoveryClient</code>获取。</li> <li>定期向 Eureka Server 发送心跳；–通过<code>HeartbeatThread</code>任务实现。</li> <li>定期向 Eureka Server 同步当前实例信息；–通过<code>InstanceInfoReplicator</code>任务实现。</li> <li>定期刷新本地服务注册表；–通过<code>CacheRefreshThread</code>任务实现。</li> </ol> <p>我们拿<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ZhangZiSheng001/p/14337985.html"  rel="nofollow">Eureka详解系列(二)–如何使用Eureka(原生API，无Spring)</a> 中的例子来分析下整个过程。</p> <pre><code class="prism language-java"><span class="token comment">// 创建ApplicationInfoManager对象</span> ApplicationInfoManager applicationInfoManager<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ApplicationInfoManager</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">MyDataCenterInstanceConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span><span class="token class-name">EurekaConfigBasedInstanceInfoProvider</span><span class="token punctuation">(</span>instanceConfig<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 创建EurekaClient对象，这个时候完成了几件事：</span><span class="token comment">// 1. 注册当前实例到Eureka Server（实例的初始状态一般是STARTING）；</span><span class="token comment">// 2. 开启心跳、刷缓存、同步实例信息的定时任务；</span><span class="token comment">// 3. 注册状态监听器到ApplicationInfoManager（不然后面的setInstanceStatus不会生效的）</span> EurekaClient eurekaClient<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">DiscoveryClient</span><span class="token punctuation">(</span>applicationInfoManager<span class="token punctuation">,</span><span class="token keyword">new</span><span class="token class-name">DefaultEurekaClientConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 设置当前实例状态为STARTING（原状态也是STARTING，所以这一句没什么用）</span> applicationInfoManager<span class="token punctuation">.</span><span class="token function">setInstanceStatus</span><span class="token punctuation">(</span>InstanceInfo<span class="token punctuation">.</span>InstanceStatus<span class="token punctuation">.</span>STARTING<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 设置当前实例状态为UP触发（监听器触发，执行InstanceInfoReplicator的任务）</span> applicationInfoManager<span class="token punctuation">.</span><span class="token function">setInstanceStatus</span><span class="token punctuation">(</span>InstanceInfo<span class="token punctuation">.</span>InstanceStatus<span class="token punctuation">.</span>UP<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 和application client交互</span><span class="token comment">// ······</span><span class="token comment">// 关闭客户端，同时也会注销当前实例</span> eurekaClient<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>我们会发现，<code>DiscoveryClient</code>初始化化时做了非常多的事情，核心的源码都在它的构造方法里，大家感兴趣的可以自行阅读。</p> <p>这里提醒下，Eureka 的定时任务有点奇怪，它不是完全交给<code>ScheduledExecutorService</code>来调度，举个例子，<code>ScheduledExecutorService</code>只会按设定的延迟执行一次心跳任务，然后就不执行了，之所以能够实现定时调度，是因为心跳任务里又提交了一次任务，代码如下：</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token comment">// ······</span><span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{<!-- --></span><span class="token comment">// ······</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>scheduler<span class="token punctuation">.</span><span class="token function">isShutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 scheduler<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> delay<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </h1> <p>回顾下<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ZhangZiSheng001/p/14374005.html"  rel="nofollow">Eureka详解系列(三)–探索Eureka强大的配置体系</a>的内容，在 Eureka 里，配置分成了三种：</p> <ol> <li><strong>EurekaInstanceConfig</strong>：当前实例身份的配置信息，即<strong>我是谁？</strong></li> <li><strong>EurekaServerConfig</strong>：一些影响当前Eureka Server和客户端或对等节点交互行为的配置信息，即<strong>怎么交互？</strong></li> <li><strong>EurekaClientConfig</strong>：一些影响当前实例和Eureka Server交互行为的配置信息，即<strong>和谁交互？怎么交互？</strong></li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/e4ac41067b592bf884ff0069cee0b5c9.jpg" alt="Eureka详解系列(四)--Eureka Client部分的源码和配置"></p> <p>这里我们来讲讲<code>EurekaInstanceConfig</code>和<code>EurekaClientConfig</code>的配置参数。</p> <h2><a id="EurekaInstanceConfig_104" rel="nofollow"></a>EurekaInstanceConfig–我是谁？</h2> <p>这些参数大部分用来向 Eureka Server 表明当前实例的身份，但我们会发现，这里混进了两个“异类”–lease.renewalInterval 和 lease.duration，这个不应该放在<code>EurekaClientConfig</code>里吗？</p> <p>我一开始也不明白，后来发现很重要的一点，<strong><code>EurekaClientConfig</code>的参数只能影响当前实例，而不能影响 Eureka Server</strong>，它的信息不能向 Eureka Server 传递，而<code>EurekaInstanceConfig</code>的就可以，所以，除了表明实例的身份，<code>EurekaInstanceConfig</code>还有另外一个功能，就是向 Eureka Server 传递某些重要的交互参数。</p> <pre><code class="prism language-properties"># 同一个服务下存在多个实例，这个可以作为唯一标识区分它们。默认为当前实例的主机名 eureka.instanceId=zzs  # 服务名。默认unknown eureka.name=SampleService  # 当前实例开放服务的端口，默认80 eureka.port=8001  # 当前实例多久向Eureka Server发送一次心跳，单位秒。默认30s eureka.lease.renewalInterval=30 # 如果没收到心跳，Eureka Server隔多久将当前实例剔除，单位秒。默认90s eureka.lease.duration=90  # 当前实例的虚拟主机名，通过这个可以直接访问到当前实例。默认：当前主机名+port eureka.vipAddress=sampleservice.zzs.cn  # 绑定在当前实例的一些自定义信息，它们会被放在一个map里，其他Eureka Client可以拿来用。默认是一个空map eureka.metadata.name=zzs eureka.metadata.age=18  # 这几个一般不用，我就不展开了 eureka.appGroup=unknown #eureka.asgName= eureka.traffic.enabled=false eureka.port.enabled=true eureka.securePort=443 eureka.securePort.enabled=false eureka.secureVipAddress=zzs:443 eureka.statusPageUrlPath=/Status eureka.statusPageUrl=http://zzs:8001/Status eureka.homePageUrlPath=/ eureka.homePageUr=http://zzs:8001/ eureka.healthCheckUrlPath=/healthcheck eureka.healthCheckUrl=http://zzs:8001/healthcheck eureka.secureHealthCheckUrl=https://zzs:443/healthcheck</code></pre> <h2><a id="EurekaClientConfig_149" rel="nofollow"></a>EurekaClientConfig–和谁交互？怎么交互？</h2> <p>关于 Eureka Server 集群的配置，有三种方法：</p> <ol> <li>在 serviceUrl 中写死 Eureka Server 的 IP，缺点就是每次增加、删除、更改机器都要更改配置；</li> <li>在 serviceUrl 中配置 Eureka Server 对应的 EIP，更改机器时不需要更改，但是增加、删除机器都要更改配置；</li> <li><strong>采用 DNS 配置 Eureka Server 的 IP</strong>，增加、删除、更改机器都不需要更改配置。</li> </ol> <p>这里还涉及到 region、zone 的概念，可以理解为：region 表示机器部署在不同的城市，zone 表示机器部署在同一个城市的不同机房里。默认情况下，Eureka Client 会优先选择自己所属 region 的 Eureka Server 来访问。</p> <pre><code class="prism language-properties"># 当前实例多久同步一次本地注册表，单位秒。默认30s eureka.client.refresh.interval=30 # 当前实例多久同步一次实例信息，单位秒。默认30s eureka.appinfo.replicate.interval=30  # 当前实例是否注册到Eureka Server。默认true eureka.registration.enabled=true # 当前实例是否需要从Eureka Server获取服务注册表 eureka.shouldFetchRegistry=true  # 当前实例可以和哪些region的Eureka Server交互 eureka.fetchRemoteRegionsRegistry=beijing,shanghai # 当前实例所在的region eureka.region=beijing # region下有哪些zone eureka.beijing.availabilityZones=zone-1,zone-2 eureka.shanghai.availabilityZones=zone-3 # zone下有哪些Eureka Server（这种配置可以通过EIP来避免写死IP，但扩展时还是要改，推荐使用DNS的方式） eureka.serviceUrl.zone-1=http://ec2-552-627-568-165.compute-1.amazonaws.com:7001/eureka/v2/,http://ec2-368-101-182-134.compute-1.amazonaws.com:7001/eureka/v2/ eureka.serviceUrl.zone-2=http://ec2-552-627-568-170.compute-1.amazonaws.com:7001/eureka/v2/ eureka.serviceUrl.zone-3=http://ec2-500-179-285-592.compute-1.amazonaws.com:7001/eureka/v2/  # 当我们使用DNS配置serviceUrl时需要用到的配置（非常推荐使用，可以避免写死IP，且方便扩展） eureka.shouldUseDns=true eureka.eurekaServer.domainName=sampleservice.zzs.cn eureka.eurekaServer.port=8001 eureka.eurekaServer.context=eureka/v2  # 这几个一般不用，我就不展开了 eureka.preferSameZone=true eureka.appinfo.initial.replicate.time=40 eureka.serviceUrlPollIntervalMs=300 eureka.client.heartbeat.threadPoolSize=5 eureka.client.heartbeat.exponentialBackOffBound=10 eureka.client.cacheRefresh.threadPoolSize=5 eureka.client.cacheRefresh.exponentialBackOffBound=10 #eureka.eurekaServer.proxyHost= #eureka.eurekaServer.proxyPort= #eureka.eurekaServer.proxyUserName= #eureka.eurekaServer.proxyPassword= eureka.eurekaServer.gzipContent=true eureka.eurekaServer.readTimeout=8 eureka.eurekaServer.connectTimeout=5 eureka.eurekaServer.maxTotalConnections=200 eureka.eurekaServer.maxConnectionsPerHost=50 eureka.eurekaserver.connectionIdleTimeoutInSeconds=45 #eureka.backupregistry= eureka.shouldEnforceRegistrationAtInit=false eureka.shouldEnforceFetchRegistryAtInit=false eureka.shouldUnregisterOnShutdown=true eureka.shouldFilterOnlyUpInstances=true eureka.shouldOnDemandUpdateStatusChange=true eureka.allowRedirects=true eureka.printDeltaFullDiff=true eureka.disableDelta=false eureka.registryRefreshSingleVipAddress=false eureka.dollarReplacement=_- eureka.escapeCharReplacement=__ #eureka.encoderName= #eureka.decoderName= eureka.clientDataAccept=full eureka.experimental.clientTransportFailFastOnInit=true</code></pre> <p>以上比较宏观地讲完了 Eureka Client 的源码和配置，感谢您的阅读。</p> </h1> <p>https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance</p> <blockquote> <p>相关源码请移步：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/ZhangZiSheng001/eureka-demo"  rel="nofollow">https://github.com/ZhangZiSheng001/eureka-demo</a></p> </blockquote> <blockquote> <p>本文为原创文章，转载请附上原文出处链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ZhangZiSheng001/p/14381169.html"  rel="nofollow">https://www.cnblogs.com/ZhangZiSheng001/p/14381169.html</a></p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43772.htm">动物医院诊疗许可证需要提供什么材料呢 动物医院诊疗许可证需要提供什么材料呢</a></p>
+                                        <p>下一个：<a href="/news/article-44262.htm">关于vue中api统一管理的那些事_vue.js_</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-nekobox-node-github.htm" title="11月8日 - 最高速度22.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月8日 - 最高速度22.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33502.htm" title="中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）">中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）</a></li>
+                        <li class="py-2"><a href="/news/article-33027.htm" title="被猫咬了一个小孔轻微出血（被猫咬了一个小孔轻微出血怎么办）">被猫咬了一个小孔轻微出血（被猫咬了一个小孔轻微出血怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址">1月12日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-19977.htm" title="动物医院好评语100字通用怎么写呀（动物医院大众点评100字通用评论）">动物医院好评语100字通用怎么写呀（动物医院大众点评100字通用评论）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-nekobox-node.htm" title="11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接">11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30642.htm" title="穷人养殖业什么最稳啃（适合穷人的创业项目养殖）">穷人养殖业什么最稳啃（适合穷人的创业项目养殖）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-nekobox-node-share.htm" title="1月9日 - 最高速度22.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月9日 - 最高速度22.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-today-nekobox-node.htm" title="12月29日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅地址">12月29日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-node-share.htm" title="12月30日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅地址">12月30日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
