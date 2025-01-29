@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-47218.htm" />
+    <meta charset="utf-8">
+    <title>Spring JdbcTemplate入门</title>
+        <meta name="description" content="Spring JdbcTemplate入门 一、创建数据库和表 2、在pom文件里添加数据库相关依赖3、在lesson06.bean的子包里创建User类4、创建用户数据访问接口 5、创建用户数据访问" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-47218.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="Spring JdbcTemplate入门" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/cebeff9f8a992002c6854fe1fd092386.webp" />
+        <meta property="og:release_date" content="2025-01-28T09:30:49" />
+    <meta property="og:updated_time" content="2025-01-28T09:30:49" />
+        <meta property="og:description" content="Spring JdbcTemplate入门 一、创建数据库和表 2、在pom文件里添加数据库相关依赖3、在lesson06.bean的子包里创建User类4、创建用户数据访问接口 5、创建用户数据访问" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring JdbcTemplate入门">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>Spring JdbcTemplate入门</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="Spring_JdbcTemplate_0" rel="nofollow"></a>Spring JdbcTemplate入门</h2> <p>一、创建数据库和表<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/1da678c2ba20142ec2b0fac3e2492fbd.jpg" alt="Spring JdbcTemplate入门"><br /> 2、在pom文件里添加数据库相关依赖<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/2cd6099bb3cccce21deefad9ae1e2d96.jpg" alt="Spring JdbcTemplate入门">3、在lesson06.bean的子包里创建User类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/a134216735e44e3ad6e87f528f5b3cca.jpg" alt="Spring JdbcTemplate入门">4、创建用户数据访问接口</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230110/a39db234c3a7984b1133cd44d50829d0.jpg" alt="Spring JdbcTemplate入门">5、创建用户数据访问接口实现类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/d9a74acf771a8e5d34a279099bb0dd22.jpg" alt="Spring JdbcTemplate入门">6、创建用户服务类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/af08f6fd431a30672ddbbefe21df1859.jpg" alt="Spring JdbcTemplate入门">7、创建数据库配置属性文件（连接名和密码需修改为自己的）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/361ba841188af37e3df5b8c226112b05.jpg" alt="Spring JdbcTemplate入门">8、创建spring配置文件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/1213b644968cf9ec7effc9d6572d8270.jpg" alt="Spring JdbcTemplate入门">9、创建测试通过编号查询用户方法<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/085b8cda67663f6b61daa8028dc88b45.jpg" alt="Spring JdbcTemplate入门">10、运行代码，实现功能<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/cce35de6610f4968f01b4803bcb58dae.jpg" alt="Spring JdbcTemplate入门">查询数据成功，这里报红的原因是MySQL在高版本需要指明是否进行SSL连接：<br /> 11、测试查询全部用户方法<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/7c49bff797d0e5edd511eeaa7bd02136.jpg" alt="Spring JdbcTemplate入门"><img decoding="async" src="http://img.555519.xyz/uploads/20230110/84a18fea3f91d424c7806d41ae6d6ba9.jpg" alt="Spring JdbcTemplate入门">12、测试用户登录方法<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/d09ea5b9873b1645ed1bb0833b96b967.jpg" alt="Spring JdbcTemplate入门">还有其他的测试方法，我们可以去尝试，这会让我们受益匪浅。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46734.htm">动物疫苗的作用有哪些种类的 动物疫苗的作用有哪些种类的</a></p>
+                                        <p>下一个：<a href="/news/article-47219.htm">1970年4月27日农历是多少（70年4月27号农历是）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27365.htm" title="docker搭建confluence（wiki）">docker搭建confluence（wiki）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-today-nekobox-node.htm" title="1月14日 - 最高速度22.8M/S，2025年Nekobox每天更新免费节点订阅地址">1月14日 - 最高速度22.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-nekobox-node.htm" title="11月29日 - 最高速度19M/S，2024年Nekobox每天更新免费节点订阅链接">11月29日 - 最高速度19M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36009.htm" title="MySQL的安装和配置(超详细图文教程)">MySQL的安装和配置(超详细图文教程)</a></li>
+                        <li class="py-2"><a href="/news/article-36366.htm" title="在vue项目中如何获取视频的时长_vue.js_">在vue项目中如何获取视频的时长_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-nekobox-node.htm" title="10月31日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接">10月31日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-node-share.htm" title="10月12日 - 最高速度21.3M/S，2024年Nekobox每天更新免费节点订阅链接">10月12日 - 最高速度21.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-nekobox-node.htm" title="1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址">1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-latest-nekobox-node.htm" title="10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月28日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-nekobox-node-windows.htm" title="1月11日 - 最高速度21.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月11日 - 最高速度21.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
