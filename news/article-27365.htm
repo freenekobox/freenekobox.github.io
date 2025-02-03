@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freenekobox.github.io/news/article-27365.htm" />
@@ -7,18 +7,47 @@
     <title>docker搭建confluence（wiki）</title>
         <meta name="description" content="目录  1. 下载docker镜像 2. 新建confluence容器 3. 上传mysql驱动 4. 获取文件   4.1 将atlassian-extras-decoder-v2-3.4.1.ja" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-27365.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="docker搭建confluence（wiki）" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/084747a91b09a06849e761f3a4a71658.webp" />
+        <meta property="og:release_date" content="2024-12-18T09:52:48" />
+    <meta property="og:updated_time" content="2024-12-18T09:52:48" />
+        <meta property="og:description" content="目录  1. 下载docker镜像 2. 新建confluence容器 3. 上传mysql驱动 4. 获取文件   4.1 将atlassian-extras-decoder-v2-3.4.1.ja" />
+        
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="docker搭建confluence（wiki）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Bootstrap CSS File -->
-    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Libraries CSS Files -->
-    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
     <!-- Main Stylesheet File -->
     <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -39,7 +68,7 @@
         <div class="container">
             <div id="logo" class="pull-left">
                                 <a href="/" id="body" class="scrollto">Free Nekobox</a>
-                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
@@ -73,7 +102,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#1_docker_1" rel="nofollow">1. 下载docker镜像</a></li> <li><a href="#2_confluence_5" rel="nofollow">2. 新建confluence容器</a></li> <li><a href="#3_mysql_16" rel="nofollow">3. 上传mysql驱动</a></li> <li><a href="#4__20" rel="nofollow">4. 获取文件</a></li> <li> <ul> <li><a href="#41_atlassianextrasdecoderv2341jar_21" rel="nofollow">4.1 将atlassian-extras-decoder-v2-3.4.1.jar文件拷贝到本地</a></li> <li><a href="#42__26" rel="nofollow">4.2 使用工具获取</a></li> <li><a href="#43__37" rel="nofollow">4.3 将获取后的文件上传到容器中</a></li> </ul> </li> <li><a href="#5_mysql_44" rel="nofollow">5. 创建mysql用户及库</a></li> <li><a href="#6_confluence_54" rel="nofollow">6. 初始化confluence</a></li> </ul> </div> </h1> <pre><code class="prism language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker pull cptactionhank/atlassian-confluence:6.12.1</span></code></pre> </h1> <pre><code class="prism language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker run -itd -p 8090:8090 -u root -v /home/docker/atlassian/confluence:/var/atlassian/confluence -v /home/docker/atlassian/confluence/backups:/data/backups -v /home/docker/atlassian/confluence/logs:/opt/atlassian/confluence/logs --restart=always --log-opt max-size=200m --log-opt max-file=3 --name confluence cptactionhank/atlassian-confluence:6.12.1</span></code></pre> <blockquote> <p>-p 8090:8090 #端口映射<br /> -u root #指定容器用户（指定root后confluence服务进程会由root启动，否则则是demo启动）<br /> -v /home/docker/atlassian/confluence:/var/atlassian/confluence #挂载存储卷，做持久化存储<br /> –restart=always #docker容器重启策略，如果重启docker服务，该容器会自动启动<br /> –log-opt max-size=200m #对容器日志文件大小进行限制，日志达到200M进行轮转<br /> –log-opt max-file=3 #对容器日志文件数量进行限制，保留三份</p> </blockquote> </h1> <pre><code class="prism language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker cp ./mysql-connector-java-5.1.39-bin.jar confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/</span></code></pre> </h1> <h2><a id="41_atlassianextrasdecoderv2341jar_21" rel="nofollow"></a>4.1 将atlassian-extras-decoder-v2-3.4.1.jar文件拷贝到本地</h2> <pre><code class="prism language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker cp confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar ./</span><span class="token comment">#具体atlassian-extras-decoder-v2-3.4.1.jar文件名已自己confluence服务生成的为准</span></code></pre> <h2><a id="42__26" rel="nofollow"></a>4.2 使用工具获取</h2> <p><strong>先将atlassian-extras-decoder-v2-3.4.1.jar重命名为atlassian-extras-2.4.jar<br /> 再使用工具获取</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/7713dccc52ba04e006b386d558b2d65b.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/5555b48f8287c1b531d9af8b5c772ed0.jpg" alt="docker搭建confluence（wiki）"></p> <p><strong>左边.bak结尾的文件为原文件，右边为获取后的文件</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/26cd00821353d45d00eee49f9f62c5b5.jpg" alt="docker搭建confluence（wiki）"><br /><strong>将获取后的文件重命名回原文件名</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/4189e1d585044ab06c2b53800c601b1c.jpg" alt="docker搭建confluence（wiki）"></p> <h2><a id="43__37" rel="nofollow"></a>4.3 将获取后的文件上传到容器中</h2> <pre><code class="prism language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker cp ./atlassian-extras-decoder-v2-3.4.1.jar confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/</span><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># docker restart confluence #重启confluence容器</span> confluence</code></pre> </h1> <pre><code class="prism language-sql">创建confluence库（confluence支持mysql5<span class="token punctuation">.</span><span class="token number">7</span>的排序规则为utf8） mysql<span class="token operator">&gt;</span><span class="token keyword">create</span><span class="token keyword">database</span> confluence<span class="token keyword">default</span><span class="token keyword">character</span><span class="token keyword">set</span> utf8mb4<span class="token keyword">collate</span> utf8mb4_general_ci<span class="token punctuation">;</span> 创建用户confluence，密码：confluence mysql<span class="token operator">&gt;</span><span class="token keyword">grant</span><span class="token keyword">all</span><span class="token keyword">on</span><span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token keyword">to</span> ‘confluence’@’<span class="token operator">%</span>’ identified<span class="token keyword">by</span> ‘confluence’<span class="token punctuation">;</span> mysql<span class="token operator">&gt;</span>flush<span class="token keyword">privileges</span><span class="token punctuation">;</span></code></pre> </h1> <p>URL:http://docker宿主机IP:8090</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/7ffd07a2130b5d5261c13d3f72301852.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/9272ab2e99bfb841f97c103df483b640.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/386dfb1bb9fd82d4b2db43dd8479356d.jpg" alt="docker搭建confluence（wiki）"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/338eccad83e5ef154b681034a07645b9.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/9212d9bea377eac9e0b54eaeffcec1be.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/ead506fdf7ca9c79bb0f182ba65b2862.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/44700f877fcc12185bb2afd334f97865.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/832dd7c7d1dab154ea12053ac152aa3e.jpg" alt="docker搭建confluence（wiki）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/e03433f7e5c99c35e2103d077b3c0537.jpg" alt="docker搭建confluence（wiki）"></p> <p>至此搭建完成</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-26896.htm">动物的疫苗多少钱一次啊（动物疫苗的作用）</a></p>
-                                        <p>下一个：<a href="/news/article-27366.htm">动物疫苗品牌有哪些种类图片（动物疫苗种类及类型）</a></p>
+                                        <p>下一个：<a href="/news/article-28298.htm">动物疫苗定义是什么意思（动物疫苗概念）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -83,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-3-node-share-links.htm" title="8月3日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接">8月3日 - 最高速度18.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-nekobox-node-windows.htm" title="10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接">10月21日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21357.htm" title="宠物粮品牌名称及图片大全集（宠物粮品牌起名字）">宠物粮品牌名称及图片大全集（宠物粮品牌起名字）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-subscribe-node.htm" title="10月5日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">10月5日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月7日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-nekobox-node.htm" title="12月21日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅地址">12月21日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe-links.htm" title="11月9日 - 最高速度20.2M/S，2024年Nekobox每天更新免费节点订阅链接">11月9日 - 最高速度20.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe.htm" title="10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">10月6日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-node-share.htm" title="11月2日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">11月2日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-5-free-high-speed-nodes.htm" title="8月5日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接">8月5日 - 最高速度18.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-nekobox-node.htm" title="12月23日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅地址">12月23日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-19977.htm" title="动物医院好评语100字通用怎么写呀（动物医院大众点评100字通用评论）">动物医院好评语100字通用怎么写呀（动物医院大众点评100字通用评论）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-node-share.htm" title="1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月2日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-30642.htm" title="穷人养殖业什么最稳啃（适合穷人的创业项目养殖）">穷人养殖业什么最稳啃（适合穷人的创业项目养殖）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-nekobox-github.htm" title="12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月3日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46239.htm" title="Docker 解决Error response from daemon">Docker 解决Error response from daemon</a></li>
+                        <li class="py-2"><a href="/news/article-44761.htm" title="买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></li>
+                        <li class="py-2"><a href="/news/article-19073.htm" title="开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢">开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢</a></li>
+                        <li class="py-2"><a href="/news/article-36365.htm" title="由浅入深快速掌握Java 数组的使用_java">由浅入深快速掌握Java 数组的使用_java</a></li>
+                        <li class="py-2"><a href="/news/article-37827.htm" title="动物疫苗销售招聘2022年（动物疫苗销售招聘2022年最新信息）">动物疫苗销售招聘2022年（动物疫苗销售招聘2022年最新信息）</a></li>
                     </ul>
     </div>
 </div>
@@ -104,25 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

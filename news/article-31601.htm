@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freenekobox.github.io/news/article-31601.htm" />
@@ -7,18 +7,47 @@
     <title>vue实现页面刷新动画_vue.js_</title>
         <meta name="description" content="本文实例为大家分享了vue实现页面刷新动画的具体代码，供大家参考，具体内容如下 做一个vue的页面刷新动画，找了好多动画样式，感谢大佬们造的轮子。 主要就是在index.html文件里面写一个动画样式" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-31601.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="vue实现页面刷新动画_vue.js_" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/4e991f3381b1f41eca46443d40c63481.webp" />
+        <meta property="og:release_date" content="2024-12-27T10:01:09" />
+    <meta property="og:updated_time" content="2024-12-27T10:01:09" />
+        <meta property="og:description" content="本文实例为大家分享了vue实现页面刷新动画的具体代码，供大家参考，具体内容如下 做一个vue的页面刷新动画，找了好多动画样式，感谢大佬们造的轮子。 主要就是在index.html文件里面写一个动画样式" />
+        
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue实现页面刷新动画_vue.js_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Bootstrap CSS File -->
-    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Libraries CSS Files -->
-    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
     <!-- Main Stylesheet File -->
     <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -39,7 +68,7 @@
         <div class="container">
             <div id="logo" class="pull-left">
                                 <a href="/" id="body" class="scrollto">Free Nekobox</a>
-                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
@@ -83,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-node-share-links.htm" title="10月16日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅链接">10月16日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-nekobox-node.htm" title="10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月15日 - 最高速度21.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-node-subscribe.htm" title="10月13日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接">10月13日 - 最高速度20.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-nekobox-github.htm" title="12月5日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接">12月5日 - 最高速度22.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-nekobox-node.htm" title="12月17日 - 最高速度22.3M/S，2024年Nekobox每天更新免费节点订阅链接">12月17日 - 最高速度22.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-nekobox-node.htm" title="12月16日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接">12月16日 - 最高速度20M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-28-free-subscribe-node.htm" title="7月28日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接">7月28日 - 最高速度22.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-today-nekobox-node.htm" title="8月27日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接">8月27日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-today-nekobox-node.htm" title="9月21日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接">9月21日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-nekobox-node-windows.htm" title="9月9日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接">9月9日 - 最高速度22.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-latest-nekobox-node.htm" title="12月7日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接">12月7日 - 最高速度21.6M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36366.htm" title="在vue项目中如何获取视频的时长_vue.js_">在vue项目中如何获取视频的时长_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-nekobox-node.htm" title="12月23日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅地址">12月23日 - 最高速度19.2M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-35650.htm" title="动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针">动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-nekobox-node-share.htm" title="1月23日 - 最高速度18.8M/S，2025年Nekobox每天更新免费节点订阅地址">1月23日 - 最高速度18.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-34459.htm" title="为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）">为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-nekobox-node.htm" title="11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接">11月25日 - 最高速度23M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30168.htm" title="java建立tcp连接 netty_使用Netty处理Java中成千上万个连接的原理 -DZone性能">java建立tcp连接 netty_使用Netty处理Java中成千上万个连接的原理 -DZone性能</a></li>
+                        <li class="py-2"><a href="/news/article-24586.htm" title="unity 编辑器扩展简单入门">unity 编辑器扩展简单入门</a></li>
+                        <li class="py-2"><a href="/news/article-33028.htm" title="动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全">动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全</a></li>
                     </ul>
     </div>
 </div>
@@ -104,25 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

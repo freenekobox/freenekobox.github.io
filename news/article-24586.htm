@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freenekobox.github.io/news/article-24586.htm" />
@@ -7,18 +7,47 @@
     <title>unity 编辑器扩展简单入门</title>
         <meta name="description" content="通过使用编辑器扩展，我们可以对一些机械的操作实现自动化，而不用使用额外的环境，将工具与开发环境融为一体；并且，编辑器扩展也提供GUI库，来实现可视化操作；编辑器扩展甚至也可以“补充”IDE缺失的一些内" />
         <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-24586.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="unity 编辑器扩展简单入门" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/1ebe1b3fd77d9e12555d68ac205690da.webp" />
+        <meta property="og:release_date" content="2024-12-12T10:06:02" />
+    <meta property="og:updated_time" content="2024-12-12T10:06:02" />
+        <meta property="og:description" content="通过使用编辑器扩展，我们可以对一些机械的操作实现自动化，而不用使用额外的环境，将工具与开发环境融为一体；并且，编辑器扩展也提供GUI库，来实现可视化操作；编辑器扩展甚至也可以“补充”IDE缺失的一些内" />
+        
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="unity 编辑器扩展简单入门">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Bootstrap CSS File -->
-    <link href="__ADDON__/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Libraries CSS Files -->
-    <link href="__ADDON__/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
     <!-- Main Stylesheet File -->
     <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -39,7 +68,7 @@
         <div class="container">
             <div id="logo" class="pull-left">
                                 <a href="/" id="body" class="scrollto">Free Nekobox</a>
-                                <!-- <a href="#body"><img href="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
@@ -73,7 +102,7 @@
                   				  				  				</h1> <pre><code>通过使用编辑器扩展，我们可以对一些机械的操作实现自动化，而不用使用额外的环境，将工具与开发环境融为一体；并且，编辑器扩展也提供GUI库，来实现可视化操作；编辑器扩展甚至也可以“补充”IDE缺失的一些内容，让IDE更加人性化。</code></pre> <h2 id="主要内容">主要内容</h2> <ul> <li>MenuItem无界面操作</li> <li>窗口</li> <li>优化内置操作</li> <li>简单工具窗口</li> <li>Gizmos改造场景显示</li> </ul> <h2 id="一menuitem无界面操作">一、MenuItem无界面操作</h2> <hr/> <p>在<code>assets</code>文件夹下创建<code>Editor</code>文件夹，创建一个新的<code>c#</code>脚本；</p> <pre><code class="language-C#">using System.Collections; using System.Collections.Generic; using UnityEngine; using UnityEditor;  public class BaseTest : MonoBehaviour {     [MenuItem("德玛/第一个扩展")]     static void debugLog()     {         Debug.Log("我是一个menuItem");     } }</code></pre> <p>如图，这是我们第一个创建的扩展。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fafe920b3e7cf931286a7bc969e54a58.jpg" alt="unity 编辑器扩展简单入门"></p> <p>此时，如果我们需要获得一个当前场景选中的物品，则<br /> 需要通过<code>Selection</code>。将代码拷贝到当前创建的类里面：</p> <pre><code class="language-C#">    // 设置第二个参数     [MenuItem("德玛/two", false)]     static void testSecondParam()     {         Vector3 p = Selection.activeTransform.position;         Vector3 v3 = new Vector3(p.x+1, p.y, p.z);         Instantiate(Selection.activeTransform, v3, Quaternion.identity);     }     [MenuItem("德玛/two", true)]     static bool testSecondParam2()     {         return Selection.activeGameObject != null;     }</code></pre> <p>通过这段代码，我们可以创建一个只有选择了一个场景物体，才会激活的按钮。</p> <h2 id="二窗口">二、窗口</h2> <hr/> <p>创建窗口需要通过<code>EditorWindow</code>作为基类，还是<code>MenuItem</code>为入口创建；</p> <pre><code class="language-C#">using UnityEngine; using System.Collections; using UnityEditor;		//注意要引用 public class MyWindow : EditorWindow {     [MenuItem("德玛/Window/NormalWindow")]//在unity菜单Window下有MyWindow选项     static void NormalWindow()     { 		windowType = 1;         MyWindow myWindow = (MyWindow)EditorWindow.GetWindow(typeof(MyWindow), true, "德玛标题", true);//创建窗口         myWindow.Show();//展示     }  	public void Awake() 	{ 		//在资源中读取一张贴图 		texture = Resources.Load("1") as Texture; 	} 	//绘制窗口时调用 	void OnGUI() 	{             EditorGUILayout.LabelField("选中"); 			EditorGUILayout.LabelField(EditorWindow.focusedWindow.ToString()); 			EditorGUILayout.LabelField("划入"); 			EditorGUILayout.LabelField(EditorWindow.mouseOverWindow.ToString()); 	} 	//更新 	void Update() 	{  	} 	void OnFocus() 	{ 		Debug.Log("当窗口获得焦点时调用一次"); 	} 	void OnLostFocus() 	{ 		Debug.Log("当窗口丢失焦点时调用一次"); 	} 	void OnHierarchyChange() 	{ 		Debug.Log("当Hierarchy视图中的任何对象发生改变时调用一次"); 	} 	void OnProjectChange() 	{ 		Debug.Log("当Project视图中的资源发生改变时调用一次"); 	} 	void OnInspectorUpdate() 	{ 		//Debug.Log("窗口面板的更新"); 		//这里开启窗口的重绘，不然窗口信息不会刷新 		this.Repaint(); 	}  	void OnSelectionChange() 	{ 		//当窗口出去开启状态，并且在Hierarchy视图中选择某游戏对象时调用 		foreach (Transform t in Selection.transforms) 		{ 			//有可能是多选，这里开启一个循环打印选中游戏对象的名称 			Debug.Log("OnSelectionChange" + t.name); 		} 	}  	void OnDestroy() 	{ 		Debug.Log("当窗口关闭时调用"); 	} }</code></pre> <p>将上面的代码放入<code>Editor</code>目录下，通过<code>德玛/Window/NormalWindow</code>可以打开窗口。<br /><code>EditorWindow.focusedWindow</code>获取当前焦点窗口；<br /><code>EditorWindow.mouseOverWindow</code>获取当前鼠标划入的窗口；</p> <p>各种生命周期函数均有打印，自行理会。</p> <pre><code class="language-C#">	void OnInspectorUpdate() 	{ 		//Debug.Log("窗口面板的更新"); 		//这里开启窗口的重绘，不然窗口信息不会刷新 		this.Repaint(); 	}</code></pre> <p>这段代码可以保证实时刷新显示。</p> <h2 id="三优化内置操作">三、优化内置操作</h2> <hr/> <p>当路径放入<code>GameObject</code>的时候，会出现在右键菜单里面；</p> <pre><code class="language-C#">  [MenuItem("GameObject/德玛/德玛Custom Game Object", false, 10]</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cfc11ff870a411c8b72c9c6fa9df3c34.jpg" alt="unity 编辑器扩展简单入门"></p> <h4 id="注解">注解</h4> <p>当然，除了在<code>Editor</code>目录下添加各种扩展以外，我们可以通过给项目脚本添加注解的方式，来优化编辑器显示；<br /> 比如通过添加类似于<code>Component</code>的方式，来优化脚本的添加方式，点击后会直接将脚本添加到场景物体上。<br /> 将<code>[RequireComponent(typeof(Rigidbody))]</code>放入类头。我们将下面脚本放入到<code>Assets/Scripts</code>目录下面。</p> <pre><code class="language-C#">using UnityEngine;  // 通过编辑器的Component菜单添加脚本 [RequireComponent(typeof(Rigidbody))] [HelpURL("https://docs.unity3d.com/ScriptReference/HelpURLAttribute.html")] [AddComponentMenu("德玛/添加德玛脚本")] public class ContextTesting : MonoBehaviour {     [Header("属性标题")]     [Multiline(3)]     public string name2;      [Space(100)]     [Tooltip("用于设置性别")]     public string sex;      [HideInInspector]     public int p = 5;      [Range(1, 100)]     [Tooltip("Health value between 0 and 100.")]     public int health = 0;      /// Add a context menu named "Do Something" in the inspector     /// of the attached script.     /// 给当前脚本添加右键内容     [ContextMenu("德玛西亚")]     void DoSomething()     {         Debug.Log("德玛西亚打印");     }      // 给属性添加右键     [ContextMenuItem("重置属性为空", "ResetBiography")]     public string playerBiography = "";     void ResetBiography()     {         playerBiography = "";     } }</code></pre> <p>我们发现，我们可以想组件一样的添加脚本了！<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/dee55a9cd89ae9652b7d60ec62fce409.jpg" alt="unity 编辑器扩展简单入门"><br /> 在<code>Inspector</code>目录我们也注意到当前脚本属性的显示也发生了变化；<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/74f61bdb49d6cf31eec888fc145d9dd7.jpg" alt="unity 编辑器扩展简单入门"></p> <p>在<code>Inspector</code>上，我们也多出来一个<code>Rigidbody</code>组件。</p> <h4 id="美化项目脚本的属性显示">美化项目脚本的属性显示</h4> <p>在<code>Assets/Scripts</code>下面创建<code>MyPlayer</code></p> <pre><code class="language-C#">using UnityEngine; using System.Collections;  public class MyPlayer : MonoBehaviour {     public int armor = 100;     public int attack = 100;     public GameObject equipment;  }</code></pre> <p>在<code>Editor</code>下面创建<code>MyPlayerEditor</code>:</p> <pre><code class="language-C#">using UnityEngine; using UnityEditor; using System.Collections; [CustomEditor(typeof(MyPlayer))] public class MyPlayerEditor : Editor {     SerializedProperty attack;     void OnEnable()     {         attack = serializedObject.FindProperty("attack");     }     public override void OnInspectorGUI()     {         serializedObject.Update();         EditorGUILayout.IntSlider(attack, 0, 100, new GUIContent("攻击力"));         ProgressBar(attack.intValue / 100, "攻击力");         serializedObject.ApplyModifiedProperties();     }     private void ProgressBar(float value, string label)     {         Rect rect = GUILayoutUtility.GetRect(18, 18, "TextField");         EditorGUI.ProgressBar(rect, value, label);         EditorGUILayout.Space();     } }</code></pre> <p>观察<code>Inspector</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e35a41f86001a892f313cc906c4ab08a.jpg" alt="unity 编辑器扩展简单入门"></p> <h2 id="简单工具窗口">简单工具窗口</h2> <hr/> <p>一个简单的确认窗口</p> <pre><code class="language-C#">using UnityEngine; using UnityEditor;  public class MyEditorUtilityTest : ScriptableObject {     [MenuItem("德玛/自定义对话框")]     static void CreateWizard()     {         if (EditorUtility.DisplayDialog("对话框标题", "对话框的消息", "OK", "取消"))         {             Debug.Log("OK被点击");         }         else         {             Debug.Log("您没有点击OK");         }     } }</code></pre> <p>显示如下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/abbd4de9650f00e7995f89ad562fdbba.jpg" alt="unity 编辑器扩展简单入门"></p> <h2 id="gizmos改造场景显示">Gizmos改造场景显示</h2> <hr/> <p>我们可以改造物体在场景中的显示；<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/488d80637ea05072c50b2ea3a6c26d12.jpg" alt="unity 编辑器扩展简单入门"></p> <p>如下代码<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/741d9ca477e6271b7a9803e53a5ca2c0.jpg" alt="unity 编辑器扩展简单入门"></p> <h2 id="其他">其他</h2> <hr/> <p>通过上面的案例，我们大致了解了Unity编辑器扩展的基本内容，通过这些已经可以实现很多功能了！</p> <p>仓库地址：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wyy5552/unityEditor"  target="_blank" rel="nofollow">https://github.com/wyy5552/unityEditor</a></p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24111.htm">瑞鹏宠物医院官网招聘信息（瑞鹏宠物医院官网招聘信息最新）</a></p>
-                                        <p>下一个：<a href="/news/article-24589.htm">南京宠物领养中心在哪儿 南京宠物领养中心在哪儿啊</a></p>
+                                        <p>下一个：<a href="/news/article-28298.htm">动物疫苗定义是什么意思（动物疫苗概念）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -83,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-22-nekobox-node.htm" title="8月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接">8月22日 - 最高速度19.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe.htm" title="11月12日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">11月12日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-nekobox-node-share.htm" title="10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接">10月24日 - 最高速度20.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-nekobox-node.htm" title="1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址">1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe.htm" title="12月22日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅地址">12月22日 - 最高速度18.6M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/news/article-27366.htm" title="动物疫苗品牌有哪些种类图片（动物疫苗种类及类型）">动物疫苗品牌有哪些种类图片（动物疫苗种类及类型）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe.htm" title="11月3日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月3日 - 最高速度18.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33502.htm" title="中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）">中国宠物用品生产基地排名（中国宠物用品生产基地排名榜）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-high-speed-nodes.htm" title="10月10日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月10日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-high-speed-nodes.htm" title="10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接">10月14日 - 最高速度18.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-subscribe-node.htm" title="8月14日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接">8月14日 - 最高速度19.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47709.htm" title="厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）">厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）</a></li>
+                        <li class="py-2"><a href="/news/article-32072.htm" title="仓鼠脱毛有红点（仓鼠脱毛有红点正常吗）">仓鼠脱毛有红点（仓鼠脱毛有红点正常吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接">11月17日 - 最高速度21.8M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20446.htm" title="北京爱康宠物医院官网（爱康宠物诊所怎么样）">北京爱康宠物医院官网（爱康宠物诊所怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-49209.htm" title="动物疫苗检测中心电话 动物疫苗检测中心电话号码">动物疫苗检测中心电话 动物疫苗检测中心电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-39803.htm" title="js模块 &#8211; amd cmd commonjs esm umd">js模块 &#8211; amd cmd commonjs esm umd</a></li>
+                        <li class="py-2"><a href="/news/article-36009.htm" title="MySQL的安装和配置(超详细图文教程)">MySQL的安装和配置(超详细图文教程)</a></li>
+                        <li class="py-2"><a href="/news/article-36845.htm" title="青岛比较好的宠物医院（青岛比较好的宠物医院有哪些）">青岛比较好的宠物医院（青岛比较好的宠物医院有哪些）</a></li>
                     </ul>
     </div>
 </div>
@@ -104,25 +133,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">32</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
