@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-57283.htm" />
+    <meta charset="utf-8">
+    <title>使用Nginx实现多个Tomcat负载均衡</title>
+        <meta name="description" content="第一步. 安装多个Tomcat,用来集群: 安装多个Tomcat的步骤,在这篇博客里面:https://blog.csdn.net/a1422655169/article/details/115360" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-57283.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="使用Nginx实现多个Tomcat负载均衡" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/23b9722903e22d757855ba02f035e0bf.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:18:44" />
+    <meta property="og:updated_time" content="2025-02-16T07:18:44" />
+        <meta property="og:description" content="第一步. 安装多个Tomcat,用来集群: 安装多个Tomcat的步骤,在这篇博客里面:https://blog.csdn.net/a1422655169/article/details/115360" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用Nginx实现多个Tomcat负载均衡">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>使用Nginx实现多个Tomcat负载均衡</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <h2> <a id="_Tomcat_0" rel="nofollow"></a>第一步. 安装多个Tomcat,用来集群:</h2> <p>安装多个Tomcat的步骤,在这篇博客里面:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/a1422655169/article/details/115360274?spm=1001.2014.3001.5501"  rel="nofollow">https://blog.csdn.net/a1422655169/article/details/115360274?spm=1001.2014.3001.5501</a></p> <h2> <a id="_Nginx_2" rel="nofollow"></a>第二步. 安装Nginx:</h2> <p>安装Nginx的步骤我放在这篇博客里面了:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/a1422655169/article/details/115361095?spm=1001.2014.3001.5501"  rel="nofollow">https://blog.csdn.net/a1422655169/article/details/115361095?spm=1001.2014.3001.5501</a></p> <h2> <a id="_shell_4" rel="nofollow"></a>第三步. 编写shell脚本:</h2> <p>这里使用的是编写shell脚本的方式来处理。<br /> 打开编译:<code>vi /etc/init.d/nginx</code> (输入下面的代码)</p> <pre><code class="prism language-xml">#!/bin/bash # nginx Startup script for the Nginx HTTP Server # it is v.0.0.2 version. # chkconfig: - 85 15 # description: Nginx is a high-performance web and proxy server. #              It has a lot of features, but it's not for everyone. # processname: nginx # pidfile: /var/run/nginx.pid # config: /usr/local/nginx/conf/nginx.conf nginxd=/usr/myfile/sbin/nginx nginx_config=/usr/myfile/conf/nginx.conf nginx_pid=/var/run/nginx.pid RETVAL=0 prog="nginx" # Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = "no" ] &amp;&amp; exit 0 [ -x $nginxd ] || exit 0 # Start nginx daemons functions. start() { if [ -e $nginx_pid ];then    echo "nginx already running...."    exit 1 fi    echo -n $"Starting $prog: "    daemon $nginxd -c ${nginx_config}    RETVAL=$?    echo    [ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/nginx    return $RETVAL } # Stop nginx daemons functions. stop() {         echo -n $"Stopping $prog: "         killproc $nginxd         RETVAL=$?         echo         [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/nginx /var/run/nginx.pid } # reload nginx service functions. reload() {     echo -n $"Reloading $prog: "     #kill -HUP `cat ${nginx_pid}`     killproc $nginxd -HUP     RETVAL=$?     echo } # See how we were called. case "$1" in start)         start         ;; stop)         stop         ;; reload)         reload         ;; restart)         stop         start         ;; status)         status $prog         RETVAL=$?         ;; *)         echo $"Usage: $prog {start|stop|restart|reload|status|help}"         exit 1 esac exit $RETVAL </code></pre> <p>编译好之后先按<mark>esc</mark>键,然后 <mark>:wq</mark> 保存并退出。</p> <h2> <a id="__85" rel="nofollow"></a>第四步. 设置文件访问权限:</h2> <p>命令:<code>chmod a+x /etc/init.d/nginx</code> (a+x ==&gt; all user can execute 所有用户可执行)<br />   这样在控制台就很容易的操作nginx了：查看Nginx当前状态、启动Nginx、停止Nginx、重启Nginx…<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230119/03ac1696ac239aa9ab605e03f6ab8945.jpg" alt="使用Nginx实现多个Tomcat负载均衡"><br />   如果修改了nginx的配置文件nginx.conf，也可以使用上面的命令重新加载新的配置文件并运行，可以将此命令加入到rc.local文件中，这样开机的时候nginx就默认启动了</p> <p>  上面的方法完成了用脚本管理nginx服务的功能，但是还是不太方便，比如要设置nginx开机启动等。这时可以使用chkconfig来设置。</p> <p><strong>先将nginx服务加入chkconfig管理列表：</strong><br /><code>chkconfig --add /etc/init.d/nginx</code></p> <p>  加完这个之后，就可以使用service对nginx进行启动，重启等操作了。<br /><code>service nginx start</code><br /><code>service nginx stop</code></p> <h2> <a id="_rclocal_101" rel="nofollow"></a>第五步. 加入到rc.local文件中</h2> <p><strong>1.</strong> 使用命令:<code>vi /etc/rc.local </code>进入此文件,并在此文件中加入一行 <code>/etc/init.d/nginx start</code> 保存并退出，下次重启会生效。<br /><strong>2.</strong> 按<mark>ESC</mark> 后 <mark>:wq</mark></p> <h2> <a id="__104" rel="nofollow"></a>第六步. 实现负载均衡:</h2> <p>==在/etc/profile 下进行三个Tomcat的配置,==详情见博客:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/a1422655169/article/details/115360274?spm=1001.2014.3001.5501"  rel="nofollow">Linux虚拟机安装多个Tomcat</a><br /> 修改三个Tomcat的端口 8080 8081 8082</p> <h2> <a id="_usrlocalnginconfnginxconf_107" rel="nofollow"></a>第七步. 修改/usr/local/ngin/conf/nginx.conf</h2> <p>配置文件的具体位置可以在nginx启动的情查看进程看:<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230119/bbcfbe59f3ee76705a48fe2d59414d05.jpg" alt="使用Nginx实现多个Tomcat负载均衡"><br /> 添加的代码如下:</p> <pre><code class="prism language-xml">upstream mynginx {  #集群地址     server  127.0.0.1:8080 weight=100;#单个服务地址及其权重，这个权重是默认负载均衡算法的值，越大越容易被访问 server  127.0.0.1:8081 weight=50; server  127.0.0.1:8082 weight=10; }    #修改server的配置,在其中添加如下代码: server {         listen       8888;#nginx端口         server_name  localhost;#host name          location / {            proxy_pass http://mynginx;#代理指向            # proxy_redirect default;         } } </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230119/908b51966aef3f0456ee0849785d87e2.jpg" alt="使用Nginx实现多个Tomcat负载均衡"></p> <h2> <a id="__130" rel="nofollow"></a>第八步. 启动测试:</h2> <p><strong>1.</strong> 启动三个Tomcat<br /><strong>2.</strong> 启动nginx<br /><strong>测试:</strong> 网站输入linux的ip:8888就会发现Tomcat1,Tomcat2,Tomcat3之前相互切换,且Tomcat的次数最多</p> <hr/> <p>同一个项目分别上传至三个Tomcat/webapps下,启动Tomcat,启动nginx.访问nginx的ip和端口。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56717.htm">动物疫苗的种类和制备原理图片（动物疫苗生产工艺流程图）</a></p>
+                                        <p>下一个：<a href="/news/article-57285.htm">动物疫苗接种注意事项（动物疫苗接种注意问题）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-58548.htm" title="开宠物店的弊端和利弊（开宠物店的好处）">开宠物店的弊端和利弊（开宠物店的好处）</a></li>
+                        <li class="py-2"><a href="/news/article-20897.htm" title="SpringCloud 之 Config服务配置 详解">SpringCloud 之 Config服务配置 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-nekobox-node-github.htm" title="2月10日 - 最高速度18M/S，2025年Nekobox每天更新免费节点订阅地址">2月10日 - 最高速度18M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-nekobox-node.htm" title="12月21日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅地址">12月21日 - 最高速度20.3M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-41776.htm" title="微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“">微信小程序navigateTo函数报错errMsg: “navigateTo:fail page “&#8230;“ is not found“</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-nekobox-node-windows.htm" title="2月1日 - 最高速度18M/S，2025年Nekobox每天更新免费节点订阅地址">2月1日 - 最高速度18M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-33028.htm" title="动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全">动物医院实践心得体会怎么写范文 动物医院实践心得体会怎么写范文大全</a></li>
+                        <li class="py-2"><a href="/news/article-48196.htm" title="让猫挠了打什么针（让猫挠了应该打什么针）">让猫挠了打什么针（让猫挠了应该打什么针）</a></li>
+                        <li class="py-2"><a href="/news/article-54499.htm" title="宠物店粮食一个月要多少斤（宠物店粮食一个月要多少斤正常）">宠物店粮食一个月要多少斤（宠物店粮食一个月要多少斤正常）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-node-subscribe.htm" title="2月7日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址">2月7日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

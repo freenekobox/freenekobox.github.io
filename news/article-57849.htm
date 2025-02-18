@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-57849.htm" />
+    <meta charset="utf-8">
+    <title>Linux环境中NFS服务的搭建</title>
+        <meta name="description" content="NFS，是Network File System的简写，即网络文件系统。允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。 一、服务器端搭" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-57849.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="Linux环境中NFS服务的搭建" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/55356d9983b21529075837c6fa2f8f25.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:55:29" />
+    <meta property="og:updated_time" content="2025-02-17T09:55:29" />
+        <meta property="og:description" content="NFS，是Network File System的简写，即网络文件系统。允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。 一、服务器端搭" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux环境中NFS服务的搭建">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>Linux环境中NFS服务的搭建</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>NFS，是Network File System的简写，即网络文件系统。允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。</p> <p><strong>一、服务器端搭建：</strong></p> <p>1. 下载安装nfs软件和rpc软件：</p> <pre><code>yum install nfs-utils rpcbind -y</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rpc服务：remote procedure&nbsp;call，远程过程调用，nfs&nbsp;的各项功能都必须要向 rpc&nbsp;注册，因此 rpc才能了解 nfs&nbsp;服务的各项功能的port number、pid和 nfs&nbsp;在主机所监听的IP等，而客户端才能够通过 rpc&nbsp;的询问找到正确对应的端口。因此，安装完成要先启动 rpc 服务，再启动 nfs 服务。</p> <pre><code>[root@nfs-serer ~]# systemctl start rpcbind        \\启动rpc服务 [root@nfs-serer ~]# systemctl enable rpcbind       \\设置rpc服务开机自启动 [root@nfs-serer ~]# systemctl status rpcbind       \\查看rpc服务运行状态  [root@nfs-serer ~]# systemctl start nfs        \\启动nfs服务 [root@nfs-serer ~]# systemctl enable nfs       \\设置nfs服务开机自启动 [root@nfs-serer ~]# systemctl status nfs       \\查看nfs服务运行状态  [root@nfs-serer ~]# rpcinfo -p       \\查看RPC服务运行报告信息，是否已检测到nfs服务</code></pre> <p>2. 设置nfs服务的配置文件：/etc/exports</p> <pre><code>/data    192.168.139.0/24(rw,rsync,no_all_squash,root_squash)</code></pre> <p>（1）参数解释：</p> <table border="1" cellpadding="1" cellspacing="1" style="width:500px;"> <tbody> <tr> <td>/data</td> <td>nfs服务共享的目录</td> </tr> <tr> <td>192.168.139.0/24</td> <td>允许远程挂载的主机网段，可以写入多个网段</td> </tr> <tr> <td>rw</td> <td>共享的目录具有读写权限</td> </tr> <tr> <td>ro</td> <td>共享的目录只有读权限</td> </tr> <tr> <td>sync</td> <td>采用同步方式存储数据，直接将数据存入主机的硬盘。数据写入安全。</td> </tr> <tr> <td>async</td> <td>采用异步方式存储数据，先将数据存储到缓存，再将数据写入硬盘。数据存储读取快，但数据保存存在风险。</td> </tr> <tr> <td>no_root_squash</td> <td>不对root用户身份进行转换</td> </tr> <tr> <td>root_squash</td> <td>对root用户身份进行转换（转换成 nfsnobody）</td> </tr> <tr> <td>all_squash</td> <td>对所有普通用户进行身份转换</td> </tr> <tr> <td>no_all_squash</td> <td>不对普通用户进行身份转换（默认设置）</td> </tr> <tr> <td>anonuid</td> <td>用于映射新的uid，替换nfsnobody用户</td> </tr> <tr> <td>anongid</td> <td>用于映射新的gid，替换nfsnobody用户</td> </tr> </tbody> </table> <p>配置完，重新加载nfs服务。</p> <p>3. 创建共享目录，设置权限</p> <pre><code>[root@nfs-serer ~]# mkdir /data [root@nfs-serer ~]# chown -R nfsnobody:nfsnobody /data</code></pre> <p>二、客户端配置</p> <p>1. 安装nfs服务，如果不安装，挂载时，无法识别nfs文件类型。</p> <p>2. 挂载，将Web服务器中用户的上传文件共享到nfs服务器的/data目录：</p> <pre><code>[root@nginx_server_a ~]# mount -t nfs 192.168.139.135:/data /application/www/uploads [root@nginx_server_a ~]# df -h    //检查挂载成功与否</code></pre> <p>三、设置开机自启动</p> <p>四、安全设置</p> <p>为了防止其他用户登录到web服务器对用户上传的文件进行破坏，在nfs服务器上可以创建一个新的虚拟用户及用户组对共享文件夹进行管理。同时，在其他服务器上也要创建相同的虚拟用户及用户组，该虚拟用户和用户组应该具有相同的UID和GID。并对nfs的配置文件进行如下设置：</p> <pre><code>/data    192.168.139.0/24(rw,rsync,no_all_squash,root_squash)</code></pre> <p>如此，其他的用户登录web服务器，包括root用户都不能在挂载点下进行创建和删除操作。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57285.htm">动物疫苗接种注意事项（动物疫苗接种注意问题）</a></p>
+                                        <p>下一个：<a href="/news/article-57850.htm">linux系统改ip地址 永久生效,Linux修改IP永久生效</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-40287.htm" title="深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）">深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-39804.htm" title="宠物医院能治猫藓吗（宠物医院治猫藓贵吗）">宠物医院能治猫藓吗（宠物医院治猫藓贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-44262.htm" title="关于vue中api统一管理的那些事_vue.js_">关于vue中api统一管理的那些事_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-52338.htm" title="小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产">小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产</a></li>
+                        <li class="py-2"><a href="/news/article-22269.htm" title="猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）">猫轻微抓伤得狂犬病的几率（猫轻微抓伤得狂犬病的几率是多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-nekobox-node-share.htm" title="11月14日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接">11月14日 - 最高速度19.4M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-nekobox-node-github.htm" title="12月25日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅地址">12月25日 - 最高速度18.1M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-21357.htm" title="宠物粮品牌名称及图片大全集（宠物粮品牌起名字）">宠物粮品牌名称及图片大全集（宠物粮品牌起名字）</a></li>
+                        <li class="py-2"><a href="/news/article-39803.htm" title="js模块 &#8211; amd cmd commonjs esm umd">js模块 &#8211; amd cmd commonjs esm umd</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-node-share.htm" title="1月25日 - 最高速度20.9M/S，2025年Nekobox每天更新免费节点订阅地址">1月25日 - 最高速度20.9M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
