@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-63109.htm" />
+    <meta charset="utf-8">
+    <title>Django获取当前页面url</title>
+        <meta name="description" content="使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url  方法一 获取主机地址： request.get_host()  获取访问路径： req" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-63109.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="Django获取当前页面url" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/0ab1df98241ae341dbd0534132bc7224.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:32:45" />
+    <meta property="og:updated_time" content="2025-02-26T08:32:45" />
+        <meta property="og:description" content="使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url  方法一 获取主机地址： request.get_host()  获取访问路径： req" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Django获取当前页面url">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>Django获取当前页面url</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url</p> <h2> <a id="_1" rel="nofollow"></a>方法一</h2> <p>获取主机地址：</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_host<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>获取访问路径：</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_full_path<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>拼接即可得到</p> <h2> <a id="_12" rel="nofollow"></a>方法二</h2> <p>通过查看requests源码</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_raw_uri<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62514.htm">大人让猫抓破了皮怎么办（大人让猫抓破了皮怎么办图片）</a></p>
+                                        <p>下一个：<a href="/news/article-63110.htm">广州宠物领养中心有哪些地址和电话（广州宠物猫领养中心）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39304.htm" title="宠物寄养协议书范本图片模板（宠物寄养协议书范本图片模板高清）">宠物寄养协议书范本图片模板（宠物寄养协议书范本图片模板高清）</a></li>
+                        <li class="py-2"><a href="/news/article-34459.htm" title="为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）">为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-nekobox-node-share.htm" title="11月18日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接">11月18日 - 最高速度20.9M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-49722.htm" title="动物疫苗的保管与使用方法视频（动物疫苗的保管与使用方法视频讲解）">动物疫苗的保管与使用方法视频（动物疫苗的保管与使用方法视频讲解）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-node-share.htm" title="12月24日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅地址">12月24日 - 最高速度19.6M/S，2024年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-44761.htm" title="买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></li>
+                        <li class="py-2"><a href="/news/article-24110.htm" title="vue电商后台管理系统保姆级教程 主页布局和功能实现">vue电商后台管理系统保姆级教程 主页布局和功能实现</a></li>
+                        <li class="py-2"><a href="/news/article-22268.htm" title="正规宠物领养机构有哪些地方（比较正规的宠物领养平台）">正规宠物领养机构有哪些地方（比较正规的宠物领养平台）</a></li>
+                        <li class="py-2"><a href="/news/article-51276.htm" title="Jackson 枚举序列化/反序列化">Jackson 枚举序列化/反序列化</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-latest-nekobox-node.htm" title="2月26日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址">2月26日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

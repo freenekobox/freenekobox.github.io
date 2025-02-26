@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-60735.htm" />
+    <meta charset="utf-8">
+    <title>基于mybatis-plus实现多租户级别的数据隔离</title>
+        <meta name="description" content="一个平台系统通常需要提供给很多的用户进行使用，为了保证数据的安全性和完整性，用户之间是不能直接访问数据的，也就是说用户只能访问属于自己的数据。典型的场景就是电商平台，平台上有很多的商户，每个商户只能访" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-60735.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="基于mybatis-plus实现多租户级别的数据隔离" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/c0e190022537281c964d4d1b74a3a499.webp" />
+        <meta property="og:release_date" content="2025-02-22T07:09:42" />
+    <meta property="og:updated_time" content="2025-02-22T07:09:42" />
+        <meta property="og:description" content="一个平台系统通常需要提供给很多的用户进行使用，为了保证数据的安全性和完整性，用户之间是不能直接访问数据的，也就是说用户只能访问属于自己的数据。典型的场景就是电商平台，平台上有很多的商户，每个商户只能访" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="基于mybatis-plus实现多租户级别的数据隔离">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>基于mybatis-plus实现多租户级别的数据隔离</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一个平台系统通常需要提供给很多的用户进行使用，为了保证数据的安全性和完整性，用户之间是不能直接访问数据的，也就是说用户只能访问属于自己的数据。典型的场景就是电商平台，平台上有很多的商户，每个商户只能访问自己的商品，订单，账单等数据。</p> <p>为每个商户建立一个数据库，往往会存在巨大的成本压力和管理复杂度，此时可以采用通过数据库表中增加特定的标识字段来进行租户数据隔离。mybatis-plus提供的租户数据隔离方案，可以使得开发过程中，不用过多的关注租户隔离的处理，主要由mybatis-plus提供处理。</p> <p>说起来总是很抽象，这里以一个简单的示例来说明实现过程，项目采用mysql + mybatis-plus + druid。</p> <h3>1. 创建工程，添加相关依赖</h3> <pre><code>&lt;properties&gt;         &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;         &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;         &lt;mybatisplus.version&gt;3.4.2&lt;/mybatisplus.version&gt;         &lt;druid.version&gt;1.2.6&lt;/druid.version&gt;     &lt;/properties&gt;      &lt;dependencies&gt;          &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;             &lt;version&gt;2.3.12.RELEASE&lt;/version&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;             &lt;version&gt;2.3.12.RELEASE&lt;/version&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;com.baomidou&lt;/groupId&gt;             &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;             &lt;version&gt;${mybatisplus.version}&lt;/version&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;com.baomidou&lt;/groupId&gt;             &lt;artifactId&gt;mybatis-plus&lt;/artifactId&gt;             &lt;version&gt;${mybatisplus.version}&lt;/version&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;mysql&lt;/groupId&gt;             &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;             &lt;version&gt;8.0.25&lt;/version&gt;         &lt;/dependency&gt;          &lt;!-- 阿里数据库连接池 --&gt;         &lt;dependency&gt;             &lt;groupId&gt;com.alibaba&lt;/groupId&gt;             &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;             &lt;version&gt;${druid.version}&lt;/version&gt;         &lt;/dependency&gt;      &lt;/dependencies&gt;</code></pre> <h3>2. 添加配置类</h3> <pre><code>import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor; import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler; import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor; import net.sf.jsqlparser.expression.Expression; import net.sf.jsqlparser.expression.LongValue; import org.mybatis.spring.annotation.MapperScan; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;   @Configuration @MapperScan("com.platform.multitenant.mapper") public class MybatisPlusConfig {      /**      * 新多租户插件配置,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor = false 避免缓存万一出现问题      */     @Bean     public MybatisPlusInterceptor mybatisPlusInterceptor() {         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();         interceptor.addInnerInterceptor(new TenantLineInnerInterceptor(new TenantLineHandler() {              /**              * 这里返回的租户id作为sql执行时自动添加的租户id              * 这里的租户id可以从线程本地变量中获取（当租户id提前设置到了线程本地变量中），              * 也可以从请求环境中获取（当租户id在请求环境中存在时）              * 为了简化演示，这里设置了一个固定值              * @return              */             @Override             public Expression getTenantId() {                 return new LongValue(1);             }              // 这是 default 方法,默认返回 false 表示所有表都需要拼多租户条件             @Override             public boolean ignoreTable(String tableName) {                 return !"user".equalsIgnoreCase(tableName);             }         }));         // 如果用了分页插件注意先 add TenantLineInnerInterceptor 再 add PaginationInnerInterceptor         // 用了分页插件必须设置 MybatisConfiguration#useDeprecatedExecutor = false //        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());         return interceptor;     }  //    @Bean //    public ConfigurationCustomizer configurationCustomizer() { //        return configuration -&gt; configuration.setUseDeprecatedExecutor(false); //    } }</code></pre> <h3>3. mapper.xml</h3> <pre><code>&lt;mapper namespace="com.platform.multitenant.mapper.UserMapper"&gt;      &lt;select id="myCount" resultType="java.lang.Integer"&gt;         select count(1) from user     &lt;/select&gt;      &lt;select id="getUserAndAddr" resultType="com.platform.multitenant.entity.User"&gt;         select u.id, u.name, a.name as addr_name         from user u         left join user_addr a on a.user_id=u.id         &lt;where&gt;             &lt;if test="username!=null"&gt;                 u.name like concat(concat('%',#{username}),'%')             &lt;/if&gt;         &lt;/where&gt;     &lt;/select&gt;      &lt;select id="getAddrAndUser" resultType="com.platform.multitenant.entity.User"&gt;         select a.name as addr_name, u.id, u.name         from user_addr a         left join user u on u.id=a.user_id         &lt;where&gt;             &lt;if test="name!=null"&gt;                 a.name like concat(concat('%',#{name}),'%')             &lt;/if&gt;         &lt;/where&gt;     &lt;/select&gt; &lt;/mapper&gt;</code></pre> <p>可以看到，xml文件中并没有出现租户字段信息。</p> <h3>4. 参数配置（application.yml）</h3> <pre><code>spring:   application:     # 应用名称     name: multitenant-app   datasource:     type: com.alibaba.druid.pool.DruidDataSource     driverClassName: com.mysql.cj.jdbc.Driver     url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8     username: username     password: password   logging:   level:     com.platform.multitenant: debug</code></pre> <h3>5. 执行测试</h3> <pre><code>@RequestMapping("/test")     void testUser()     {         User user = new User();         user.setName("test1");          // add for test         userMapper.insert(user);          // select for test         user = userMapper.selectById(user.getId());          // delete for test         userMapper.deleteById(3L);          // update for test         User newUser = new User();         newUser.setId(1L);         user.setName("mp");         userMapper.updateById(user);          // count for test         System.out.println(userMapper.myCount());          userMapper.getAddrAndUser(null).forEach(System.out::println);         userMapper.getAddrAndUser("add").forEach(System.out::println);         userMapper.getUserAndAddr(null).forEach(System.out::println);         userMapper.getUserAndAddr("test1").forEach(System.out::println);     }</code></pre> <h3>6. 调试输出</h3> <pre><code>2022-04-07 15:56:54.651 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.insert           : ==&gt;  Preparing: INSERT INTO user (id, name, tenant_id) VALUES (?, ?, 1) 2022-04-07 15:56:54.652 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.insert           : ==&gt; Parameters: 1511976295397867521(Long), test1(String) 2022-04-07 15:56:54.661 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.insert           : &lt;==    Updates: 1 2022-04-07 15:56:54.663 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.selectById       : ==&gt;  Preparing: SELECT id, tenant_id, name FROM user WHERE id = ? AND tenant_id = 1 2022-04-07 15:56:54.663 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.selectById       : ==&gt; Parameters: 1511976295397867521(Long) 2022-04-07 15:56:54.664 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.selectById       : &lt;==      Total: 1 2022-04-07 15:56:54.665 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.deleteById       : ==&gt;  Preparing: DELETE FROM user WHERE tenant_id = 1 AND id = ? 2022-04-07 15:56:54.665 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.deleteById       : ==&gt; Parameters: 3(Long) 2022-04-07 15:56:54.666 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.deleteById       : &lt;==    Updates: 0 2022-04-07 15:56:54.667 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.updateById       : ==&gt;  Preparing: UPDATE user SET tenant_id = ?, name = ? WHERE tenant_id = 1 AND id = ? 2022-04-07 15:56:54.667 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.updateById       : ==&gt; Parameters: 1(Long), mp(String), 1511976295397867521(Long) 2022-04-07 15:56:54.671 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.updateById       : &lt;==    Updates: 1 2022-04-07 15:56:54.672 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.myCount          : ==&gt;  Preparing: SELECT count(1) FROM user WHERE tenant_id = 1 2022-04-07 15:56:54.672 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.myCount          : ==&gt; Parameters:  2022-04-07 15:56:54.674 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.myCount          : &lt;==      Total: 1 19 2022-04-07 15:56:54.676 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : ==&gt;  Preparing: SELECT a.name AS addr_name, u.id, u.name FROM user_addr a LEFT JOIN user u ON u.id = a.user_id AND u.tenant_id = 1 2022-04-07 15:56:54.676 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : ==&gt; Parameters:  2022-04-07 15:56:54.677 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : &lt;==      Total: 0 2022-04-07 15:56:54.679 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : ==&gt;  Preparing: SELECT a.name AS addr_name, u.id, u.name FROM user_addr a LEFT JOIN user u ON u.id = a.user_id AND u.tenant_id = 1 WHERE a.name LIKE concat(concat('%', ?), '%') 2022-04-07 15:56:54.680 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : ==&gt; Parameters: add(String) 2022-04-07 15:56:54.680 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getAddrAndUser   : &lt;==      Total: 0 2022-04-07 15:56:54.682 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getUserAndAddr   : ==&gt;  Preparing: SELECT u.id, u.name, a.name AS addr_name FROM user u LEFT JOIN user_addr a ON a.user_id = u.id WHERE u.tenant_id = 1 2022-04-07 15:56:54.682 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getUserAndAddr   : ==&gt; Parameters:  2022-04-07 15:56:54.684 DEBUG 26448 --- [nio-8080-exec-6] c.p.m.mapper.UserMapper.getUserAndAddr   : &lt;==      Total: 19</code></pre> <p>从日志输出中，可以看到自动添加了租户字段信息。</p> <h3>7. 数据库表脚本</h3> <pre><code>CREATE TABLE user ( 	id BIGINT(20) NOT NULL COMMENT '主键ID', 	tenant_id BIGINT(20) NOT NULL COMMENT '租户ID', 	name VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名', 	PRIMARY KEY (id) );  CREATE TABLE USER_ADDR (   id BIGINT(20) NOT NULL COMMENT '主键ID',   user_id BIGINT(20) NOT NULL COMMENT 'user.id',   name VARCHAR(30) NULL DEFAULT NULL COMMENT '地址名称',   PRIMARY KEY (id) );</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60148.htm">兰州哪里有卖狗粮的地方呀（兰州狗粮批发市场在哪）</a></p>
+                                        <p>下一个：<a href="/news/article-60736.htm">使用Jenkins实现前端自动化打包部署（Linux版本）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-nekobox-node.htm" title="11月21日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月21日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-53401.htm" title="动物打疫苗图片卡通（动物打疫苗注意事项）">动物打疫苗图片卡通（动物打疫苗注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-28757.htm" title="猫三联疫苗需要多少钱一针（猫三联疫苗多少钱一只）">猫三联疫苗需要多少钱一针（猫三联疫苗多少钱一只）</a></li>
+                        <li class="py-2"><a href="/news/article-30642.htm" title="穷人养殖业什么最稳啃（适合穷人的创业项目养殖）">穷人养殖业什么最稳啃（适合穷人的创业项目养殖）</a></li>
+                        <li class="py-2"><a href="/news/article-48195.htm" title="宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）">宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-node-subscribe.htm" title="2月11日 - 最高速度20.2M/S，2025年Nekobox每天更新免费节点订阅地址">2月11日 - 最高速度20.2M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-23190.htm" title="狗狗衣服裁剪视频教程（狗狗衣服裁剪视频教程大全）">狗狗衣服裁剪视频教程（狗狗衣服裁剪视频教程大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe-links.htm" title="11月11日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接">11月11日 - 最高速度22.1M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32072.htm" title="仓鼠脱毛有红点（仓鼠脱毛有红点正常吗）">仓鼠脱毛有红点（仓鼠脱毛有红点正常吗）</a></li>
+                        <li class="py-2"><a href="/news/article-36365.htm" title="由浅入深快速掌握Java 数组的使用_java">由浅入深快速掌握Java 数组的使用_java</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

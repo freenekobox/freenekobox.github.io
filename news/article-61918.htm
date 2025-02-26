@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-61918.htm" />
+    <meta charset="utf-8">
+    <title>vue init download template_vue.extend和vue.component的区别</title>
+        <meta name="description" content="vue.extend 使用基础 Vue 构造器函数，通过原型继承，(返回)创建一个“子类”(构造器)。参数是一个包含组件选项的对象。  const Sub = function VueComponen" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-61918.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="vue init download template_vue.extend和vue.component的区别" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/7a2c4f3145028806a20d82c259d99031.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:14:21" />
+    <meta property="og:updated_time" content="2025-02-24T09:14:21" />
+        <meta property="og:description" content="vue.extend 使用基础 Vue 构造器函数，通过原型继承，(返回)创建一个“子类”(构造器)。参数是一个包含组件选项的对象。  const Sub = function VueComponen" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue init download template_vue.extend和vue.component的区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>vue init download template_vue.extend和vue.component的区别</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3><b>vue.extend</b></h3> <p>使用基础 Vue 构造器函数，通过原型继承，(返回)创建一个“子类”(构造器)。参数是一个包含组件选项的对象。</p> <div class="has"> <pre class="has"><code>const Sub = function VueComponent (options) {     this._init(options) } Sub.prototype = Object.create(Super.prototype) Sub.prototype.constructor = Sub</code></pre> </div> <h3><b>vue.component</b></h3> <p>注册或获取全局组件。注册还会自动使用给定的<code>id</code> 设置组件的名称。内部实质上调用了vue.extend,最后返回"子类"(构造器),这个子类构造器。</p> <p>vue.component方法的定义中有如下代码：</p> <div class="has"> <pre class="has"><code>// 此处 this 是 Vue ； this.options._base也是Vue  ；相当于Vue.extend definition = this.options._base.extend(definition) ... return definition</code></pre> </div> <p>综合例子如下：</p> <div class="has"> <pre class="has"><code>var Component1 = Vue.component('any',{     template:'&lt;div&gt;Component1&lt;/div&gt;' })      var Component2 = Vue.extend({     template:'&lt;div&gt;Component2&lt;/div&gt;' })  console.log(Component1); console.log(Component2); var App = Vue.extend({     components:{Component1,Component2},     data() {         return {             a: 12         }     },     template: `&lt;div&gt;                 {<!-- -->{this.a}}                 &lt;any/&gt;                   &lt;Component1/&gt;                   &lt;Component2/&gt;               &lt;/div&gt;`, })  new Vue({     render(h){         return h(App)     } }).$mount('#app')</code></pre> </div> <ul> <li>通过components注册了一个全局any组件，可以在App中直接使用。</li> <li>Component1和Component2这两个构造函数通过局部注册之后，也可以在App中使用</li> </ul> <h3><b>components:{组件一，组件二}</b></h3> <p>单文件vue中经常会通过import引入其他组件，然后在本组件中注册和使用，代码：</p> <div class="has"> <pre class="has"><code>&lt;template&gt; 	&lt;Icon/&gt; &lt;/template&gt; &lt;script&gt;	    import Icon from './icon.vue'    console.log(Icon)    export default {        components:{Icon}    } &lt;/script&gt;</code></pre> </div> <p>打印Icon，发现Icon是一个对象，既可以是对象也可以是函数，Vue内部是如何处理的呢？</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220607/86f596bff840efb3a68de8e0503cf6f2.jpg" alt="vue init download template_vue.extend和vue.component的区别"></div> <p>在vue内部创建虚拟dom的时候有如下的代码：</p> <div class="has"> <pre class="has"><code>if (isObject(Ctor)) {   Ctor = baseCtor.extend(Ctor) }</code></pre> </div> <p>此处的Ctor对应着上面的Icon，当判断是对象的时候会调用extend方法，也就是vue.extend方法，返回一个<code>子类</code> 构造函数，殊途同归。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61316.htm">哈尔滨王允海宠物医院怎么样呀 哈尔滨王允海宠物医院怎么样呀多少钱</a></p>
+                                        <p>下一个：<a href="/news/article-61919.htm">手指被猫抓出血了,要打疫苗吗?（手指被猫抓出血了要打疫苗吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-node-subscribe.htm" title="2月7日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址">2月7日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-52337.htm" title="护肤品牌排行榜10强有哪些（护肤品牌排名榜）">护肤品牌排行榜10强有哪些（护肤品牌排名榜）</a></li>
+                        <li class="py-2"><a href="/news/article-40287.htm" title="深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）">深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-33503.htm" title="宠物粮市场份额分析报告怎么写（宠物粮食市场前景）">宠物粮市场份额分析报告怎么写（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe.htm" title="12月11日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接">12月11日 - 最高速度21.7M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-high-speed-nodes.htm" title="2月17日 - 最高速度21M/S，2025年Nekobox每天更新免费节点订阅地址">2月17日 - 最高速度21M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-52338.htm" title="小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产">小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产</a></li>
+                        <li class="py-2"><a href="/news/article-38313.htm" title="动物疫苗生产企业排行榜最新名单图片（动物疫苗行业龙头）">动物疫苗生产企业排行榜最新名单图片（动物疫苗行业龙头）</a></li>
+                        <li class="py-2"><a href="/news/article-32547.htm" title="一文解决浏览器跨域问题">一文解决浏览器跨域问题</a></li>
+                        <li class="py-2"><a href="/news/article-43772.htm" title="动物医院诊疗许可证需要提供什么材料呢 动物医院诊疗许可证需要提供什么材料呢">动物医院诊疗许可证需要提供什么材料呢 动物医院诊疗许可证需要提供什么材料呢</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
