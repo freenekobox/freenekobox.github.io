@@ -75,10 +75,9 @@
                                         <li><a href="/">首页</a></li>
                                         <li><a href="/free-nodes/">免费节点</a></li>
                                         <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
                                         <li><a href="/news/">新闻资讯</a></li>
-                                        <li><a href="#">关于</a></li>
-                    <li><a href="#">联系</a></li>
-                </ul>
+                                    </ul>
             </nav><!-- #nav-menu-container -->
         </div>
     </header><!-- #header -->
@@ -101,7 +100,6 @@
                                         <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <h2><a id="_ncodeURI_encodeURIComponent_3" rel="nofollow"></a>一、 ncodeURI encodeURIComponent</h2> <p>之前一直不了解这两个的区别，现在知道了：</p> <p>-<code>encodeURI</code> 是对可以对整个请求地址进行转义</p> <ul> <li><code>encodeURIComponent</code> 只可用于转义单个参数</li> </ul> <p>例子如下：</p> <p>比如有这样一个地址需要转义并通过 js 请求，这里面的一些符号需要转义成对应的 URL 形式，比如一些标点<code>,</code> 汉字等都需要转义成域名地址那种</p> <pre><code class="prism language-js"><span class="token keyword">let</span> str<span class="token operator">=</span><span class="token string">'../../course/exportStatisticsUserByCourse?courseId=12&amp;regionId=2,52,2596,2597,2609&amp;title=体育-北京-统计报表'</span><span class="token punctuation">;</span></code></pre> <h2><a id="_19" rel="nofollow"></a>二、来看下区别，</h2> <p><strong>encodeURIComponent</strong></p> <p><code>encodeURIComponent</code> 是把输入的字符串作为一个整体，就是参数的实体，并不是 URL，所以所有<code>/</code> 都会被转义，成为单纯的字符串，失去任何域名的语义。<br /> 这个方法在处理单个参数时使用，如需要处理<code>title</code> 参数<code>encodeURIComponent(体育-北京-统计报表')</code></p> <pre><code class="prism language-js"><span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 结果是这样的</span><span class="token comment">// ..%2F..%2Fcourse%2FexportStatisticsUserByCourse%3FcourseId%3D12%26regionId%3D2%2C52%2C2596%2C2597%2C2609%26title%3D%E4%BD%93%E8%82%B2-%E5%8C%97%E4%BA%AC-%E7%BB%9F%E8%AE%A1%E6%8A%A5%E8%A1%A8</span></code></pre> <p>而<code>encodeURI</code> 会保留其URL的原本语义，只处理参数中需要处理的<br /><strong>encodeURI</strong></p> <pre><code class="prism language-js"><span class="token function">encodeURI</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 结果是这样的</span><span class="token comment">// ../../course/exportStatisticsUserByCourse?courseId=12&amp;regionId=2,52,2596,2597,2609&amp;title=%E4%BD%93%E8%82%B2-%E5%8C%97%E4%BA%AC-%E7%BB%9F%E8%AE%A1%E6%8A%A5%E8%A1%A8</span></code></pre> <h2><a id="_41" rel="nofollow"></a>三、总结</h2> <p>这两个都是用于处理域名地址的，根据自己需要使用即可。</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-35007.htm">动物医院实践心得3000字怎么写 动物医院实践心得3000字怎么写的</a></p>
                                         <p>下一个：<a href="/news/article-35650.htm">动物防疫站打疫苗多少钱啊 动物防疫站打疫苗多少钱啊一针</a></p>
                                     </div>
                                     </div>
@@ -112,16 +110,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31110.htm" title="PowerShell中的复制项目用于什么？">PowerShell中的复制项目用于什么？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe-links.htm" title="11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接">11月22日 - 最高速度19.3M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-nekobox-node.htm" title="1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址">1月15日 - 最高速度19.6M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/news/article-44262.htm" title="关于vue中api统一管理的那些事_vue.js_">关于vue中api统一管理的那些事_vue.js_</a></li>
-                        <li class="py-2"><a href="/news/article-37332.htm" title="python -mysql-excel数据导出-如何把python的list列表中的数据放入sql语句的in后的语句中的办法">python -mysql-excel数据导出-如何把python的list列表中的数据放入sql语句的in后的语句中的办法</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接">12月13日 - 最高速度21M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-44762.htm" title="动物疫苗审批流程（动物疫苗审批流程表）">动物疫苗审批流程（动物疫苗审批流程表）</a></li>
-                        <li class="py-2"><a href="/news/article-26896.htm" title="动物的疫苗多少钱一次啊（动物疫苗的作用）">动物的疫苗多少钱一次啊（动物疫苗的作用）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-nekobox-node-github.htm" title="11月6日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月6日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-nekobox-node-windows.htm" title="11月10日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接">11月10日 - 最高速度21.5M/S，2024年Nekobox每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-latest-nekobox-node.htm" title="2月9日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">2月9日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-36006.htm" title="如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？">如果MySQL TIMEDIFF()函数的输出超过TIME字段的范围值，会发生什么？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-node-share.htm" title="2月13日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址">2月13日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-46734.htm" title="动物疫苗的作用有哪些种类的 动物疫苗的作用有哪些种类的">动物疫苗的作用有哪些种类的 动物疫苗的作用有哪些种类的</a></li>
+                        <li class="py-2"><a href="/news/article-58548.htm" title="开宠物店的弊端和利弊（开宠物店的好处）">开宠物店的弊端和利弊（开宠物店的好处）</a></li>
+                        <li class="py-2"><a href="/news/article-52338.htm" title="小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产">小型宠物粮食加工设备有哪些厂家 小型宠物粮食加工设备有哪些厂家生产</a></li>
+                        <li class="py-2"><a href="/news/article-54499.htm" title="宠物店粮食一个月要多少斤（宠物店粮食一个月要多少斤正常）">宠物店粮食一个月要多少斤（宠物店粮食一个月要多少斤正常）</a></li>
+                        <li class="py-2"><a href="/news/article-48195.htm" title="宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）">宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）</a></li>
+                        <li class="py-2"><a href="/news/article-48731.htm" title="宠物粮食代理需要多少钱呢 宠物粮食代理需要多少钱呢">宠物粮食代理需要多少钱呢 宠物粮食代理需要多少钱呢</a></li>
+                        <li class="py-2"><a href="/news/article-47709.htm" title="厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）">厦门狗狗领养中心在哪里（厦门狗狗领养中心在哪里啊）</a></li>
                     </ul>
     </div>
 </div>
@@ -133,16 +131,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
