@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-80096.htm" />
+    <meta charset="utf-8">
+    <title>Java 9中的JShell中的前向参考是什么？</title>
+        <meta name="description" content="JShell是一个命令行工具，它使我们可以输入Java语句（简单语句，复合语句，甚至完整的方法和类），对其进行评估并打印结果。 前向引用是指引用我们在JShell中键入的任何代码中都不存在的方法，变量" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-80096.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="Java 9中的JShell中的前向参考是什么？" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/d5d34b29618ac282b6af1bcfa3a7dfcc.webp" />
+        <meta property="og:release_date" content="2025-03-24T08:15:33" />
+    <meta property="og:updated_time" content="2025-03-24T08:15:33" />
+        <meta property="og:description" content="JShell是一个命令行工具，它使我们可以输入Java语句（简单语句，复合语句，甚至完整的方法和类），对其进行评估并打印结果。 前向引用是指引用我们在JShell中键入的任何代码中都不存在的方法，变量" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 9中的JShell中的前向参考是什么？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>Java 9中的JShell中的前向参考是什么？</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p><strong>JShell</strong>是一个<strong>命令行</strong><strong>工具</strong>，它使我们可以输入Java语句（简单语句，复合语句，甚至完整的方法和类），对其进行评估并打印结果。</p> <p><strong>前向</strong><strong>引用</strong>是指<strong>引用</strong>我们在JShell中键入的任何代码中都不存在的<strong>方法</strong>，<strong>变量</strong>或<strong>类的</strong>命令。在JShell中按顺序输入和评估代码后，这些<strong>前向</strong><strong>引用</strong>已暂时无法解析。JShell支持向前引用<strong>方法</strong><strong>机构</strong>，<strong>返回</strong><strong>类型</strong>，<strong>参数</strong><strong>类型</strong>，<strong>变量</strong><strong>的类型</strong>，以及<strong>内</strong><strong>一</strong><strong>类</strong>。</p> <p>在下面的代码片段中，在<strong>Jshell中</strong>创建了一个方法<strong>forwardReference()</strong>。在声明变量之前，无法调用此方法。如果我们试图尝试调用此方法，它将引发警告消息：“<strong>试图<code>forwardReference()</code>调用在声明了变量notYetDeclared之前无法调用的方法</strong>”</p> <pre>C:\Users\User&gt;jshell |&nbsp;Welcome&nbsp;to&nbsp;JShell&nbsp;--&nbsp;Version&nbsp;9.0.4 |&nbsp;For&nbsp;an&nbsp;introduction&nbsp;type:&nbsp;/help&nbsp;intro  jshell&gt;&nbsp;void&nbsp;forwardReference()&nbsp;{ ...&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(notYetDeclared); ...&gt;&nbsp;&nbsp;&nbsp;&nbsp;} |&nbsp;created&nbsp;method&nbsp;forwardReference(),&nbsp;however,&nbsp;it&nbsp;cannot&nbsp;be&nbsp;invoked&nbsp;until&nbsp;variable&nbsp;notYetDeclared&nbsp;is&nbsp;declared  jshell&gt;&nbsp;forwardReference()|&nbsp;attempted&nbsp;to&nbsp;call&nbsp;method&nbsp;forwardReference()&nbsp;which&nbsp;cannot&nbsp;be&nbsp;invoked&nbsp;until&nbsp;variable&nbsp;notYetDeclared&nbsp;is&nbsp;declared</pre> <p></p> <p>在下面的代码片段中，我们声明了返回字符串的“<strong>notYetDeclared</strong> ”变量。最后，如果我们在JShell中调用<strong>forwardReference()</strong>，则它会显示<strong>“ variable is</strong> defined<strong>”</strong>。</p> <pre>jshell&gt;&nbsp;String&nbsp;notYetDeclared&nbsp;=&nbsp;"variable&nbsp;is&nbsp;declared" notYetDeclared&nbsp;==&gt;&nbsp;"variable&nbsp;is&nbsp;declared"  jshell&gt;&nbsp;forwardReference()variable&nbsp;is&nbsp;declared</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79417.htm">自家宠物猫轻微抓伤有一点渗血（自家猫咪抓了一点点血）</a></p>
+                                        <p>下一个：<a href="/news/article-80097.htm">Java Map的遍历与排序</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-nekobox-node-share.htm" title="1月13日 - 最高速度18.1M/S，2025年Nekobox每天更新免费节点订阅地址">1月13日 - 最高速度18.1M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-58549.htm" title="动物医院是宠物医院吗英文 动物医院是宠物医院吗英文翻译">动物医院是宠物医院吗英文 动物医院是宠物医院吗英文翻译</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-nekobox-node-github.htm" title="2月19日 - 最高速度19.1M/S，2025年Nekobox每天更新免费节点订阅地址">2月19日 - 最高速度19.1M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-58548.htm" title="开宠物店的弊端和利弊（开宠物店的好处）">开宠物店的弊端和利弊（开宠物店的好处）</a></li>
+                        <li class="py-2"><a href="/news/article-65559.htm" title="领养宠物用英语怎么说写（领养英文单词怎么写）">领养宠物用英语怎么说写（领养英文单词怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-subscribe-node.htm" title="2月3日 - 最高速度20.8M/S，2025年Nekobox每天更新免费节点订阅地址">2月3日 - 最高速度20.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share-links.htm" title="2月18日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址">2月18日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-64327.htm" title="猫粮生产工艺及配方（猫粮生产工艺及配方表）">猫粮生产工艺及配方（猫粮生产工艺及配方表）</a></li>
+                        <li class="py-2"><a href="/news/article-44262.htm" title="关于vue中api统一管理的那些事_vue.js_">关于vue中api统一管理的那些事_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-55603.htm" title="redis之发布与订阅(publish/subscribe模式)">redis之发布与订阅(publish/subscribe模式)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
