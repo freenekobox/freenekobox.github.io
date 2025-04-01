@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-83603.htm" />
+    <meta charset="utf-8">
+    <title>vue3引入element-plus的各种方式</title>
+        <meta name="description" content="element-plus 导入总是出现问题，所以做了个小结 使用 pnpm 管理，版本号  如何进行引入的 先搞清楚具体的包的位置和内容  element-plus 在项目中的地址 el-xxx 就是" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-83603.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="vue3引入element-plus的各种方式" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/0ab1df98241ae341dbd0534132bc7224.webp" />
+        <meta property="og:release_date" content="2025-03-29T08:58:27" />
+    <meta property="og:updated_time" content="2025-03-29T08:58:27" />
+        <meta property="og:description" content="element-plus 导入总是出现问题，所以做了个小结 使用 pnpm 管理，版本号  如何进行引入的 先搞清楚具体的包的位置和内容  element-plus 在项目中的地址 el-xxx 就是" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue3引入element-plus的各种方式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>vue3引入element-plus的各种方式</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <ul> <li>element-plus 导入总是出现问题，所以做了个小结</li> <li>使用 pnpm 管理，版本号<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/d4833c7d5c119b34f33ff50109b439a8.jpg" alt="vue3引入element-plus的各种方式"></li> </ul> <h3><a id="___6" rel="nofollow"></a>如何进行引入的 先搞清楚具体的包的位置和内容</h3> <ul> <li>element-plus 在项目中的地址</li> <li>el-xxx 就是一个一个封装好的组件</li> <li><code>注意 目录的层级 element-plus----&gt;lib----&gt; xxxx</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/1eba17d53f041d01515a91241213c196.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/54a8d5a636b429a43659980072d2dc6d.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/ac79ee15d0b9449e30408e885981be95.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/2b4f6e88a2f5232e53bc56644b55e404.jpg" alt="vue3引入element-plus的各种方式"></li> </ul> <h2><a id="__14" rel="nofollow"></a>第一种 全局注册</h2> <ul> <li>有了上面的图解应该很容易明白这种引入方式的原理了</li> </ul> <pre><code class="prism language-js"><span class="token comment">//全局导入</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/index.css'</span><span class="token comment">//所有的css</span><span class="token keyword">import</span> ElementPlus<span class="token keyword">from</span><span class="token string">'element-plus'</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>   app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementPlus<span class="token punctuation">)</span><span class="token comment">// 全局使用插件</span></code></pre> <h2><a id="_css_23" rel="nofollow"></a>第二种 按需注册和引入css样式</h2> <pre><code class="prism language-js"><span class="token comment">// 按需引入</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/base.css'</span><span class="token comment">// 基础cass 圆角等css</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/el-button.css'</span><span class="token comment">// button 的css</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> ElButton<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'element-plus'</span><span class="token comment">//导入 button组件</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token comment">// 组件注册和插件注册都行，自己选一种</span><span class="token comment">//app.component(ElButton.name, ElButton) // 注册组件形式</span>  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElButton<span class="token punctuation">)</span><span class="token comment">// 使用插件的形式</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/fc3e35802caa459ef8f3b0a87eba1dd5.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/1e869d8a9f647fdbbee2931d6113dbe8.jpg" alt="vue3引入element-plus的各种方式"></p> <ul> <li>这样就能理解 如何进行按需导入组件了</li> </ul> <h2><a id="_css_37" rel="nofollow"></a>第三种 优雅的按需注册和引入css样式方式</h2> <ul> <li>可以使用 vue add element-plus 自动会生成plugins结构<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/a6a40bd024b09b12b49b50e3aa6a0002.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/762da26d22a779d3eb7727463672b4ae.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/9b32508aed185fc673f12e02c30a5f57.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/adaf8b527c8d86e53375307825f20cca.jpg" alt="vue3引入element-plus的各种方式"></li> </ul> <h3><a id="___43" rel="nofollow"></a><strong>还差自己组件的样式</strong> 利用一个插件 实现自动导入</h3> <pre><code class="prism language-JS">pnpm i babel-plugin-import -D</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/74355c1b1e8aa3ae1514833c0cc17c08.jpg" alt="vue3引入element-plus的各种方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/48ce003010ae3740790f6a054be77f10.jpg" alt="vue3引入element-plus的各种方式"></p> <h3><a id="_el__lib__themechalk_50" rel="nofollow"></a>重点<code>一定要对应好，有的版本是直接没有el 开头，或者就没有 lib这个文件 或者 不是叫theme-chalk</code>自己去看看自己下载的包长什么样子的，网上都有对应解决的办法。</h3> <h2><a id="__52" rel="nofollow"></a>第四种 官方推荐的引入</h2> <pre><code class="prism language-js">npm install<span class="token operator">-</span><span class="token constant">D</span> unplugin<span class="token operator">-</span>vue<span class="token operator">-</span>components unplugin<span class="token operator">-</span>auto<span class="token operator">-</span><span class="token keyword">import</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/1de4824e837f809d4f86800a7c3710cf.jpg" alt="vue3引入element-plus的各种方式"><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/41385f53a95de3a618f0cde0faa430aa.jpg" alt="vue3引入element-plus的各种方式"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/0434322f4c8147c32f58f48623696d68.jpg" alt="vue3引入element-plus的各种方式"><img decoding="async" src="http://img.555519.xyz/uploads3/20220821/938377796655752e615e5af3f1b24c45.jpg" alt="vue3引入element-plus的各种方式"></p> <ul> <li>main.js</li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token keyword">import</span> router<span class="token keyword">from</span><span class="token string">'@/router/index'</span><span class="token keyword">import</span> store<span class="token keyword">from</span><span class="token string">'./store'</span><span class="token comment">// 全局导入</span><span class="token comment">// import 'element-plus/lib/theme-chalk/index.css' //所有的css</span><span class="token comment">// import ElementPlus from 'element-plus'</span><span class="token comment">// app.use(ElementPlus) // 全局使用插件</span><span class="token comment">// 按需引入</span><span class="token comment">// import 'element-plus/lib/theme-chalk/base.css' // 基础cass 圆角等</span><span class="token comment">// import 'element-plus/lib/theme-chalk/el-button.css' // button 的css</span><span class="token comment">// import { ElButton } from 'element-plus'</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token comment">// app.component(ElButton.name, ElButton) // 注册组件形式</span><span class="token comment">// app.use(ElButton) // 使用插件的形式</span><span class="token comment">// import { globalRegister } from './plugins'</span><span class="token comment">// app.use(globalRegister)</span>  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span>  app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <ul> <li>babel.config.js</li> </ul> <pre><code class="prism language-js">module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">presets</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'@vue/cli-plugin-babel/preset'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'import'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">libraryName</span><span class="token operator">:</span><span class="token string">'element-plus'</span><span class="token punctuation">,</span><span class="token function-variable function">customStyleName</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">element-plus/lib/theme-chalk/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.css</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <ul> <li>vue.config.js</li> </ul> <pre><code class="prism language-js"><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> defineConfig<span class="token punctuation">}</span><span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@vue/cli-service'</span><span class="token punctuation">)</span><span class="token keyword">const</span> AutoImport<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'unplugin-auto-import/webpack'</span><span class="token punctuation">)</span><span class="token keyword">const</span> Components<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'unplugin-vue-components/webpack'</span><span class="token punctuation">)</span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> ElementPlusResolver<span class="token punctuation">}</span><span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'unplugin-vue-components/resolvers'</span><span class="token punctuation">)</span>  module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">transpileDependencies</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token literal-property property">lintOnSave</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token literal-property property">configureWebpack</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">resolvers</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">resolvers</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83602.htm">vue3+echarts：地图不显示，echarts地图空白</a></p>
+                                        <p>下一个：<a href="/news/article-84325.htm">动物医院好评模板范文怎么写的图片（动物医院好评模板范文怎么写的图片大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-65558.htm" title="领养宠物签的合同到底有用吗安全吗 领养宠物签的合同到底有用吗安全吗知乎">领养宠物签的合同到底有用吗安全吗 领养宠物签的合同到底有用吗安全吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-74647.htm" title="中国动物疫苗生产企业排名前十 中国动物疫苗生产企业排名前十名">中国动物疫苗生产企业排名前十 中国动物疫苗生产企业排名前十名</a></li>
+                        <li class="py-2"><a href="/news/article-81493.htm" title="EditText 不显示光标  光标消失">EditText 不显示光标  光标消失</a></li>
+                        <li class="py-2"><a href="/news/article-78037.htm" title="狗狗领养协议模板下载电子版（领养狗狗签协议）">狗狗领养协议模板下载电子版（领养狗狗签协议）</a></li>
+                        <li class="py-2"><a href="/news/article-73301.htm" title="广州宠物领养平台（广州宠物领养平台电话）">广州宠物领养平台（广州宠物领养平台电话）</a></li>
+                        <li class="py-2"><a href="/news/article-78036.htm" title="中国动物疫苗十强上市公司有几家 国内动物疫苗上市公司">中国动物疫苗十强上市公司有几家 国内动物疫苗上市公司</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-nekobox-node-github.htm" title="4月1日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址">4月1日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-nekobox-node-windows.htm" title="3月28日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">3月28日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share.htm" title="3月13日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址">3月13日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-80097.htm" title="Java Map的遍历与排序">Java Map的遍历与排序</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
