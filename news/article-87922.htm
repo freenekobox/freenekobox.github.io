@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-87922.htm" />
+    <meta charset="utf-8">
+    <title>C语言进阶——数据的存储</title>
+        <meta name="description" content="目录  一.&nbsp; &nbsp;数据类型 二.&nbsp; &nbsp;整形在内存中的存储 1.原码、反码、补码 2.大小端 三.&nbsp; &nbsp;&nbsp;浮点型在内存中的存储&nb" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-87922.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="C语言进阶——数据的存储" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/e01c8cc761e4808bc4d8a10bcaf619d4.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:04:29" />
+    <meta property="og:updated_time" content="2025-04-04T09:04:29" />
+        <meta property="og:description" content="目录  一.&nbsp; &nbsp;数据类型 二.&nbsp; &nbsp;整形在内存中的存储 1.原码、反码、补码 2.大小端 三.&nbsp; &nbsp;&nbsp;浮点型在内存中的存储&nb" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C语言进阶——数据的存储">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>C语言进阶——数据的存储</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="-toc" style="margin-left:0px;"> <p id="%E4%B8%80.%C2%A0%20%C2%A0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-toc" style="margin-left:0px;"><a href="#%E4%B8%80.%C2%A0%20%C2%A0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" rel="nofollow">一.&nbsp; &nbsp;数据类型</a></p> <p id="%E4%BA%8C.%C2%A0%20%C2%A0%E6%95%B4%E5%BD%A2%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8-toc" style="margin-left:0px;"><a href="#%E4%BA%8C.%C2%A0%20%C2%A0%E6%95%B4%E5%BD%A2%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8" rel="nofollow">二.&nbsp; &nbsp;整形在内存中的存储</a></p> <p id="1.%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81-toc" style="margin-left:40px;"><a href="#1.%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81" rel="nofollow">1.原码、反码、补码</a></p> <p id="2.%E5%A4%A7%E5%B0%8F%E7%AB%AF-toc" style="margin-left:40px;"><a href="#2.%E5%A4%A7%E5%B0%8F%E7%AB%AF" rel="nofollow">2.大小端</a></p> <p id="%E4%B8%89.%C2%A0%20%C2%A0%C2%A0%E6%B5%AE%E7%82%B9%E5%9E%8B%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%C2%A0-toc" style="margin-left:0px;"><a href="#%E4%B8%89.%C2%A0%20%C2%A0%C2%A0%E6%B5%AE%E7%82%B9%E5%9E%8B%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%C2%A0" rel="nofollow">三.&nbsp; &nbsp;&nbsp;浮点型在内存中的存储&nbsp;</a></p> <p id="%E5%AD%98%E5%82%A8-toc" style="margin-left:40px;"><a href="#%E5%AD%98%E5%82%A8" rel="nofollow">存储</a></p> <p id="%E5%8F%96%E5%87%BA-toc" style="margin-left:40px;"><a href="#%E5%8F%96%E5%87%BA" rel="nofollow">取出</a></p> <hr id="hr-toc"/> </h1> <p>在前面，我们已经学过一些基本的内置类型</p> <p>char——字符数据类型</p> <p>short——短整型</p> <p>int——整形</p> <p>long——长整形</p> <p>long long——更长的整形</p> <p>float——单精度浮点数</p> <p>double——双精度浮点数</p> <p>而除开这些基本类型，数据类型还包括</p> <p><strong>构造类型：</strong></p> <p>数组类型<br /> 结构体类型 struct<br /> 枚举类型 enum<br /> 联合类型 union</p> <p><strong>指针类型：</strong></p> <p><strong>空类型：</strong></p> <p>void表示空类型，通常应用于函数的返回类型、函数的参数、指针类型<br /> 而作为指针类型时（void*），表示无具体类型的指针</p> <hr/> <hr/> </h1> <h2 id="1.%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81">1.原码、反码、补码</h2> <p style="margin-left:0;text-align:justify;">计算机中的有符号整形有三种表示方法，即原码、反码和补码。</p> <p style="margin-left:0;text-align:justify;">三种表示方法均有符号位和数值位两部分，符号位都是用0表示"正”，用1表示"负”，而数值位三种表示方法各不相同。</p> <p style="margin-left:0;text-align:justify;">无符号、正数:原码、反码、补码相同</p> <p style="margin-left:0;text-align:justify;">负数</p> <p style="margin-left:0;text-align:justify;"><strong>原码</strong><br /> 直接将数值按照正负数的形式翻译成二进制就可以得到原码。</p> <p style="margin-left:0;text-align:justify;"><strong>反码</strong><br /> 将原码的符号位不变，其他位依次按位取反就可以得到反码。</p> <p style="margin-left:0;text-align:justify;"><strong>补码</strong><br /> 反码+1就得到补码。</p> <p style="margin-left:0;text-align:justify;"> <p style="margin-left:0;text-align:justify;">对于整形来说︰数据存放内存中其实存放的是补码。</p> <p style="margin-left:0;text-align:justify;">在计算机系统中，数值一律用补码来表示和存储。原因在于，使用补码，可以将符号位和数值域统<br /> 一处理；<br /> 同时，加法和减法也可以统一处理（CPU只有加法器）此外，补码与原码相互转换，其运算过程<br /> 是相同的，不需要额外的硬件电路。</p> <p style="margin-left:0;text-align:justify;"> <p style="margin-left:0;text-align:justify;">例如</p> <pre><code class="language-cpp">unsigned int i=10; int j=-20; printf("%d",i+j);</code></pre> <p style="margin-left:0;text-align:justify;">我们可以得到</p> <p style="margin-left:0;text-align:justify;">i的补码为00000000&nbsp;00000000&nbsp;00000000&nbsp;00001010</p> <p style="margin-left:0;text-align:justify;">j的补码为11111111&nbsp;11111111&nbsp;11111111&nbsp;11101100</p> <p style="margin-left:0;text-align:justify;">相加后得到11111111&nbsp;11111111&nbsp;11111111 11110110</p> <p style="margin-left:0;text-align:justify;">转化为整形便是-10；</p> <p style="margin-left:0;text-align:justify;"><img fetchpriority="high" decoding="async" alt="" height="182" src="http://img.555519.xyz/uploads/20230203/5a47e16b56bf4e2173d82a953f829432.jpg"></p> <p>&nbsp;</p> <p style="margin-left:0;text-align:justify;">而在进行类型转换的时候，要对补码进行截断或补位处理</p> <p style="margin-left:0;text-align:justify;">而补位时，有符号则补符号位，无符号则补0；</p> <p style="margin-left:0;text-align:justify;">例如</p> <pre><code class="language-cpp">char a=128; printf("%d",a);</code></pre> <p>首先，128为整形数据，默认为4个字节。</p> <p>其补码为 00000000 00000000 00000000 10000000；</p> <p>而将其赋给字符变量a时，要进行截断处理，即10000000；</p> <p>在我们使用的vs中，char默认为有符号，因此头部的1为符号位。</p> <p>而a作为整形打印时，由于符号位为1，在前面补1</p> <p>11111111&nbsp;11111111&nbsp;11111111&nbsp;10000000</p> <p>作为整形打印-128</p> <p><img decoding="async" alt="" height="151" src="http://img.555519.xyz/uploads/20230203/cc8de8a830a726d761f316310c71cbb5.jpg"></p> <hr/> <h2 id="2.%E5%A4%A7%E5%B0%8F%E7%AB%AF">2.大小端</h2> <p>大端（存储）模式，是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址<br /> 中；<br /> 小端（存储）模式，是指数据的低位保存在内存的低地址中，而数据的高位，保存在内存的高地<br /> 址中。</p> <p><strong>为什么会有大小端模式之分呢？</strong></p> <blockquote> <p>这是因为在计算机系统中，我们是以字节为单位的，每个地址单元都对应着一个字节，一个字节为8 bit。但是在C语言中除了8 bit的char之外，还有16 bit的short型，32 bit的long型（要看具体的编译器），另外，对于位数大于8位的处理器，例如16位或者32位的处理器，由于寄存器宽度大于一个字节，那么必然存在着一个如何将多个字节安排的问题。因此就导致了大端存储模式和小端存储模式。<br /> 例如：一个 16bit 的 short 型 x ，在内存中的地址为 0x0010 ， x 的值为 0x1122 ，那么 0x11 为高字节， 0x22 为低字节。对于大端模式，就将 0x11 放在低地址中，即 0x0010 中， 0x22 放在高地址中，即 0x0011 中。小端模式，刚好相反。我们常用的 X86 结构是小端模式，而 KEIL C51 则为大端模式。很多的ARM，DSP都为小端模式。有些ARM处理器还可以由硬件来选择是大端模式还是小端模式。</p> </blockquote> <p>例如在vs环境下</p> <p><img decoding="async" alt="" height="176" src="http://img.555519.xyz/uploads/20230203/bf1b70f52b3f7b59925f5cc71d1b6ca2.jpg"></p> <p>&nbsp;当我们查看i的地址时，存储为01 00 00 00（16进制表示），而i的补码为 00 00 00 01</p> <p>因此我们可以知道这是小端存储。</p> <p>而顺序并非完全相反，这是因为存储时是以字节为单位。</p> <p>而我们也可以利用这个特性来写一段代码判断是大端还是小端。</p> <p>我们依然可以利用上面的i；小端存储时，i为 01 00 00 00 而大端则为 00 00 00 01</p> <p>因此我们可以通过判断第一个字节的数据来判断</p> <pre><code class="language-cpp">int main() { 	int i = 1; 	if (*(char*)&amp;i) 		printf("小端\n"); 	else 		printf("大端\n"); 	return 0; }</code></pre> <p><img loading="lazy" decoding="async" alt="" height="224" src="http://img.555519.xyz/uploads/20230203/83e6233224129d4625b90a3b09a427a6.jpg"></p> <hr/> <hr/> </h1> <h2 id="%E5%AD%98%E5%82%A8">存储</h2> <p>所有的浮点数都可以表示为&nbsp; &nbsp; (-1)^S * M * 2^E</p> <p>其中&nbsp; &nbsp;(-1)^S表示符号位，S为0或1&nbsp; &nbsp;M表示有效数字，大于等于1，小于2&nbsp; &nbsp; &nbsp;2^E表示指数位。</p> <p>例如5.5</p> <p>二进制表示为101.1</p> <p>转化为对应格式为 (-1)^0*1.011*2^2&nbsp; &nbsp; &nbsp;其中S为0，M为1.011，E为2</p> <p>而float类型最高1位为S，后面8位为E，最后23位为M</p> <p>double类型最高1位为S，后面11位为E，最后52位为M</p> <p>以float类型为例</p> <p>S原样存储&nbsp; &nbsp; &nbsp;由于E可能为负数，因此将E加上127后存储&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 而M固定范围大于等于1小于2，因此只需要存储小数部分，若是M存储后还有空间则补0</p> <p>例如5.5 存储后为1 00000010 01100000000000000000000</p> <hr/> <h2 id="%E5%8F%96%E5%87%BA">取出</h2> <p>当E全为1时，表示指数位为2^128，因此可以直接表示为正负无穷大（取决于符号位）</p> <p>而当E全为0时，表示指数位为2^-126，非常接近0，因此不再加上E的整数部分1，而是作为小于1的小数表示正负0或者接近0的数。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87190.htm">宠物美容师要培训多久才能学会（宠物美容师培训教程）</a></p>
+                                        <p>下一个：<a href="/news/article-87923.htm">北京给鹦鹉看病的医院（北京给鹦鹉看病的医院哪家好）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-node-share.htm" title="3月25日 - 最高速度21.4M/S，2025年Nekobox每天更新免费节点订阅地址">3月25日 - 最高速度21.4M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-66172.htm" title="猫咪打猫瘟针多少钱（猫咪打猫瘟针多少钱一次）">猫咪打猫瘟针多少钱（猫咪打猫瘟针多少钱一次）</a></li>
+                        <li class="py-2"><a href="/news/article-78732.htm" title="动物诊疗许可证申请书范本（动物诊疗许可证申请表填写样板）">动物诊疗许可证申请书范本（动物诊疗许可证申请表填写样板）</a></li>
+                        <li class="py-2"><a href="/news/article-87190.htm" title="宠物美容师要培训多久才能学会（宠物美容师培训教程）">宠物美容师要培训多久才能学会（宠物美容师培训教程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-node-share.htm" title="3月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址">3月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-85039.htm" title="宠物粮行业协会官网首页网址（宠物粮行业协会官网首页网址查询）">宠物粮行业协会官网首页网址（宠物粮行业协会官网首页网址查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-nekobox-node.htm" title="3月8日 - 最高速度21M/S，2025年Nekobox每天更新免费节点订阅地址">3月8日 - 最高速度21M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-70004.htm" title="天津宠物狗领养中心电话号码（天津狗狗领养中心地址）">天津宠物狗领养中心电话号码（天津狗狗领养中心地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-nekobox-node.htm" title="3月11日 - 最高速度20.2M/S，2025年Nekobox每天更新免费节点订阅地址">3月11日 - 最高速度20.2M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-82188.htm" title="武汉市宠物医院排名（口碑好的武汉宠物医院）">武汉市宠物医院排名（口碑好的武汉宠物医院）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
