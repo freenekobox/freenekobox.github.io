@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-89372.htm" />
+    <meta charset="utf-8">
+    <title>在C ++中验证堆栈序列</title>
+        <meta name="description" content="假设我们有两个带有不同值的推入和弹出序列，则当且仅当这可能是在最初为空的堆栈上进行推入和弹出操作序列的结果时，我们才必须找到true。因此，如果输入为push = [1,2,3,4,5]，而pop为[" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-89372.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="在C ++中验证堆栈序列" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/e01c8cc761e4808bc4d8a10bcaf619d4.webp" />
+        <meta property="og:release_date" content="2025-04-06T10:04:53" />
+    <meta property="og:updated_time" content="2025-04-06T10:04:53" />
+        <meta property="og:description" content="假设我们有两个带有不同值的推入和弹出序列，则当且仅当这可能是在最初为空的堆栈上进行推入和弹出操作序列的结果时，我们才必须找到true。因此，如果输入为push = [1,2,3,4,5]，而pop为[" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="在C ++中验证堆栈序列">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>在C ++中验证堆栈序列</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>假设我们有两个带有不同值的推入和弹出序列，则当且仅当这可能是在最初为空的堆栈上进行推入和弹出操作序列的结果时，我们才必须找到true。因此，如果输入为push = [1,2,3,4,5]，而pop为[4,5,3,2,1]，则输出为true。我们可以使用push(1)，push(2)，push(3)，push(4)，pop()：4，push(5)，pop()：5，pop()：3，pop()： 2，pop()：1</p> <p>为了解决这个问题，我们将遵循以下步骤-</p> <ul class="list-paddingleft-2"> <li> <p>创建一个称为Solve()的方法。这将需要推送和弹出数组</p> </li> <li> <p>定义一个堆栈st，设置index：= 0</p> </li> <li> <p>对于范围在0到推入数组大小的i</p> </li> <ul class="list-paddingleft-2" style="list-style-type: square;"> <li> <p>索引：=索引+ 1</p> </li> <li> <p>从堆栈弹出</p> </li> <li> <p>当st不为空且popped [index] = st的顶部时</p> </li> <li> <p>从st删除</p> </li> <li> <p>索引：=索引+ 1</p> </li> <li> <p>将推[i]推入st</p> </li> <li> <p>如果popped [index] =堆栈顶部元素，则</p> </li> </ul> <ul class="list-paddingleft-2" style="list-style-type: square;"></ul> <li> <p>而索引&lt;弹出的大小</p> </li> <ul class="list-paddingleft-2" style="list-style-type: square;"> <li> <p>指数增加1</p> </li> <li> <p>从堆栈中删除</p> </li> <li> <p>如果popped [index] =堆栈顶部，则</p> </li> <li> <p>否则从循环中出来</p> </li> </ul> <li> <p>当堆栈为空时返回true</p> </li> <li> <p>该解决方法将在下面的主要部分中调用-</p> </li> <li> <p>返回solve（按下，弹出）</p> </li> </ul> <p>让我们看下面的实现以更好地理解-</p> <h2>示例</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; class&nbsp;Solution&nbsp;{ &nbsp;&nbsp;&nbsp;public: &nbsp;&nbsp;&nbsp;bool&nbsp;solve(vector&lt;int&gt;&amp;&nbsp;pushed,&nbsp;vector&lt;int&gt;&amp;&nbsp;popped){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack&nbsp;&lt;int&gt;&nbsp;st; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;currentIndexOfPopped&nbsp;=&nbsp;0; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=0;i&lt;pushed.size();i++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.push(pushed[i]); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(popped[currentIndexOfPopped]&nbsp;==&nbsp;st.top()){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentIndexOfPopped++; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(!st.empty()&nbsp;&amp;&amp;&nbsp;popped[currentIndexOfPopped]==st.top()){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentIndexOfPopped++; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(currentIndexOfPopped&nbsp;&lt;popped.size()){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(popped[currentIndexOfPopped]==st.top()){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentIndexOfPopped++; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;st.empty(); &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;bool&nbsp;validateStackSequences(vector&lt;int&gt;&amp;&nbsp;pushed,&nbsp;vector&lt;int&gt;&amp;&nbsp;popped)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution&nbsp;s; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;flag&nbsp;=&nbsp;s.solve(pushed,&nbsp;popped); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;flag; &nbsp;&nbsp;&nbsp;} }; main(){ &nbsp;&nbsp;&nbsp;vector&lt;int&gt;&nbsp;v&nbsp;=&nbsp;{1,2,3,4,5}; &nbsp;&nbsp;&nbsp;vector&lt;int&gt;&nbsp;v1&nbsp;=&nbsp;{4,5,3,2,1}; &nbsp;&nbsp;&nbsp;Solution&nbsp;ob; &nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(ob.validateStackSequences(v,&nbsp;v1)); }</pre> <h2>输入值</h2> <pre>[1,2,3,4,5] [4,5,3,2,1]</pre> <p>输出结果</p> <pre>1</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88642.htm">宠物疫苗可以自己打嘛多少钱（宠物疫苗可以自己打嘛多少钱一针）</a></p>
+                                        <p>下一个：<a href="/news/article-89373.htm">延吉市延农动物医院招聘（延吉市兽医站地址）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70663.htm" title="残疾人助力车申请标准(残疾人怎么申请助残车)">残疾人助力车申请标准(残疾人怎么申请助残车)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-node-share.htm" title="3月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址">3月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-85766.htm" title="宠物领养送养平台ER图 宠物领养赠送平台有哪些">宠物领养送养平台ER图 宠物领养赠送平台有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-68074.htm" title="宠颐生宠物医院电话号码（宠颐生动物医院在线咨询）">宠颐生宠物医院电话号码（宠颐生动物医院在线咨询）</a></li>
+                        <li class="py-2"><a href="/news/article-87189.htm" title="PowerBI开发：用自然语言来探索数据&#8211;Q&amp;A">PowerBI开发：用自然语言来探索数据&#8211;Q&amp;A</a></li>
+                        <li class="py-2"><a href="/news/article-87923.htm" title="北京给鹦鹉看病的医院（北京给鹦鹉看病的医院哪家好）">北京给鹦鹉看病的医院（北京给鹦鹉看病的医院哪家好）</a></li>
+                        <li class="py-2"><a href="/news/article-86477.htm" title="申请动物医院的条件和流程怎么写申请书（动物医院办理条件）">申请动物医院的条件和流程怎么写申请书（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/news/article-73301.htm" title="广州宠物领养平台（广州宠物领养平台电话）">广州宠物领养平台（广州宠物领养平台电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share.htm" title="3月13日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址">3月13日 - 最高速度20.5M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-77356.htm" title="天宫院宠物医院怎么样啊（天宫院小吃店地址）">天宫院宠物医院怎么样啊（天宫院小吃店地址）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
