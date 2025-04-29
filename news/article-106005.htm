@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-106005.htm" />
+    <meta charset="utf-8">
+    <title>通过systemd配置Docker</title>
+        <meta name="description" content="前面一直是用的1.8.2版本的Docker，最近集群中增加了几个节点装了1.9.1版本，结果在配置使用“--insecure-registry"方式不通过key直接登录local registry时，" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-106005.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="通过systemd配置Docker" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/8515d78fcd37eb35f141c8a2e7d6af0e.webp" />
+        <meta property="og:release_date" content="2025-04-28T09:40:28" />
+    <meta property="og:updated_time" content="2025-04-28T09:40:28" />
+        <meta property="og:description" content="前面一直是用的1.8.2版本的Docker，最近集群中增加了几个节点装了1.9.1版本，结果在配置使用“--insecure-registry"方式不通过key直接登录local registry时，" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="通过systemd配置Docker">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>通过systemd配置Docker</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p><span style="white-space:pre"></span><span style="font-size:14px">前面一直是用的1.8.2版本的Docker，最近集群中增加了几个节点装了1.9.1版本，结果在配置使用“--insecure-registry"方式不通过key直接登录local registry时，发现1.9.1版本中没有了"/etc/sysconfig/docker"文件，也没有”/etc/default/docker"这个文件。</span></p> <p><span style="font-size:14px"><span style="white-space:pre"></span>后来参考官方文档通过配置systemd service文件的方式解决了这个问题。关于官方文档中介绍的更多通过systemd配置内容，请参考官方文档“<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/engine/articles/systemd/#custom-docker-daemon-options"  rel="nofollow">Control and Configure Docker with systemd</a>”。本文重点通过介绍配置--insecure-registry来介绍如何通过systemd配置Docker。</span></p> <p><span style="white-space:pre"></span></p> </h1> <p><span style="white-space:pre"></span><span style="font-size:14px">通常情况下，我们有3种方式可以配置etcd中的service。以docker为例，1）在目录/etc/systemd/system/docker.service.d目录下放systemd drop-in文件；2）通过修改/etc/systemd/system/docker.service文件；3）通过修改/lib/systemd/system/docker.service文件。如果2）和3）的文件同时存在，2）将覆盖3）。</span></p> <p><span style="font-size:14px"><span style="white-space:pre"></span>默认情况下1）和2）都不存在，我们此处也用不着太复杂的去使用选项1）和2），直接修改3）就可以解决问题。</span></p> </h1> <p><span style="white-space:pre"></span><span style="font-size:14px">版本1.8.2的docker.service文件内容如下。可以看到“/etc/sysconfig/docker" 文件是如何被引用的，以及该文件中定义的”INSECURE_REGISTRY"变量是如何生效的。首先，在“/etc/sycconfig/docker" 中定义变量；然后通过“EnvironmentFile” 引用“/etc/sysconfig/docker"文件；最后在”ExecStart“启动daemon时，将”INSECURE_REGISTRY"变量作为daemon选项执行。</span></p> <pre><code class="language-plain">[Unit] Description=Docker Application Container Engine Documentation=http://docs.docker.com After=network.target Wants=docker-storage-setup.service  [Service] Type=notify EnvironmentFile=-/etc/sysconfig/docker EnvironmentFile=-/etc/sysconfig/docker-storage EnvironmentFile=-/etc/sysconfig/docker-network Environment=GOTRACEBACK=crash ExecStart=/usr/bin/docker daemon $OPTIONS \           $DOCKER_STORAGE_OPTIONS \           $DOCKER_NETWORK_OPTIONS \           $ADD_REGISTRY \           $BLOCK_REGISTRY \           $INSECURE_REGISTRY LimitNOFILE=1048576 LimitNPROC=1048576 LimitCORE=infinity MountFlags=slave TimeoutStartSec=1min Restart=on-failure  [Install] WantedBy=multi-user.target</code></pre> <p><span style="white-space:pre"></span><br /> <span style="font-size:14px">版本1.9.1的docker.service文件内容如下所示。可以看到一个很主要的区别就是1.9.1中缺少了对EnvironmentFile的引用，以及在‘ExecStart’启动docker daemon时对环境变量的使用。</span></p> <pre><code class="language-plain">[Unit] Description=Docker Application Container Engine Documentation=https://docs.docker.com After=network.target docker.socket Requires=docker.socket  [Service] Type=notify ExecStart=/usr/bin/docker daemon -H fd:// MountFlags=slave LimitNOFILE=1048576 LimitNPROC=1048576 LimitCORE=infinity</code></pre> <p><span style="white-space:pre"> </span></p> </h1> <p><span style="white-space:pre"></span><span style="font-size:14px">1）参考1.8.2的方式，也为了保持与1.8.2的向上兼容。首先在创建"/etc/sysconfig/docker"文件，并在文件加入如下行：</span></p> <pre><code class="language-plain">&lt;span style="font-size:14px;"&gt;INSECURE_REGISTRY='--insecure-registry=https://xingwangc.docker.rg --insecure-registry=xingwangc.docker.rg'&lt;/span&gt;</code></pre> <p><span style="font-size:14px"><span style="white-space:pre"> </span> 注：上面变量定义中，第一个“--insecure-registry=https://xingwangc.docker.rg”用于通过用户名/密码登陆registry，第二个“--insecure-registry=xingwangc.docker.rg"用于向registry push image和从registry pull image。第二个定义中没有指明“https”协议，如果加了“https”将造成无法从registry pull/push。理解了这个过程之后，就可以定义任何变量名了。</span></p> <p><span style="white-space:pre"><span style="font-size:14px"></span></span></p> <p><span style="font-size:14px"><span style="white-space:pre"></span>2）修改/lib/systemd/system/docker，增加EnvironmentFile引用/etc/sysconfig/docker文件，并在ExecStart中增加对环境变量的引用。</span></p> <pre><code class="language-plain">[Unit] Description=Docker Application Container Engine Documentation=https://docs.docker.com After=network.target docker.socket Requires=docker.socket  [Service] Type=notify EnvironmentFile=-/etc/sysconfig/docker ExecStart=/usr/bin/docker daemon -H fd:// $INSECURE_REGISTRY MountFlags=slave LimitNOFILE=1048576 LimitNPROC=1048576 LimitCORE=infinity  [Install] WantedBy=multi-user.target</code></pre> <p><span style="white-space:pre"> </span></p> <p><span style="white-space:pre"></span><span style="font-size:14px">3）在刷新改动前，先查看下是否使用了EnvironmentFile，默认的是没有引用EnvironmentFile的。使用命令“systemctl show”</span></p> <pre><code class="language-plain">sudo systemctl show docker | grep EnvironmentFile EnvironmentFile=-</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/f07f5ef7282c15a7fc28cb32935bae6a.jpg" alt="通过systemd配置Docker"></p> <p><span style="white-space:pre"></span></p> <p><span style="white-space:pre"></span><span style="font-size:14px">4）刷新改动，并重启docker，并检查EnvironmentFile</span></p> <pre><code class="language-plain">sudo systemctl daemon-reload sudo systemctl restart docker</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/8b742397607878e940d6a6ccea6e7ce6.jpg" alt="通过systemd配置Docker"></p> <p><span style="white-space:pre"></span><br /> <span style="font-size:14px">5）验证登陆registry，pull image</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/8cc5bacb31703bdcb5409b4989879fd9.jpg" alt="通过systemd配置Docker"></p> <p></p> <p>参考链接：</p> <p>Control and Configure Docker with Systemd</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105182.htm">VUE实现某区域中拖拽效果</a></p>
+                                        <p>下一个：<a href="/news/article-106006.htm">SpringBoot重点详解&#8211;使用JPA操作数据库</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76002.htm" title="宠物粮厂家排名榜前十名（国内宠物粮生产厂家集中在哪里）">宠物粮厂家排名榜前十名（国内宠物粮生产厂家集中在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-106881.htm" title="动物疫苗的使用方法有哪些呢图片（动物疫苗接种方法有哪些）">动物疫苗的使用方法有哪些呢图片（动物疫苗接种方法有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe.htm" title="3月16日 - 最高速度21.8M/S，2025年Nekobox每天更新免费节点订阅地址">3月16日 - 最高速度21.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-19-nekobox-node-windows.htm" title="4月19日 - 最高速度21.3M/S，2025年Nekobox每天更新免费节点订阅地址">4月19日 - 最高速度21.3M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-78731.htm" title="宠物粮公司排名榜前十（宠物粮生产厂家排名）">宠物粮公司排名榜前十（宠物粮生产厂家排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-today-nekobox-node.htm" title="3月22日 - 最高速度19.1M/S，2025年Nekobox每天更新免费节点订阅地址">3月22日 - 最高速度19.1M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-nekobox-node-windows.htm" title="3月28日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">3月28日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-80096.htm" title="Java 9中的JShell中的前向参考是什么？">Java 9中的JShell中的前向参考是什么？</a></li>
+                        <li class="py-2"><a href="/news/article-90121.htm" title="被野猫轻微抓伤有一点渗血有事吗图片（如果被野猫抓伤了只是流了一点点血会怎样?）">被野猫轻微抓伤有一点渗血有事吗图片（如果被野猫抓伤了只是流了一点点血会怎样?）</a></li>
+                        <li class="py-2"><a href="/news/article-91404.htm" title="猫丢了怎么知道它活着（猫丢了怎么算）">猫丢了怎么知道它活着（猫丢了怎么算）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">80</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
