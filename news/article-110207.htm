@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekobox.github.io/news/article-110207.htm" />
+    <meta charset="utf-8">
+    <title>springBoot过滤器、拦截器配置使用</title>
+        <meta name="description" content="拦截器与过滤器的区别 ：  拦截器是基于java的反射机制的，而过滤器是基于函数回调。 拦截器不依赖与servlet容器，过滤器依赖与servlet容器。 拦截器只能对action请求起作用，而过滤器" />
+        <link rel="icon" href="/assets/website/img/freenekobox/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekobox官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekobox.github.io/news/article-110207.htm" />
+    <meta property="og:site_name" content="Free Nekobox官方节点站" />
+    <meta property="og:title" content="springBoot过滤器、拦截器配置使用" />
+    <meta property="og:image" content="https://freenekobox.github.io/uploads/20240726/7a2c4f3145028806a20d82c259d99031.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:27:41" />
+    <meta property="og:updated_time" content="2025-05-03T10:27:41" />
+        <meta property="og:description" content="拦截器与过滤器的区别 ：  拦截器是基于java的反射机制的，而过滤器是基于函数回调。 拦截器不依赖与servlet容器，过滤器依赖与servlet容器。 拦截器只能对action请求起作用，而过滤器" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springBoot过滤器、拦截器配置使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="/assets/website/js/frontend/freenekobox/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="/assets/website/js/frontend/freenekobox/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freenekobox/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="/assets/website/css/freenekobox/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MMNV1S9L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MMNV1S9L6');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body id="body" data-page="detail">
+        <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                                <a href="/" id="body" class="scrollto">Free Nekobox</a>
+                                <!-- <a href="#body"><img src="/assets/website/img/freenekobox/logo.png" alt="" title="" /></a>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+    Page Banner Section
+  ============================-->
+    <section id="innerBanner">
+        <div class="inner-content">
+            <h1><span>springBoot过滤器、拦截器配置使用</span></h1>
+            <div class="nav-box">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </div>
+        </div>
+    </section><!-- #Page Banner -->
+    <main id="main">
+        <section id="about" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><strong>拦截器与过滤器的区别</strong> ：</p> <ol> <li>拦截器是基于java的反射机制的，而过滤器是基于函数回调。</li> <li>拦截器不依赖与servlet容器，过滤器依赖与servlet容器。</li> <li>拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用。</li> <li>拦截器可以访问action上下文、值栈里的对象，而过滤器不能访问。</li> <li>在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次拦截器的代<br /> 码实现。</li> <li>Filter基于回调函数，我们需要实现的filter接口中doFilter方法就是回调函数，而interceptor则基于<br /> java本身的反射机制,这是两者最本质的区别。</li> <li>Filter是依赖于servlet容器的，即只能在servlet容器中执行，很显然没有servlet容器就无法来回调<br /> doFilter方法。而interceptor与servlet容器无关。</li> <li>Filter的过滤范围比Interceptor大,Filter除了过滤请求外通过通配符可以保护页面，图片，文件等等，<br /> 而Interceptor只能过滤请求。</li> <li>Filter的过滤例外一般是在加载的时候在init方法声明,而Interceptor可以通过声明是guest请求还<br /> 是user请求来辨别是否过滤。<br /><strong>一.过滤器</strong><br /><strong>1.不使用springSecurity时，添加过滤器在启动类中增加</strong><br /> MyFilter需继承Filter</li> </ol> <pre><code>@Bean public FilterRegistrationBean myFilter(){ 	FilterRegistrationBean registrationBean=new FilterRegistrationBean(); 	FilterRegistrationBean.setName("myFilter"); 	MyFilter mf=new MyFilter(); 	//spring boot 会按照order值的大小，从小到大的顺序来依次过滤 	registrationBean.setOrder(0); 	registration.addUrlPatterns("/*"); 	return registration; }</code></pre> <p><strong>使用springSecurity</strong></p> <pre><code>@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true) public class SecurityConfig extends WebSecurityConfigurerAdapter{ 	@Override     protected void configure(HttpSecurity httpSecurity) throws Exception     {   //退出访问/logout时，执行logoutSuccessHandler这个处理器                   httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler); 		//添加过滤器，先执行AFilter，再执行authenticationTokenFilter         httpSecurity.addFilterBefore(authenticationTokenFilter, AFilter.class);     } }</code></pre> <p>得继承OncePerRequestFilter<br /> @Component<br /> @Order(1)//指定执行顺序<br /> public JwtAuthenticationTokenFilter extends OncePerRequestFilter<br /><strong>二：拦截器</strong><br /> 拦截器，在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略<br /> 1.一般使用<br /> MyInterceptor需继承HandlerInterceptor</p> <pre><code>@Configuration public class MyMvcConfigurer implements WebMvcConfigurer{ 	@Override 	public void addInterceptors(InterceptorRegistry registry){ 		//添加自定义拦截器 		MyInterceptor mi=new MyInterceptor(); 		InterceptorRegistration i=registry.addInterceptor(mi); 		//拦截哪些路径 		i.addPathPatterns(new String[]{"/**"}); 		//不拦截哪些路径 		i.excludePathPatterns(new String[]{"/a"}); 	} }</code></pre> <p>2.在后端数据返回到前端时做一些处理</p> <pre><code>@ControllerAdvice public class MRSBA implements ResponseBodyAdvice{ 	@Override //obj为返回的数据 mt为数据格式类型 	public Object beforeBodyWrite(Object obj,MethodParameter param,,MediaType mt,Class converter,ServerHttpRequest httpRequest,ServerHttpResponse httpResponse){ 		//具体业务逻辑 	} }</code></pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109367.htm">预制菜品是什么意思</a></p>
+                                        <p>下一个：<a href="/news/article-110209.htm">怎么在拼多多开店铺（怎么在拼多多开店铺怎么进货）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-101179.htm" title="领养宠物的平台免费吗（领养宠物免费的地方在哪里）">领养宠物的平台免费吗（领养宠物免费的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-95366.htm" title="宠物美容师要培训多久（宠物美容师要培训多久才能考证）">宠物美容师要培训多久（宠物美容师要培训多久才能考证）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-nekobox-node-github.htm" title="4月1日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址">4月1日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-91404.htm" title="猫丢了怎么知道它活着（猫丢了怎么算）">猫丢了怎么知道它活着（猫丢了怎么算）</a></li>
+                        <li class="py-2"><a href="/news/article-92348.htm" title="动物疫苗生产厂家联系电话号码 动物疫苗生产厂家联系电话号码是多少">动物疫苗生产厂家联系电话号码 动物疫苗生产厂家联系电话号码是多少</a></li>
+                        <li class="py-2"><a href="/news/article-87922.htm" title="C语言进阶——数据的存储">C语言进阶——数据的存储</a></li>
+                        <li class="py-2"><a href="/news/article-98309.htm" title="深圳市领养宠物中心电话 深圳市领养宠物中心电话号码">深圳市领养宠物中心电话 深圳市领养宠物中心电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-111054.htm" title="初识Java以及一些常见的数据类型">初识Java以及一些常见的数据类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-free-subscribe-node.htm" title="4月20日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址">4月20日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-4-free-node-subscribe.htm" title="5月4日 - 最高速度22.1M/S，2025年Nekobox每天更新免费节点订阅地址">5月4日 - 最高速度22.1M/S，2025年Nekobox每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            Free Nekobox官方节点站 版权所有
+            <br />
+            Powered by WordPress
+        </div>
+    </div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- JavaScript  -->
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/jquery/jquery-migrate.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/easing/easing.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/hoverIntent.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/superfish/superfish.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/wow/wow.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/magnific-popup/magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/sticky/sticky.js"></script>
+<script src="/assets/website/js/frontend/freenekobox/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
