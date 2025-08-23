@@ -1,4 +1,4 @@
-# 8月17日 - 最高速度18.4M/S，2025年Nekobox每天更新免费节点订阅地址  更新时间 2025-08-17 08:20:57
+# 8月23日 - 最高速度20.6M/S，2025年Nekobox每天更新免费节点订阅地址  更新时间 2025-08-23 09:53:04
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freenekobox.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freenekobox.github.io/uploads/2025/08/0-20250817.yaml
-- https://freenekobox.github.io/uploads/2025/08/1-20250817.yaml
-- https://freenekobox.github.io/uploads/2025/08/2-20250817.yaml
-- https://freenekobox.github.io/uploads/2025/08/3-20250817.yaml
-- https://freenekobox.github.io/uploads/2025/08/4-20250817.yaml
+- https://freenekobox.github.io/uploads/2025/08/0-20250823.yaml
+- https://freenekobox.github.io/uploads/2025/08/1-20250823.yaml
+- https://freenekobox.github.io/uploads/2025/08/2-20250823.yaml
+- https://freenekobox.github.io/uploads/2025/08/3-20250823.yaml
+- https://freenekobox.github.io/uploads/2025/08/4-20250823.yaml
 
 ### V2ray订阅链接
 
-- https://freenekobox.github.io/uploads/2025/08/0-20250817.txt
-- https://freenekobox.github.io/uploads/2025/08/1-20250817.txt
-- https://freenekobox.github.io/uploads/2025/08/2-20250817.txt
-- https://freenekobox.github.io/uploads/2025/08/3-20250817.txt
-- https://freenekobox.github.io/uploads/2025/08/4-20250817.txt
+- https://freenekobox.github.io/uploads/2025/08/0-20250823.txt
+- https://freenekobox.github.io/uploads/2025/08/1-20250823.txt
+- https://freenekobox.github.io/uploads/2025/08/2-20250823.txt
+- https://freenekobox.github.io/uploads/2025/08/3-20250823.txt
+- https://freenekobox.github.io/uploads/2025/08/4-20250823.txt
 
 ### Sing-box订阅链接
 
-- https://freenekobox.github.io/uploads/2025/08/20250817.json
+- https://freenekobox.github.io/uploads/2025/08/20250823.json
 
 ## 更多clash节点订阅 ：
 
