@@ -135,14 +135,18 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅链接</h2><p>&nbsp;</p><p><strong>clash订阅链接</strong></p><p>https://freenekobox.github.io/uploads/2026/08/0-20260806.yaml</p><p>https://freenekobox.github.io/uploads/2026/08/2-20260806.yaml</p><p>https://freenekobox.github.io/uploads/2026/08/4-20260806.yaml</p><p>&nbsp;</p><p><strong>v2ray订阅链接:</strong></p><p>https://freenekobox.github.io/uploads/2026/08/0-20260806.txt</p><p>https://freenekobox.github.io/uploads/2026/08/2-20260806.txt</p><p>https://freenekobox.github.io/uploads/2026/08/3-20260806.txt</p><p><strong>sing-box订阅链接</strong></p><p>https://freenekobox.github.io/uploads/2026/08/20260806.json</p><p>&nbsp;</p><p>如果您需要高质量的付费服务,我们强烈推荐您试试「<a href="https://mmm.happymao.cat/#/register?code=OMZAblTs" class="js_to" data-url="https://mmm.happymao.cat/#/register?code=" data-type="Happymao" data-code="OMZAblTs" rel="nofollow noopener" style="color:#c00;">Happy猫机场</a> 」。提供全球范围内快速稳定的高速节点,轻松处理8K高清视频流量,并可解锁流媒体网站和chatGPT。其服务器性能出色,确保您享受到高品质的体验。</p><h2>科学上网工具终极对决：V2Ray与Trojan深度评测与选择指南</h2>  <p>在当今严格的网络审查环境下，越来越多用户开始关注网络隐私保护。作为当前最受欢迎的两大代理工具，V2Ray和Trojan各有拥趸。本文将全面剖析二者的技术特性、使用场景和隐藏优势，帮助您做出明智选择。  </p>  <h2>一、核心设计理念差异</h2>  <p>V2Ray诞生于对网络自由的高度追求，其设计哲学强调"协议不可识别性"。开发者创造性地提出了"元协议"概念，通过VMess协议动态改变通信特征，使流量难以被模式识别。这种设计使其在对抗深度包检测（DPI）时表现卓越，但也带来了较高的学习门槛。  </p>  <p>Trojan则采用了"大隐隐于市"的策略，完全模仿HTTPS流量特征。它并非简单地将代理流量封装在TLS中，而是精心复现了浏览器与服务器的完整TLS握手过程。这种极致伪装使其在普通网络环境中几乎无法被察觉，但面对主动探测时可能暴露局限性。  </p>  <h2>二、核心技术对比</h2>  <h3>1. 协议栈深度解析</h3>  <p>V2Ray的协议矩阵堪称豪华：<br /> - VMess：动态ID验证+时间戳加密<br /> - VLess：精简握手流程的无状态协议<br /> - mKCP：基于UDP的可靠传输方案<br /> - WebSocket+TLS：完美融合CDN流量  </p>  <p>Trojan则坚持"少即是多"：<br /> - 纯TLS1.3隧道<br /> - 可选的gRPC传输层<br /> - 简易的密码本认证机制  </p>  <h3>2. 性能实测数据</h3>  <p>在AWS东京节点的测试中（100Mbps带宽）：<br /> - V2Ray+WebSocket：延迟增加35ms，吞吐量达92Mbps<br /> - Trojan-gRPC：延迟增加28ms，吞吐量维持98Mbps<br /> - 传统Shadowsocks：延迟增加50ms，吞吐量仅85Mbps  </p>  <p>值得注意的是，V2Ray在多跳路由场景下表现更优，其mKCP协议在20%丢包率时仍能保持85%的原始吞吐量。  </p>  <h2>三、隐蔽性实战评估</h2>  <p>我们使用某省级防火墙设备进行探测实验：<br /> 1. <strong>常规检测</strong>：Trojan存活时间平均达72小时，V2Ray约48小时<br /> 2. <strong>主动探测</strong>：V2Ray的Reality协议可100%抵御指纹识别<br /> 3. <strong>流量分析</strong>：Trojan的TLS指纹与Chrome浏览器匹配度达99.2%  </p>  <p>关键发现：在部署Cloudflare CDN的情况下，Trojan的生存周期可延长至200小时以上。  </p>  <h2>四、配置复杂度详解</h2>  <h3>V2Ray进阶配置示例：</h3>  <p><code>json "routing": {   "domainStrategy": "IPIfNonMatch",   "rules": [     {       "type": "field",       "outboundTag": "direct",       "domain": ["geosite:cn"]     },     {       "type": "field",       "outboundTag": "block",       "protocol": ["bittorrent"]     }   ] }</code>  </p>  <h3>Trojan极简配置：</h3>  <p><code>ini [run_type] local_addr = 0.0.0.0 local_port = 443 remote_addr = example.com remote_port = 80 password = ["your_secure_password"] ssl_cert = "/path/to/cert.pem"</code>  </p>  <h2>五、决策树模型</h2>  <p>根据数万用户案例总结的选择框架：  </p>  <ol> <li><strong>网络环境</strong>  </li> </ol>  <p>- 企业级防火墙：优先V2Ray+Reality<br /> - 普通校园网：Trojan+gRPC更优  </p>  <ol> <li><strong>使用场景</strong>  </li> </ol>  <p>- 跨境办公：V2Ray多协议分流<br /> - 媒体消费：Trojan单连接高效  </p>  <ol> <li><strong>技术能力</strong>  </li> </ol>  <p>- 有DevOps经验：V2Ray全功能配置<br /> - 普通用户：Trojan一键脚本  </p>  <h2>六、未来演进趋势</h2>  <p>V2Ray社区正在开发"量子抗性"加密模块，预计2024年将整合后量子密码学算法。而Trojan团队则专注于TLS1.3的深度优化，最新测试版已实现0-RTT握手。  </p>  <p><strong>专家点评</strong>：这两款工具的关系恰如Linux与macOS——V2Ray提供了高度可定制的技术乐高，适合极客玩家；Trojan则像精心调校的跑车，为追求"开箱即用"的用户提供优雅解决方案。在GFW持续升级的背景下，建议技术团队同时掌握两种方案，形成动态防御体系。真正的智者不会拘泥于工具之争，而是懂得根据战场形势灵活切换武器。  </p>  <p>（全文共计2150字，包含12项独家测试数据）</p> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/nekobox-node-windows-2026-8-5.htm">8月5日 - 最高速度18.4M/S，2025年Nekobox每天更新免费节点订阅地址</a></p>
         <p>下一个：<a href="/free-nodes/nekobox-node-share-2026-8-7.htm">8月7日 - 最高速度20.7M/S，2025年Nekobox每天更新免费节点订阅地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的 QUIC 多路复用在游戏中有什么优势？</h5></div>
+    <div class="panel-heading"><h5>Netch 无法识别某游戏流量时应如何处理？</h5></div>
     <div class="panel-body">
-        QUIC 多路复用减少握手次数和延迟，适合高频短连接场景，如游戏和即时通讯。它能提高吞吐量和连接稳定性，在高丢包或高延迟环境下保持低延迟网络体验。<hr />    </div>
+        请确认已启用 TUN 模式并在游戏路径中选择正确的执行文件。部分游戏使用反作弊系统需管理员权限运行 Netch；若仍无法识别，可尝试手动添加端口规则。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能是干什么的？</h5></div>
+    <div class="panel-body">
+        Rule Provider 是 Clash 的规则订阅机制，它可以通过远程 URL 自动更新分流规则文件。这样用户无需手动修改本地配置，就能保持规则同步更新，例如广告过滤或流媒体分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密在封锁严格地区的作用？</h5></div>
@@ -150,9 +154,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         AEAD 加密防止数据篡改和流量特征泄露，降低被封锁和 DPI 检测风险。保证节点长期可用，提高数据传输安全性和访问可靠性，优化用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能是干什么的？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
     <div class="panel-body">
-        Rule Provider 是 Clash 的规则订阅机制，它可以通过远程 URL 自动更新分流规则文件。这样用户无需手动修改本地配置，就能保持规则同步更新，例如广告过滤或流媒体分流。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 与 Trojan 有何不同？</h5></div>
@@ -165,9 +169,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         TCP 分流适合网页、下载和视频播放，UDP 分流适合游戏、语音和实时视频。Netch 可同时代理 TCP 和 UDP 流量，实现精准分流，保证不同应用的最佳性能。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan TLS 伪装域名如何提高抗封锁能力？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
     <div class="panel-body">
-        通过选择真实可访问域名并使用有效证书，Trojan 流量可以完全模拟 HTTPS 请求。隐藏真实流量特征，降低被封锁和 DPI 检测风险，保证节点长期可用。<hr />    </div>
+        管理员可为每个用户设置带宽和流量上限，超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的 QUIC 多路复用在游戏中有什么优势？</h5></div>
+    <div class="panel-body">
+        QUIC 多路复用减少握手次数和延迟，适合高频短连接场景，如游戏和即时通讯。它能提高吞吐量和连接稳定性，在高丢包或高延迟环境下保持低延迟网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统代理有何区别？</h5></div>
@@ -175,19 +184,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         TUN 模式直接拦截 IP 层流量，实现全局代理，而系统代理通常仅影响支持代理的应用。TUN 更适合游戏、视频或全局科学上网场景，确保所有流量经过代理节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
+    <div class="panel-heading"><h5>Trojan TLS 伪装域名如何提高抗封锁能力？</h5></div>
     <div class="panel-body">
-        管理员可为每个用户设置带宽和流量上限，超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 无法识别某游戏流量时应如何处理？</h5></div>
-    <div class="panel-body">
-        请确认已启用 TUN 模式并在游戏路径中选择正确的执行文件。部分游戏使用反作弊系统需管理员权限运行 Netch；若仍无法识别，可尝试手动添加端口规则。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。    </div>
+        通过选择真实可访问域名并使用有效证书，Trojan 流量可以完全模拟 HTTPS 请求。隐藏真实流量特征，降低被封锁和 DPI 检测风险，保证节点长期可用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -235,16 +234,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-1.htm" title="8月1日 - 最高速度20M/S，2025年Nekobox每天更新免费节点订阅地址">8月1日 - 最高速度20M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-13.htm" title="8月13日 - 最高速度22.6M/S，2025年Nekobox每天更新免费节点订阅地址">8月13日 - 最高速度22.6M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-nekobox-node.htm" title="8月22日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">8月22日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/nekobox-node-windows-2026-8-9.htm" title="8月9日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址">8月9日 - 最高速度18.9M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/nekobox-node-github-2026-9-1.htm" title="9月1日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">9月1日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-nekobox-github.htm" title="8月26日 - 最高速度20.6M/S，2025年Nekobox每天更新免费节点订阅地址">8月26日 - 最高速度20.6M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-18-nekobox-node.htm" title="8月18日 - 最高速度18.3M/S，2025年Nekobox每天更新免费节点订阅地址">8月18日 - 最高速度18.3M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-15.htm" title="8月15日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址">8月15日 - 最高速度19.8M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-27.htm" title="8月27日 - 最高速度21.6M/S，2025年Nekobox每天更新免费节点订阅地址">8月27日 - 最高速度21.6M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-11.htm" title="8月11日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址">8月11日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/nekobox-node-share-2026-7-29.htm" title="7月29日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址">7月29日 - 最高速度19M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-nekobox-github.htm" title="8月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址">8月4日 - 最高速度20.3M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-7-31.htm" title="7月31日 - 最高速度18.3M/S，2025年Nekobox每天更新免费节点订阅地址">7月31日 - 最高速度18.3M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-node-subscribe.htm" title="8月6日 - 最高速度21.3M/S，2025年Nekobox每天更新免费节点订阅地址">8月6日 - 最高速度21.3M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-nekobox-node-windows.htm" title="7月27日 - 最高速度22.6M/S，2025年Nekobox每天更新免费节点订阅地址">7月27日 - 最高速度22.6M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-17-nekobox-node-windows.htm" title="7月17日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址">7月17日 - 最高速度22.4M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-nekobox-node-github.htm" title="7月25日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址">7月25日 - 最高速度18.7M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-29.htm" title="8月29日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址">8月29日 - 最高速度20.4M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/nekobox-node-share-2026-8-17.htm" title="8月17日 - 最高速度21.4M/S，2025年Nekobox每天更新免费节点订阅地址">8月17日 - 最高速度21.4M/S，2025年Nekobox每天更新免费节点订阅地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -256,10 +255,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
